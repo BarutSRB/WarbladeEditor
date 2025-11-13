@@ -1,0 +1,2312 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reverse.lab/schemas/warblade-lvd-sections.schema.json",
+  "title": "Warblade .lvd Descriptor",
+  "description": "Validates the structured JSON produced by scripts/parse_warblade_lvd.py",
+  "type": "object",
+  "properties": {
+    "record_size": {
+      "type": "integer",
+      "const": 32
+    },
+    "total_blocks": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "tail_hex": {
+      "type": "string",
+      "pattern": "^[0-9a-f]*$"
+    },
+    "remainder": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "sections": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 0
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 2
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/headerRecord"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "header_reserved": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 1
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/headerReservedRecord"
+              },
+              "minItems": 1,
+              "maxItems": 1
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "enemy_formations": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 3
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1285
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 1283
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/formationRecord"
+              },
+              "minItems": 1283,
+              "maxItems": 1283
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "shop_inventory_imda_header": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1286
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1286
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 1
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/imdaHeaderRecord"
+              },
+              "minItems": 1,
+              "maxItems": 1
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "shop_inventory_chunk_0": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1287
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1300
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 14
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/rawIntArray"
+              },
+              "minItems": 14,
+              "maxItems": 14
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "shop_inventory_chunk_0_tail": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1301
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1302
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 2
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/rawIntArray"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "shop_inventory_chunk_1": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1381
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1394
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 14
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/rawIntArray"
+              },
+              "minItems": 14,
+              "maxItems": 14
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "shop_inventory_chunk_1_tail": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1395
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1407
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 13
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/rawIntArray"
+              },
+              "minItems": 13,
+              "maxItems": 13
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "shop_inventory_chunk_2": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1474
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1485
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 12
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/rawIntArray"
+              },
+              "minItems": 12,
+              "maxItems": 12
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "shop_inventory_chunk_2_tail": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1486
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1487
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 2
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/rawIntArray"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "shop_inventory_chunk_3": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1568
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1579
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 12
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/rawIntArray"
+              },
+              "minItems": 12,
+              "maxItems": 12
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "shop_inventory_chunk_3_tail": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1580
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1581
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 2
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/rawIntArray"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "shop_inventory_chunk_4": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1662
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1671
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 10
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/rawIntArray"
+              },
+              "minItems": 10,
+              "maxItems": 10
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "shop_inventory_chunk_4_tail": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1672
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1675
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 4
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/rawIntArray"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "shop_inventory_chunk_5": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1756
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1764
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 9
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/rawIntArray"
+              },
+              "minItems": 9,
+              "maxItems": 9
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "shop_inventory_chunk_5_tail": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1765
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1766
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 2
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/rawIntArray"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_0": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1849
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1852
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 4
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "news_ticker_globals": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1853
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1856
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 4
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/newsTickerRecord"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_1": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1943
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1945
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 3
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "promotion_banner_paths": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1946
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1956
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 11
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventAuxRecord"
+              },
+              "minItems": 11,
+              "maxItems": 11
+            },
+            "source_section": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_2": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2037
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2039
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 3
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "meteor_arc_paths": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2040
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2043
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 4
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventAuxRecord"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            },
+            "source_section": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_3": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2131
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2132
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 2
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "boss_callout_paths": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2133
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2139
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 7
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventAuxRecord"
+              },
+              "minItems": 7,
+              "maxItems": 7
+            },
+            "source_section": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_4_header": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2224
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2224
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 1
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 1,
+              "maxItems": 1
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_4": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2225
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2226
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 2
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "rank_marker_gates": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2227
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2235
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 9
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventAuxRecord"
+              },
+              "minItems": 9,
+              "maxItems": 9
+            },
+            "source_section": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_5": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2318
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2320
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 3
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "reward_ribbon_paths": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2321
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2336
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 16
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventAuxRecord"
+              },
+              "minItems": 16,
+              "maxItems": 16
+            },
+            "source_section": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_6": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2412
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2414
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 3
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "hud_flash_counters": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2415
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2416
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 2
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventAuxRecord"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "source_section": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_7": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2506
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2507
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 2
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_8_header": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2599
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2599
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 1
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 1,
+              "maxItems": 1
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_8": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2600
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2601
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 2
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_9": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2693
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2695
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 3
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_10": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2787
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2789
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 3
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_11": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2881
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2882
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 2
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_12": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 2975
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 2976
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 2
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_13": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 3068
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 3070
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 3
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_14": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 3162
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 3165
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 4
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_15": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 3256
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 3259
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 4
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_16": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 3350
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 3352
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 3
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_17": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 3443
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 3446
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 4
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "event_table_18": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 3537
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 3540
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 4
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/eventRecord"
+              },
+              "minItems": 4,
+              "maxItems": 4
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "footer_metadata": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 3631
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 3631
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 1
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/footerMetadataRecord"
+              },
+              "minItems": 1,
+              "maxItems": 1
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "news_asset_blob": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 3632
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 3639
+            },
+            "record_count": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 8
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/newsAssetEntry"
+              },
+              "maxItems": 8
+            },
+            "raw_block_count": {
+              "type": "integer",
+              "const": 8
+            },
+            "byte_length": {
+              "type": "integer",
+              "const": 256
+            },
+            "trailing_padding": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/uint8"
+              }
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records",
+            "raw_block_count",
+            "byte_length",
+            "trailing_padding"
+          ],
+          "additionalProperties": false
+        },
+        "footer_unlock_flags": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 3650
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 3650
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 1
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/footerUnlockRecord"
+              },
+              "minItems": 1,
+              "maxItems": 1
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "news_ticker_runtime_shadow": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 3651
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 3652
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 2
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/newsTickerShadowRecord"
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "footer_slot_counts": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 3675
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 3675
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 1
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/footerSlotCountsRecord"
+              },
+              "minItems": 1,
+              "maxItems": 1
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records"
+          ],
+          "additionalProperties": false
+        },
+        "shop_inventory": {
+          "type": "object",
+          "properties": {
+            "start_block": {
+              "type": "integer",
+              "const": 1287
+            },
+            "end_block": {
+              "type": "integer",
+              "const": 1764
+            },
+            "record_count": {
+              "type": "integer",
+              "const": 30
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/shopInventoryRecord"
+              },
+              "minItems": 30,
+              "maxItems": 30
+            },
+            "entry_words": {
+              "type": "integer",
+              "const": 19
+            },
+            "source_chunks": {
+              "type": "array",
+              "minItems": 6,
+              "maxItems": 6,
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "start_block",
+            "end_block",
+            "record_count",
+            "records",
+            "entry_words",
+            "source_chunks"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "header",
+        "header_reserved",
+        "enemy_formations",
+        "shop_inventory_imda_header",
+        "shop_inventory_chunk_0",
+        "shop_inventory_chunk_0_tail",
+        "shop_inventory_chunk_1",
+        "shop_inventory_chunk_1_tail",
+        "shop_inventory_chunk_2",
+        "shop_inventory_chunk_2_tail",
+        "shop_inventory_chunk_3",
+        "shop_inventory_chunk_3_tail",
+        "shop_inventory_chunk_4",
+        "shop_inventory_chunk_4_tail",
+        "shop_inventory_chunk_5",
+        "shop_inventory_chunk_5_tail",
+        "event_table_0",
+        "news_ticker_globals",
+        "event_table_1",
+        "promotion_banner_paths",
+        "event_table_2",
+        "meteor_arc_paths",
+        "event_table_3",
+        "boss_callout_paths",
+        "event_table_4_header",
+        "event_table_4",
+        "rank_marker_gates",
+        "event_table_5",
+        "reward_ribbon_paths",
+        "event_table_6",
+        "hud_flash_counters",
+        "event_table_7",
+        "event_table_8_header",
+        "event_table_8",
+        "event_table_9",
+        "event_table_10",
+        "event_table_11",
+        "event_table_12",
+        "event_table_13",
+        "event_table_14",
+        "event_table_15",
+        "event_table_16",
+        "event_table_17",
+        "event_table_18",
+        "footer_metadata",
+        "news_asset_blob",
+        "footer_unlock_flags",
+        "news_ticker_runtime_shadow",
+        "footer_slot_counts",
+        "shop_inventory"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "record_size",
+    "total_blocks",
+    "sections",
+    "remainder",
+    "tail_hex"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "int32": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647
+    },
+    "uint8": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255
+    },
+    "headerRecord": {
+      "type": "object",
+      "properties": {
+        "version_id": {
+          "$ref": "#/$defs/int32"
+        },
+        "mode_id": {
+          "$ref": "#/$defs/int32"
+        },
+        "seed_word_0": {
+          "$ref": "#/$defs/int32"
+        },
+        "seed_word_1": {
+          "$ref": "#/$defs/int32"
+        },
+        "difficulty_mask": {
+          "$ref": "#/$defs/int32"
+        },
+        "starting_lives": {
+          "$ref": "#/$defs/int32"
+        },
+        "starting_credits": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word": {
+          "$ref": "#/$defs/int32"
+        }
+      },
+      "required": [
+        "version_id",
+        "mode_id",
+        "seed_word_0",
+        "seed_word_1",
+        "difficulty_mask",
+        "starting_lives",
+        "starting_credits",
+        "reserved_word"
+      ],
+      "additionalProperties": false
+    },
+    "headerReservedRecord": {
+      "type": "object",
+      "properties": {
+        "reserved_word_0": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_1": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_2": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_3": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_4": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_5": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_6": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_7": {
+          "$ref": "#/$defs/int32"
+        }
+      },
+      "required": [
+        "reserved_word_0",
+        "reserved_word_1",
+        "reserved_word_2",
+        "reserved_word_3",
+        "reserved_word_4",
+        "reserved_word_5",
+        "reserved_word_6",
+        "reserved_word_7"
+      ],
+      "additionalProperties": false
+    },
+    "formationRecord": {
+      "type": "object",
+      "properties": {
+        "spawn_delay_start": {
+          "$ref": "#/$defs/int32"
+        },
+        "spawn_delay_increment": {
+          "$ref": "#/$defs/int32"
+        },
+        "spawn_delay_secondary": {
+          "$ref": "#/$defs/int32"
+        },
+        "spawn_window_secondary": {
+          "$ref": "#/$defs/int32"
+        },
+        "offset_x": {
+          "$ref": "#/$defs/int32"
+        },
+        "offset_y": {
+          "$ref": "#/$defs/int32"
+        },
+        "enemy_type": {
+          "$ref": "#/$defs/int32"
+        },
+        "behavior_flags": {
+          "$ref": "#/$defs/int32"
+        }
+      },
+      "required": [
+        "spawn_delay_start",
+        "spawn_delay_increment",
+        "spawn_delay_secondary",
+        "spawn_window_secondary",
+        "offset_x",
+        "offset_y",
+        "enemy_type",
+        "behavior_flags"
+      ],
+      "additionalProperties": false
+    },
+    "imdaHeaderRecord": {
+      "type": "object",
+      "properties": {
+        "signature": {
+          "$ref": "#/$defs/int32"
+        },
+        "record_size_bytes": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_0": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_1": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_2": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_3": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_4": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_5": {
+          "$ref": "#/$defs/int32"
+        }
+      },
+      "required": [
+        "signature",
+        "record_size_bytes",
+        "reserved_word_0",
+        "reserved_word_1",
+        "reserved_word_2",
+        "reserved_word_3",
+        "reserved_word_4",
+        "reserved_word_5"
+      ],
+      "additionalProperties": false
+    },
+    "eventRecord": {
+      "type": "object",
+      "properties": {
+        "in_use_flag": {
+          "$ref": "#/$defs/int32"
+        },
+        "spawn_delay_frames": {
+          "$ref": "#/$defs/int32"
+        },
+        "owner_id": {
+          "$ref": "#/$defs/int32"
+        },
+        "table_index": {
+          "$ref": "#/$defs/int32"
+        },
+        "normalized_progress": {
+          "$ref": "#/$defs/int32"
+        },
+        "base_delta": {
+          "$ref": "#/$defs/int32"
+        },
+        "event_stage": {
+          "$ref": "#/$defs/int32"
+        },
+        "event_stage_secondary": {
+          "$ref": "#/$defs/int32"
+        }
+      },
+      "required": [
+        "in_use_flag",
+        "spawn_delay_frames",
+        "owner_id",
+        "table_index",
+        "normalized_progress",
+        "base_delta",
+        "event_stage",
+        "event_stage_secondary"
+      ],
+      "additionalProperties": false
+    },
+    "eventAuxRecord": {
+      "type": "object",
+      "properties": {
+        "origin_x": {
+          "$ref": "#/$defs/int32"
+        },
+        "origin_y": {
+          "$ref": "#/$defs/int32"
+        },
+        "target_x": {
+          "$ref": "#/$defs/int32"
+        },
+        "target_y": {
+          "$ref": "#/$defs/int32"
+        },
+        "velocity_x": {
+          "$ref": "#/$defs/int32"
+        },
+        "velocity_y": {
+          "$ref": "#/$defs/int32"
+        },
+        "timer_primary": {
+          "$ref": "#/$defs/int32"
+        },
+        "timer_secondary": {
+          "$ref": "#/$defs/int32"
+        },
+        "segment_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "origin_x",
+        "origin_y",
+        "target_x",
+        "target_y",
+        "velocity_x",
+        "velocity_y",
+        "timer_primary",
+        "timer_secondary",
+        "segment_name"
+      ],
+      "additionalProperties": false
+    },
+    "newsTickerRecord": {
+      "type": "object",
+      "properties": {
+        "origin_x": {
+          "$ref": "#/$defs/int32"
+        },
+        "origin_y": {
+          "$ref": "#/$defs/int32"
+        },
+        "target_x": {
+          "$ref": "#/$defs/int32"
+        },
+        "target_y": {
+          "$ref": "#/$defs/int32"
+        },
+        "velocity_x": {
+          "$ref": "#/$defs/int32"
+        },
+        "velocity_y": {
+          "$ref": "#/$defs/int32"
+        },
+        "timer_primary": {
+          "$ref": "#/$defs/int32"
+        },
+        "timer_secondary": {
+          "$ref": "#/$defs/int32"
+        },
+        "segment_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "origin_x",
+        "origin_y",
+        "target_x",
+        "target_y",
+        "velocity_x",
+        "velocity_y",
+        "timer_primary",
+        "timer_secondary",
+        "segment_name"
+      ],
+      "additionalProperties": false
+    },
+    "newsTickerShadowRecord": {
+      "type": "object",
+      "properties": {
+        "origin_x": {
+          "$ref": "#/$defs/int32"
+        },
+        "origin_y": {
+          "$ref": "#/$defs/int32"
+        },
+        "target_x": {
+          "$ref": "#/$defs/int32"
+        },
+        "target_y": {
+          "$ref": "#/$defs/int32"
+        },
+        "velocity_x": {
+          "$ref": "#/$defs/int32"
+        },
+        "velocity_y": {
+          "$ref": "#/$defs/int32"
+        },
+        "timer_primary": {
+          "$ref": "#/$defs/int32"
+        },
+        "timer_secondary": {
+          "$ref": "#/$defs/int32"
+        }
+      },
+      "required": [
+        "origin_x",
+        "origin_y",
+        "target_x",
+        "target_y",
+        "velocity_x",
+        "velocity_y",
+        "timer_primary",
+        "timer_secondary"
+      ],
+      "additionalProperties": false
+    },
+    "shopInventoryRecord": {
+      "type": "object",
+      "properties": {
+        "slot_state": {
+          "$ref": "#/$defs/int32"
+        },
+        "page_id": {
+          "$ref": "#/$defs/int32"
+        },
+        "category": {
+          "$ref": "#/$defs/int32"
+        },
+        "price_primary": {
+          "$ref": "#/$defs/int32"
+        },
+        "price_secondary": {
+          "$ref": "#/$defs/int32"
+        },
+        "stock_count": {
+          "$ref": "#/$defs/int32"
+        },
+        "stock_alt": {
+          "$ref": "#/$defs/int32"
+        },
+        "ui_column": {
+          "$ref": "#/$defs/int32"
+        },
+        "ui_pos_x": {
+          "$ref": "#/$defs/int32"
+        },
+        "ui_pos_y": {
+          "$ref": "#/$defs/int32"
+        },
+        "ui_width": {
+          "$ref": "#/$defs/int32"
+        },
+        "ui_height": {
+          "$ref": "#/$defs/int32"
+        },
+        "icon_id": {
+          "$ref": "#/$defs/int32"
+        },
+        "icon_variant": {
+          "$ref": "#/$defs/int32"
+        },
+        "item_id": {
+          "$ref": "#/$defs/int32"
+        },
+        "item_arg_0": {
+          "$ref": "#/$defs/int32"
+        },
+        "item_arg_1": {
+          "$ref": "#/$defs/int32"
+        },
+        "unlock_req": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word": {
+          "$ref": "#/$defs/int32"
+        }
+      },
+      "required": [
+        "slot_state",
+        "page_id",
+        "category",
+        "price_primary",
+        "price_secondary",
+        "stock_count",
+        "stock_alt",
+        "ui_column",
+        "ui_pos_x",
+        "ui_pos_y",
+        "ui_width",
+        "ui_height",
+        "icon_id",
+        "icon_variant",
+        "item_id",
+        "item_arg_0",
+        "item_arg_1",
+        "unlock_req",
+        "reserved_word"
+      ],
+      "additionalProperties": false
+    },
+    "footerMetadataRecord": {
+      "type": "object",
+      "properties": {
+        "checksum": {
+          "$ref": "#/$defs/int32"
+        },
+        "signature_word_0": {
+          "$ref": "#/$defs/int32"
+        },
+        "signature_word_1": {
+          "$ref": "#/$defs/int32"
+        },
+        "signature_word_2": {
+          "$ref": "#/$defs/int32"
+        },
+        "signature_word_3": {
+          "$ref": "#/$defs/int32"
+        },
+        "signature_word_4": {
+          "$ref": "#/$defs/int32"
+        },
+        "record_count_marker": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word": {
+          "$ref": "#/$defs/int32"
+        }
+      },
+      "required": [
+        "checksum",
+        "signature_word_0",
+        "signature_word_1",
+        "signature_word_2",
+        "signature_word_3",
+        "signature_word_4",
+        "record_count_marker",
+        "reserved_word"
+      ],
+      "additionalProperties": false
+    },
+    "footerUnlockRecord": {
+      "type": "object",
+      "properties": {
+        "flags_word_0": {
+          "$ref": "#/$defs/int32"
+        },
+        "flags_word_1": {
+          "$ref": "#/$defs/int32"
+        },
+        "unlock_flag_primary": {
+          "$ref": "#/$defs/int32"
+        },
+        "flags_word_3": {
+          "$ref": "#/$defs/int32"
+        },
+        "flags_word_4": {
+          "$ref": "#/$defs/int32"
+        },
+        "flags_word_5": {
+          "$ref": "#/$defs/int32"
+        },
+        "flags_word_6": {
+          "$ref": "#/$defs/int32"
+        },
+        "flags_word_7": {
+          "$ref": "#/$defs/int32"
+        }
+      },
+      "required": [
+        "flags_word_0",
+        "flags_word_1",
+        "unlock_flag_primary",
+        "flags_word_3",
+        "flags_word_4",
+        "flags_word_5",
+        "flags_word_6",
+        "flags_word_7"
+      ],
+      "additionalProperties": false
+    },
+    "footerSlotCountsRecord": {
+      "type": "object",
+      "properties": {
+        "reserved_word_0": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_1": {
+          "$ref": "#/$defs/int32"
+        },
+        "shop_slot_count": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_3": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_4": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_5": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_6": {
+          "$ref": "#/$defs/int32"
+        },
+        "reserved_word_7": {
+          "$ref": "#/$defs/int32"
+        }
+      },
+      "required": [
+        "reserved_word_0",
+        "reserved_word_1",
+        "shop_slot_count",
+        "reserved_word_3",
+        "reserved_word_4",
+        "reserved_word_5",
+        "reserved_word_6",
+        "reserved_word_7"
+      ],
+      "additionalProperties": false
+    },
+    "rawIntArray": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "$ref": "#/$defs/int32"
+      }
+    },
+    "newsAssetEntry": {
+      "type": "object",
+      "properties": {
+        "filename": {
+          "type": "string",
+          "pattern": ".+\\.bmp$"
+        },
+        "padding": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/uint8"
+          }
+        }
+      },
+      "required": [
+        "filename",
+        "padding"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
