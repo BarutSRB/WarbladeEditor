@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reverse.lab/schemas/warblade-shop-tables.schema.json",
+  "title": "Warblade Shop Slot Static Tables",
+  "description": "Validates the static shop slot tables that Warblade copies into 0xb04a50. Indices 0-36 are player-editable rows; the schema marks the tail entries as sentinels so editors keep them intact.",
+  "type": "object",
+  "properties": {
+    "base_prices": {
+      "description": "Unscaled shop price ladder copied from 0x7d07b0 into slot+0x0C (0xb04a5c). Entries >=37 are sentinel presets for scripted rewards.",
+      "type": "array",
+      "minItems": 44,
+      "maxItems": 44,
+      "prefixItems": {
+        "$ref": "#/$defs/editableRange37"
+      },
+      "items": {
+        "$ref": "#/$defs/sentinelEntry"
+      }
+    },
+    "stock_columns": {
+      "description": "Default stock count / UI column width table from 0x7d0860 for slot+0x10 (0xb04a60). Indexes >=37 become layout sentinels.",
+      "type": "array",
+      "minItems": 44,
+      "maxItems": 44,
+      "prefixItems": {
+        "$ref": "#/$defs/editableRange37"
+      },
+      "items": {
+        "$ref": "#/$defs/sentinelEntry"
+      }
+    },
+    "items_per_sale": {
+      "description": "Per-offer quantity limits from 0x7d0910 mapped onto slot+0x14 (0xb04a64). Tail rows (>=37) encode hard caps for scripted filler slots.",
+      "type": "array",
+      "minItems": 44,
+      "maxItems": 44,
+      "prefixItems": {
+        "$ref": "#/$defs/editableRange37"
+      },
+      "items": {
+        "$ref": "#/$defs/sentinelEntry"
+      }
+    },
+    "spawn_quantity": {
+      "description": "Initial quantity/spawn counts from 0x7d09a8 placed in slot+0x18 (0xb04a68). Entries >=37 control the menu state machine (e.g., 22000, 0, 1..5).",
+      "type": "array",
+      "minItems": 44,
+      "maxItems": 44,
+      "prefixItems": {
+        "$ref": "#/$defs/editableRange37"
+      },
+      "items": {
+        "$ref": "#/$defs/sentinelEntry"
+      }
+    },
+    "item_category_ids": {
+      "description": "Item type/category identifiers from 0x7d0a40 used at slot+0x28 (0xb04a78). Only indices 0-36 map to player-facing inventory; the remainder are scaler constants.",
+      "type": "array",
+      "minItems": 44,
+      "maxItems": 44,
+      "prefixItems": {
+        "$ref": "#/$defs/editableRange37"
+      },
+      "items": {
+        "$ref": "#/$defs/sentinelEntry"
+      }
+    }
+  },
+  "required": [
+    "base_prices",
+    "stock_columns",
+    "items_per_sale",
+    "spawn_quantity",
+    "item_category_ids"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "editableEntry": {
+      "type": "integer",
+      "minimum": -2000000000,
+      "maximum": 2000000000,
+      "description": "Generic 32-bit field used by the shop slot tables"
+    },
+    "sentinelEntry": {
+      "type": "integer",
+      "readOnly": true,
+      "description": "Read-only sentinel row that encodes menu metadata rather than a purchasable slot"
+    },
+    "editableRange37": [
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      },
+      {
+        "$ref": "#/$defs/editableEntry"
+      }
+    ]
+  }
+}

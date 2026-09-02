@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "schema": "warblade.sprite-concept.v1",
+  "concept": "alien001",
+  "style": "solstice",
+  "kind": "enemy_sheet",
+  "prompt_subject": "ornate copper scarab beetle alien creature seen from above, glowing amber energy core orb set in its shell, bronze carapace with gold filigree, segmented insect legs, small mandibles",
+  "texture_seed": 20260811,
+  "yaw_offset_degrees": 0.0,
+  "clockwise": true,
+  "model_rotation_degrees": [0.0, 0.0, 90.0],
+  "texture_keys": ["alien001"],
+  "recolor_variants": {
+    "alien001_gul": {"hue_shift_degrees": 18.0},
+    "alien001_raud": {"hue_shift_degrees": -22.0},
+    "alien001_blue": {"hue_shift_degrees": 185.0}
+  },
+  "masks": []
+}

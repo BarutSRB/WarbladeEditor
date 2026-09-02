@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "schema": "warblade.sprite-concept.v1",
+  "concept": "alien003",
+  "style": "solstice",
+  "kind": "enemy_sheet",
+  "prompt_subject": "ornate gilded dragonfly alien creature seen from above, glowing white-gold energy core, twin long tails, four elongated gold-trimmed wings, emerald body with filigree",
+  "texture_seed": 20260816,
+  "yaw_offset_degrees": 0.0,
+  "clockwise": true,
+  "model_rotation_degrees": [
+    0.0,
+    0.0,
+    90.0
+  ],
+  "texture_keys": [
+    "alien003"
+  ],
+  "recolor_variants": {},
+  "masks": []
+}

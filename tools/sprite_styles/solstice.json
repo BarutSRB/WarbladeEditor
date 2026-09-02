@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "schema": "warblade.sprite-style.v1",
+  "name": "solstice",
+  "display_name": "SOLSTICE SWARM",
+  "model_version": "default",
+  "prompt_suffix": "celestial fantasy, gold filigree trim, sun and moon motifs, glowing energy core, intricate painterly texture, rich saturated color, clean silhouette, centered, single object, dark void background",
+  "negative_prompt": "text, watermark, pedestal, base, ground, photorealistic, flat gray, blur, low quality",
+  "light_rig": "key_fill_rim",
+  "camera": {
+    "pitch_degrees": 75.0,
+    "framing_margin": 1.12
+  },
+  "render_size": 512,
+  "msaa": 4,
+  "alpha_threshold": 96,
+  "palette_colors": 0,
+  "dither": false,
+  "outline": {
+    "enabled": false,
+    "color": "#131530"
+  },
+  "pixel_art": {
+    "enabled": true,
+    "base_colors": 16,
+    "brightness": 1.14,
+    "sat_boost": 1.4,
+    "contrast": 1.22,
+    "shadow_hue_deg": 255,
+    "shadow_shift": 0.22,
+    "highlight_hue_deg": 48,
+    "highlight_shift": 0.12,
+    "cleanup_passes": 2
+  },
+  "iou_warn_threshold": 0.5,
+  "note": "Rev 3, Sea of Stars pass: flat color clusters (shared 14-color palette per shot), hue-shifted ramps (shadows toward indigo, highlights toward warm gold), isolated-pixel cleanup, and a colored dark outline in the sprite's own hue. Grounded in Steam screenshots of Sea of Stars reviewed 2026-08-10."
+}

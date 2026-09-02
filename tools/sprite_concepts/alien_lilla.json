@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "schema": "warblade.sprite-concept.v1",
+  "concept": "alien_lilla",
+  "style": "solstice",
+  "kind": "enemy_sheet",
+  "prompt_subject": "ornate violet mantis alien creature seen from above, glowing magenta energy core in its thorax, purple carapace with gold filigree, silver blade forelimbs folded forward",
+  "texture_seed": 20260815,
+  "yaw_offset_degrees": 0.0,
+  "clockwise": true,
+  "model_rotation_degrees": [
+    0.0,
+    0.0,
+    90.0
+  ],
+  "texture_keys": [
+    "alien_lilla"
+  ],
+  "recolor_variants": {},
+  "masks": []
+}

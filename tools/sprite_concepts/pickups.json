@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "schema": "warblade.sprite-concept.v1",
+  "concept": "pickups",
+  "style": "solstice",
+  "kind": "procedural_pickups",
+  "prompt_subject": "procedural: spinning jeweled tokens per bonus row from content/bonuses.json",
+  "texture_seed": 0,
+  "texture_keys": ["bonuses"],
+  "recolor_variants": {},
+  "masks": []
+}

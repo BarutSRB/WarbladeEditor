@@ -1,0 +1,2509 @@
+{
+  "version": 1,
+  "source_files": {
+    "executable": {
+      "path": "warblade.exe",
+      "sha256": "ddf1778c307af1087ff9dcb512786111e665d972298aeaac3f1b4b2996d079ef"
+    },
+    "pac": {
+      "path": "data/warblade.pac",
+      "sha256": "5ee9195f48c22341b058e1f84afb7839b4b03a4ac0f01319714c905e05129bba"
+    },
+    "manual": {
+      "path": "Warblade_Manual_V1.34_Eng.txt",
+      "sha256": "d2d486652db908001a86dfcf4e10421823048a382b8a9bb60f9d9d7c7e368e92"
+    }
+  },
+  "evidence_method": {
+    "executable": "Static PE data and instruction analysis against preferred image base 0x00400000.",
+    "level_metadata": "Length-prefixed metadata fields in each original LVD, checked against archive member hashes.",
+    "manual": "Warblade_Manual_V1.34_Eng.txt, especially lines 326 and 330.",
+    "parser_limit": "The supplied parser exposes raw bytes but its semantic LVD labels conflict with valid length-prefixed metadata. Its labels were not copied.",
+    "profiling_limit": "No dynamic instrumentation was used. Source bytes without a reachable finite-product consumer remain lossless evidence-only data; current runtime semantics come only from pinned static producers and consumers."
+  },
+  "archive": {
+    "format": "tar",
+    "regular_file_count": 667,
+    "extension_counts": {
+      "hma": 127,
+      "jpg": 83,
+      "lvd": 119,
+      "png": 5,
+      "swd": 14,
+      "tga": 319
+    }
+  },
+  "levels": [
+    {
+      "id": 1,
+      "archive_member": "classic_level_001.lvd",
+      "sha256": "6938e9f31d93071b129a7c583f37751e899239bd97dd3d4c678664880d04aaf1",
+      "size": 117656,
+      "title": "JUST WARMING UP",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN001.bmp",
+      "packaged_enemy_id": "alien001",
+      "shop_after": false
+    },
+    {
+      "id": 2,
+      "archive_member": "classic_level_002.lvd",
+      "sha256": "0db45277db488947b998b1478523c2e8d2905c0d720ddb9a3efc489423a38934",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN001.bmp",
+      "packaged_enemy_id": "alien001",
+      "shop_after": false
+    },
+    {
+      "id": 3,
+      "archive_member": "classic_level_003.lvd",
+      "sha256": "32f28ba7335a5fde68951f7f4af8ecf8c6f5937cb0d12e60eafb9ee229680a33",
+      "size": 117656,
+      "title": "THE FIRST BIG ONE",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN001.bmp",
+      "packaged_enemy_id": "alien001",
+      "shop_after": false
+    },
+    {
+      "id": 4,
+      "archive_member": "classic_level_004.lvd",
+      "sha256": "0c816b48f007965b14a141797603a13de900879030895016e3491a56c5ab5942",
+      "size": 117656,
+      "title": "K A M I K A Z E",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN001.bmp",
+      "packaged_enemy_id": "alien001",
+      "shop_after": true
+    },
+    {
+      "id": 5,
+      "archive_member": "classic_level_005.lvd",
+      "sha256": "0584103d5211181bb65deef633cd6d440bbc1658bcf5ed71132e740d457044c6",
+      "size": 117656,
+      "title": "GETTING A BIT WARMER",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_2.bmp",
+      "packaged_enemy_id": "alien_2",
+      "shop_after": false
+    },
+    {
+      "id": 6,
+      "archive_member": "classic_level_006.lvd",
+      "sha256": "455e9317c7c88949e2a01f6bbc0a7e9d2ab123c65212ca755b285cad2c748f55",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_2.bmp",
+      "packaged_enemy_id": "alien_2",
+      "shop_after": false
+    },
+    {
+      "id": 7,
+      "archive_member": "classic_level_007.lvd",
+      "sha256": "c8166c50a69d3b8d18a64105001b294620e7a34a9a8807aa44ab0a9c6ecb124e",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_2.bmp",
+      "packaged_enemy_id": "alien_2",
+      "shop_after": false
+    },
+    {
+      "id": 8,
+      "archive_member": "classic_level_008.lvd",
+      "sha256": "ec06689d53be07b5b4a276892ab00798db347382e2cb42f03d2150f87ff8d743",
+      "size": 117656,
+      "title": "* * *  B O N U S   L E V E L  * * *",
+      "author": "",
+      "raw_enemy_reference": "ALIEN_2.bmp",
+      "packaged_enemy_id": "alien_2",
+      "shop_after": true
+    },
+    {
+      "id": 9,
+      "archive_member": "classic_level_009.lvd",
+      "sha256": "cb74b30c90700fdbc4d99e8f0fd8f05033f33acc6d507b53a07d4e0d7c934fc7",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_3.bmp",
+      "packaged_enemy_id": "alien_3",
+      "shop_after": false
+    },
+    {
+      "id": 10,
+      "archive_member": "classic_level_010.lvd",
+      "sha256": "9e35777eafe10d504464ee0804ea60983abfe4b8239c0e2805a529d7312b94e0",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_3.bmp",
+      "packaged_enemy_id": "alien_3",
+      "shop_after": false
+    },
+    {
+      "id": 11,
+      "archive_member": "classic_level_011.lvd",
+      "sha256": "2c8dc69d4f373f3d0b4796c41045e645be7a5aa0e574d7db20f02744efddacfe",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_3.bmp",
+      "packaged_enemy_id": "alien_3",
+      "shop_after": false
+    },
+    {
+      "id": 12,
+      "archive_member": "classic_level_012.lvd",
+      "sha256": "8888909c4f7a8f4bcd024d035cfbdef3ee590d075c723f5c230773049aff3a86",
+      "size": 117656,
+      "title": "K A M I K A Z E",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_3.bmp",
+      "packaged_enemy_id": "alien_3",
+      "shop_after": true
+    },
+    {
+      "id": 13,
+      "archive_member": "classic_level_013.lvd",
+      "sha256": "d8ba943e3acfe6fa21ee4177d383cbf9114de8f7b97c4de95137873afadd62b8",
+      "size": 117656,
+      "title": "DEJA VU.....",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN000.bmp",
+      "packaged_enemy_id": "alien000",
+      "shop_after": false
+    },
+    {
+      "id": 14,
+      "archive_member": "classic_level_014.lvd",
+      "sha256": "1a654e1a3ce7caefde5517ab1b661e2387977d5abd00ab36548dfb57659744a1",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN000.bmp",
+      "packaged_enemy_id": "alien000",
+      "shop_after": false
+    },
+    {
+      "id": 15,
+      "archive_member": "classic_level_015.lvd",
+      "sha256": "1debac1fbaa5e4b2c98e2aaf6519f249ca8dd2a744a5dee24ff5e7ac5da66991",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN000.bmp",
+      "packaged_enemy_id": "alien000",
+      "shop_after": false
+    },
+    {
+      "id": 16,
+      "archive_member": "classic_level_016.lvd",
+      "sha256": "21fad6d67bed291923c03fe177370e0f9f2b5777258c07ce0896f30a4b80ed12",
+      "size": 117656,
+      "title": "* * *  B O N U S   L E V E L  * * *",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN000.bmp",
+      "packaged_enemy_id": "alien000",
+      "shop_after": true
+    },
+    {
+      "id": 17,
+      "archive_member": "classic_level_017.lvd",
+      "sha256": "b5f4e31dbce7ef30b1615768d35eb90b22b0ae39ce439ac108af851fc5f723a5",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Lilla.bmp",
+      "packaged_enemy_id": "alien_lilla",
+      "shop_after": false
+    },
+    {
+      "id": 18,
+      "archive_member": "classic_level_018.lvd",
+      "sha256": "f91d59b3f2464c5709c3056219208ab0735f045faffa00c2670d062ed4a7f1cf",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Lilla.bmp",
+      "packaged_enemy_id": "alien_lilla",
+      "shop_after": false
+    },
+    {
+      "id": 19,
+      "archive_member": "classic_level_019.lvd",
+      "sha256": "30c5e49b1486de3dd50f53a58fc0b30df0c141057e3c137fa4b1178c955079e2",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Lilla.bmp",
+      "packaged_enemy_id": "alien_lilla",
+      "shop_after": false
+    },
+    {
+      "id": 20,
+      "archive_member": "classic_level_020.lvd",
+      "sha256": "33dc4133c6caf4575a46c4ee56659f7eff884aa498d1ada07f81874a17e2fc62",
+      "size": 117656,
+      "title": "K A M I K A Z E",
+      "author": "",
+      "raw_enemy_reference": "ALIEN_Lilla.bmp",
+      "packaged_enemy_id": "alien_lilla",
+      "shop_after": true
+    },
+    {
+      "id": 21,
+      "archive_member": "classic_level_021.lvd",
+      "sha256": "1188e5921436ec80804c209541b4c8d4ce22fbea8422d738a4fecb16197afd5a",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN003.bmp",
+      "packaged_enemy_id": "alien003",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN003.bmp", "enemy_sheet_id": "alien003", "kill_score": 200},
+        {"resource_slot_id": 2, "raw_name": "ALIEN003_3.bmp", "enemy_sheet_id": "alien003_3", "kill_score": 300}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 22,
+      "archive_member": "classic_level_022.lvd",
+      "sha256": "7caa3564e1f551b29414faa751088066bee360fb443efa686864992129716a72",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN003.bmp",
+      "packaged_enemy_id": "alien003",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN003.bmp", "enemy_sheet_id": "alien003", "kill_score": 200},
+        {"resource_slot_id": 2, "raw_name": "ALIEN003_3.bmp", "enemy_sheet_id": "alien003_3", "kill_score": 300}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 23,
+      "archive_member": "classic_level_023.lvd",
+      "sha256": "86ff2053ef0983bb58f3625431171d014336d168a26254257059319883ff9979",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN003.bmp",
+      "packaged_enemy_id": "alien003",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN003.bmp", "enemy_sheet_id": "alien003", "kill_score": 200},
+        {"resource_slot_id": 2, "raw_name": "ALIEN003_3.bmp", "enemy_sheet_id": "alien003_3", "kill_score": 300}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 24,
+      "archive_member": "classic_level_024.lvd",
+      "sha256": "d71a08ff42e78c41edb4362c3db5e74c77203c29905b0b576ebdaab9d5bcbe2e",
+      "size": 117656,
+      "title": "* * *  B O N U S   L E V E L  * * *",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN003.bmp",
+      "packaged_enemy_id": "alien003",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN003.bmp", "enemy_sheet_id": "alien003", "kill_score": 200}
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 25,
+      "archive_member": "classic_level_025.lvd",
+      "sha256": "c8ac14a7c8a064e1904accdf8a2d763e7ff8a05210a4cdc9d197f9eba43c560c",
+      "size": 117656,
+      "title": "* * * *   B I G  T R O U B L E  * *",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_BIG1_1.bmp",
+      "packaged_enemy_id": "alien_big1_1",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_BIG1_1.bmp", "enemy_sheet_id": "alien_big1_1", "kill_score": 50},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_BIG1_2.bmp", "enemy_sheet_id": "alien_big1_2", "kill_score": 50},
+        {"resource_slot_id": 3, "raw_name": "ALIEN_BIG1_3.bmp", "enemy_sheet_id": "alien_big1_3", "kill_score": 0},
+        {"resource_slot_id": 4, "raw_name": "ALIEN_BIG1_4.bmp", "enemy_sheet_id": "alien_big1_4", "kill_score": 0},
+        {"resource_slot_id": 5, "raw_name": "ALIEN_BIG1_5.bmp", "enemy_sheet_id": "alien_big1_5", "kill_score": 0},
+        {"resource_slot_id": 6, "raw_name": "ALIEN_BIG1_6.bmp", "enemy_sheet_id": "alien_big1_6", "kill_score": 0}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 26,
+      "archive_member": "classic_level_026.lvd",
+      "sha256": "bfde5523953e9005a89685b1477939252fd63190f2aaeb92432f5d8130a4e14f",
+      "size": 117656,
+      "title": "GOING TO THE MOON",
+      "author": "",
+      "raw_enemy_reference": "ALIEN_rakett.bmp",
+      "packaged_enemy_id": "alien_rakett",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_rakett.bmp", "enemy_sheet_id": "alien_rakett", "kill_score": 300},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_rakett_gronn.bmp", "enemy_sheet_id": "alien_rakett_gronn", "kill_score": 400}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 27,
+      "archive_member": "classic_level_027.lvd",
+      "sha256": "ee9d6f6352d6b979dbd36c8bc59c4ac15a68bda7c6cf49d1cbb4f11f1a60e83c",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_rakett.bmp",
+      "packaged_enemy_id": "alien_rakett",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_rakett.bmp", "enemy_sheet_id": "alien_rakett", "kill_score": 300},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_rakett_gronn.bmp", "enemy_sheet_id": "alien_rakett_gronn", "kill_score": 400}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 28,
+      "archive_member": "classic_level_028.lvd",
+      "sha256": "7124d57b5d85994898058992dc962af6d3804a6f477ca021c027163663fc0853",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_rakett.bmp",
+      "packaged_enemy_id": "alien_rakett",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_rakett.bmp", "enemy_sheet_id": "alien_rakett", "kill_score": 300},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_rakett_gronn.bmp", "enemy_sheet_id": "alien_rakett_gronn", "kill_score": 400}
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 29,
+      "archive_member": "classic_level_029.lvd",
+      "sha256": "5c79d73bd15cdebc763f79c5b61d9f1deca9ae7795ea90bad28c63e65db47d89",
+      "size": 117656,
+      "title": "K A M I K A Z E",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_rakett.bmp",
+      "packaged_enemy_id": "alien_rakett",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_rakett.bmp", "enemy_sheet_id": "alien_rakett", "kill_score": 400},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_rakett_gronn.bmp", "enemy_sheet_id": "alien_rakett_gronn", "kill_score": 400}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 30,
+      "archive_member": "classic_level_030.lvd",
+      "sha256": "7a10646f11ea7f4e287f3432abe287640de25fe860bd784a9b694442565679d7",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_baller.bmp",
+      "packaged_enemy_id": "alien_baller",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_baller.bmp", "enemy_sheet_id": "alien_baller", "kill_score": 500},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_baller2.bmp", "enemy_sheet_id": "alien_baller2", "kill_score": 600}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 31,
+      "archive_member": "classic_level_031.lvd",
+      "sha256": "0bf2a4dcb3a79be4ab0ea6f78a77410dae9ab606efa24de198cb9b954f99ba19",
+      "size": 117656,
+      "title": "",
+      "author": "",
+      "raw_enemy_reference": "ALIEN_baller.bmp",
+      "packaged_enemy_id": "alien_baller",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_baller.bmp", "enemy_sheet_id": "alien_baller", "kill_score": 500},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_baller2.bmp", "enemy_sheet_id": "alien_baller2", "kill_score": 600}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 32,
+      "archive_member": "classic_level_032.lvd",
+      "sha256": "05ce934465c2b1d676171aafeff191c0cd2008095e720502e4d85a485c810b93",
+      "size": 117656,
+      "title": "",
+      "author": "",
+      "raw_enemy_reference": "ALIEN_baller.bmp",
+      "packaged_enemy_id": "alien_baller",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_baller.bmp", "enemy_sheet_id": "alien_baller", "kill_score": 500},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_baller2.bmp", "enemy_sheet_id": "alien_baller2", "kill_score": 600}
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 33,
+      "archive_member": "classic_level_033.lvd",
+      "sha256": "7d411500d5f0051f808d955a83369cb2270dcdc32f6658ab9104ed408d14c839",
+      "size": 117656,
+      "title": "* * *  B O N U S   L E V E L  * * *",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_baller.bmp",
+      "packaged_enemy_id": "alien_baller",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_baller.bmp", "enemy_sheet_id": "alien_baller", "kill_score": 500},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_baller2.bmp", "enemy_sheet_id": "alien_baller2", "kill_score": 600}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 34,
+      "archive_member": "classic_level_034.lvd",
+      "sha256": "a81d2fa87a458a1433dfb2f091dc2e2f6a637ede5318ea9abce1544e2a1250da",
+      "size": 117656,
+      "title": "S Q U A R E S",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Green_lilla_t.bmp",
+      "packaged_enemy_id": "alien_green_lilla_t",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_Green_lilla_t.bmp", "enemy_sheet_id": "alien_green_lilla_t", "kill_score": 450},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_Cyan_lilla_t.bmp", "enemy_sheet_id": "alien_cyan_lilla_t", "kill_score": 550}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 35,
+      "archive_member": "classic_level_035.lvd",
+      "sha256": "a5a99f338362778d89b21c4a5633f3475cd2fb5d411dc0aa70cfe81d94ba85e4",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Green_lilla_t.bmp",
+      "packaged_enemy_id": "alien_green_lilla_t",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_Green_lilla_t.bmp", "enemy_sheet_id": "alien_green_lilla_t", "kill_score": 450},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_Cyan_lilla_t.bmp", "enemy_sheet_id": "alien_cyan_lilla_t", "kill_score": 550}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 36,
+      "archive_member": "classic_level_036.lvd",
+      "sha256": "32c07f826ccd01339a6f7c317b9f9ce918a9d406a1a83817879100421a4015d6",
+      "size": 117656,
+      "title": "",
+      "author": "",
+      "raw_enemy_reference": "ALIEN_Green_lilla_t.bmp",
+      "packaged_enemy_id": "alien_green_lilla_t",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_Green_lilla_t.bmp", "enemy_sheet_id": "alien_green_lilla_t", "kill_score": 450},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_Cyan_lilla_t.bmp", "enemy_sheet_id": "alien_cyan_lilla_t", "kill_score": 550}
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 37,
+      "archive_member": "classic_level_037.lvd",
+      "sha256": "773682a0039bf91617b5e47b2bedd945ff92c4d636fb54d624e0a83dd513344a",
+      "size": 117656,
+      "title": "K A M I K A Z E",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Green_lilla_t.bmp",
+      "packaged_enemy_id": "alien_green_lilla_t",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_Green_lilla_t.bmp", "enemy_sheet_id": "alien_green_lilla_t", "kill_score": 450},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_Cyan_lilla_t.bmp", "enemy_sheet_id": "alien_cyan_lilla_t", "kill_score": 550}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 38,
+      "archive_member": "classic_level_038.lvd",
+      "sha256": "7538ddd7e703bac2518fa60346929dbe594cb5025beba04f92ad920f76406ee4",
+      "size": 117656,
+      "title": "",
+      "author": "",
+      "raw_enemy_reference": "ALIEN_RaudKule.bmp",
+      "packaged_enemy_id": "alien_raudkule",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_RaudKule.bmp", "enemy_sheet_id": "alien_raudkule", "kill_score": 500},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_Cyan_lilla_t.bmp", "enemy_sheet_id": "alien_cyan_lilla_t", "kill_score": 550}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 39,
+      "archive_member": "classic_level_039.lvd",
+      "sha256": "73379105938feb131a60063efda747ace668168dfe99814628e08f2ef6a35772",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_RaudKule.bmp",
+      "packaged_enemy_id": "alien_raudkule",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_RaudKule.bmp", "enemy_sheet_id": "alien_raudkule", "kill_score": 500},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_RaudKule2.bmp", "enemy_sheet_id": "alien_raudkule2", "kill_score": 550}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 40,
+      "archive_member": "classic_level_040.lvd",
+      "sha256": "1efa85e858c4668e0fbac60c77b65c89d3b0813fdff841cfbdcd5c14799550ed",
+      "size": 117656,
+      "title": "",
+      "author": "",
+      "raw_enemy_reference": "ALIEN_RaudKule.bmp",
+      "packaged_enemy_id": "alien_raudkule",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_RaudKule.bmp", "enemy_sheet_id": "alien_raudkule", "kill_score": 500},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_RaudKule2.bmp", "enemy_sheet_id": "alien_raudkule2", "kill_score": 550}
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 41,
+      "archive_member": "classic_level_041.lvd",
+      "sha256": "5bc28174aa8b4aea0e7e0bd1e45cfa0ccfd9ef8b2a476da7e857a1921b8b3d82",
+      "size": 117656,
+      "title": "* * *  B O N U S   L E V E L  * * *",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_RaudKule.bmp",
+      "packaged_enemy_id": "alien_raudkule",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_RaudKule.bmp", "enemy_sheet_id": "alien_raudkule", "kill_score": 500},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_RaudKule2.bmp", "enemy_sheet_id": "alien_raudkule2", "kill_score": 550}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 42,
+      "archive_member": "classic_level_042.lvd",
+      "sha256": "cb8742813e53d02135245521a9f6f954670ebaa36a567740a2078ab95024c1c9",
+      "size": 117656,
+      "title": "",
+      "author": "",
+      "raw_enemy_reference": "ALIEN_Blavinger_gf.bmp",
+      "packaged_enemy_id": "alien_blavinger_gf",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_Blavinger_gf.bmp", "enemy_sheet_id": "alien_blavinger_gf", "kill_score": 600},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_RaudKule2.bmp", "enemy_sheet_id": "alien_raudkule2", "kill_score": 550}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 43,
+      "archive_member": "classic_level_043.lvd",
+      "sha256": "e440b3812197ec63a880e8f38bdb986f8df84ea709ffbd08e0d4b294e24e3157",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Blavinger_gf.bmp",
+      "packaged_enemy_id": "alien_blavinger_gf",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_Blavinger_gf.bmp", "enemy_sheet_id": "alien_blavinger_gf", "kill_score": 600},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_RaudKule2.bmp", "enemy_sheet_id": "alien_raudkule2", "kill_score": 550}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 44,
+      "archive_member": "classic_level_044.lvd",
+      "sha256": "0e53c0a4f98f39a14c0dbacc72afdd60eadc0cf7c8d5e2adf947948fe8ce9a60",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Blavinger_gf.bmp",
+      "packaged_enemy_id": "alien_blavinger_gf",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_Blavinger_gf.bmp", "enemy_sheet_id": "alien_blavinger_gf", "kill_score": 600},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_Blavinger_gf2.bmp", "enemy_sheet_id": "alien_blavinger_gf2", "kill_score": 750}
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 45,
+      "archive_member": "classic_level_045.lvd",
+      "sha256": "c2f3e865e4b0dbda6e950219f1aa50e02a81a017a7f55b58f49ea628b348d3ba",
+      "size": 117656,
+      "title": "K A M I K A Z E",
+      "author": "",
+      "raw_enemy_reference": "ALIEN_Blavinger_gf2.bmp",
+      "packaged_enemy_id": "alien_blavinger_gf2",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_Blavinger_gf2.bmp", "enemy_sheet_id": "alien_blavinger_gf2", "kill_score": 200}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 46,
+      "archive_member": "classic_level_046.lvd",
+      "sha256": "bd6b544381816314be6e900c680b4f3a42d780658b5652ac7d3c47ee765080d5",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_RBille.bmp",
+      "packaged_enemy_id": "alien_rbille",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_RBille.bmp", "enemy_sheet_id": "alien_rbille", "kill_score": 800}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 47,
+      "archive_member": "classic_level_047.lvd",
+      "sha256": "1ee7741f5a753c3b4d36efa9a37fccc46866c43ec393236a0a78f8e69fbeb321",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_RBille.bmp",
+      "packaged_enemy_id": "alien_rbille",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_RBille.bmp", "enemy_sheet_id": "alien_rbille", "kill_score": 850}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 48,
+      "archive_member": "classic_level_048.lvd",
+      "sha256": "2374047dc174c5b72fa151b02255253836ef8d2501a168a1ce65da31f0203775",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_RBille.bmp",
+      "packaged_enemy_id": "alien_rbille",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_RBille.bmp", "enemy_sheet_id": "alien_rbille", "kill_score": 850}
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 49,
+      "archive_member": "classic_level_049.lvd",
+      "sha256": "5a27f4a840de7d650c0de0bb51d02a1ed990b0f66e641024a596c4846f7ce41d",
+      "size": 117656,
+      "title": "* * *  B O N U S   L E V E L  * * *",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_RBille.bmp",
+      "packaged_enemy_id": "alien_rbille",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_RBille.bmp", "enemy_sheet_id": "alien_rbille", "kill_score": 750}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 50,
+      "archive_member": "classic_level_050.lvd",
+      "sha256": "d618806d1994bd2df44371b3451c5786a727daaf4ef212da987fcc05c9619db2",
+      "size": 117656,
+      "title": "* *   B I G  T R O U B L E   * *",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_big2_1.bmp",
+      "packaged_enemy_id": "alien_big2_1",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_big2_1.bmp", "enemy_sheet_id": "alien_big2_1", "kill_score": 0},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_big2_2.bmp", "enemy_sheet_id": "alien_big2_2", "kill_score": 0},
+        {"resource_slot_id": 3, "raw_name": "ALIEN_big2_3.bmp", "enemy_sheet_id": "alien_big2_3", "kill_score": 0},
+        {"resource_slot_id": 4, "raw_name": "ALIEN_big2_4.bmp", "enemy_sheet_id": "alien_big2_4", "kill_score": 0},
+        {"resource_slot_id": 5, "raw_name": "ALIEN_big2_5.bmp", "enemy_sheet_id": "alien_big2_5", "kill_score": 0},
+        {"resource_slot_id": 6, "raw_name": "ALIEN_big2_6.bmp", "enemy_sheet_id": "alien_big2_6", "kill_score": 0}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 51,
+      "archive_member": "classic_level_051.lvd",
+      "sha256": "f0f9d2773e953b52df3839645e671754b99822e3f458ad337b1433bbc6b896b8",
+      "size": 117656,
+      "title": "HALF CENTURIE",
+      "author": "",
+      "raw_enemy_reference": "ALIEN_gultop.bmp",
+      "packaged_enemy_id": "alien_gultop",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_gultop.bmp", "enemy_sheet_id": "alien_gultop", "kill_score": 1000}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 52,
+      "archive_member": "classic_level_052.lvd",
+      "sha256": "5f017642a15b80fb760ea47c71bcb4bc314416541c7c9523ee96492341d9b1b3",
+      "size": 117656,
+      "title": "W O R M S",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_gultop.bmp",
+      "packaged_enemy_id": "alien_gultop",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_gultop.bmp", "enemy_sheet_id": "alien_gultop", "kill_score": 1000}
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 53,
+      "archive_member": "classic_level_053.lvd",
+      "sha256": "f50fd98269363d89c1f60a8c1ac74811e8f40bffd3b15d7450ea2d6a13078a48",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_gultop.bmp",
+      "packaged_enemy_id": "alien_gultop",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_gultop.bmp", "enemy_sheet_id": "alien_gultop", "kill_score": 1000},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_lillatop.bmp", "enemy_sheet_id": "alien_lillatop", "kill_score": 1200}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 54,
+      "archive_member": "classic_level_054.lvd",
+      "sha256": "5b45d80c0115c0d1090bd7e50aacae4574343e3d0889ad9d5230a2587d3c65cc",
+      "size": 117656,
+      "title": "K A M I K A Z E",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_gultop.bmp",
+      "packaged_enemy_id": "alien_gultop",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_gultop.bmp", "enemy_sheet_id": "alien_gultop", "kill_score": 500},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_rakett_gronn.bmp", "enemy_sheet_id": "alien_rakett_gronn", "kill_score": 400}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 55,
+      "archive_member": "classic_level_055.lvd",
+      "sha256": "e5f7dcf31adbd6120bfe111440e8f2dc7e1105f42204219b8ca052e8a24040c0",
+      "size": 117656,
+      "title": "MORE AND MORE",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_bluekreps.bmp",
+      "packaged_enemy_id": "alien_bluekreps",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_bluekreps.bmp", "enemy_sheet_id": "alien_bluekreps", "kill_score": 750},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_lbluekreps.bmp", "enemy_sheet_id": "alien_lbluekreps", "kill_score": 800},
+        {"resource_slot_id": 3, "raw_name": "ALIEN_brownkreps.bmp", "enemy_sheet_id": "alien_brownkreps", "kill_score": 1000}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 56,
+      "archive_member": "classic_level_056.lvd",
+      "sha256": "34b16e5b79443f6a7f26ea03f5f21c93774a863e71aa85acdf27621b1026c134",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_bluekreps.bmp",
+      "packaged_enemy_id": "alien_bluekreps",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_bluekreps.bmp", "enemy_sheet_id": "alien_bluekreps", "kill_score": 750},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_lbluekreps.bmp", "enemy_sheet_id": "alien_lbluekreps", "kill_score": 800},
+        {"resource_slot_id": 3, "raw_name": "ALIEN_brownkreps.bmp", "enemy_sheet_id": "alien_brownkreps", "kill_score": 1000}
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 57,
+      "archive_member": "classic_level_057.lvd",
+      "sha256": "4075b0386414775546a162f20ed3a64e4b988e0bdbd2a88383c104f81b6c957d",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_bluekreps.bmp",
+      "packaged_enemy_id": "alien_bluekreps",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_bluekreps.bmp", "enemy_sheet_id": "alien_bluekreps", "kill_score": 750},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_lbluekreps.bmp", "enemy_sheet_id": "alien_lbluekreps", "kill_score": 800},
+        {"resource_slot_id": 3, "raw_name": "ALIEN_brownkreps.bmp", "enemy_sheet_id": "alien_brownkreps", "kill_score": 1000}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 58,
+      "archive_member": "classic_level_058.lvd",
+      "sha256": "dbe38e8c34e2b76e09530981df118f5354e65641d5184b59508371feebfb1717",
+      "size": 117656,
+      "title": "* * *  B O N U S   L E V E L  * * *",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_brownkreps2.bmp",
+      "packaged_enemy_id": "alien_brownkreps2",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_brownkreps2.bmp", "enemy_sheet_id": "alien_brownkreps2", "kill_score": 500},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_gulkreps.bmp", "enemy_sheet_id": "alien_gulkreps", "kill_score": 500}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 59,
+      "archive_member": "classic_level_059.lvd",
+      "sha256": "8fe7d99f71cd836f8f73c5afe7e6eabb4710b869e95d23eabe0a6eee4a55797c",
+      "size": 117656,
+      "title": "FIRE FLIES",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Rvinggk.bmp",
+      "packaged_enemy_id": "alien_rvinggk",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_Rvinggk.bmp", "enemy_sheet_id": "alien_rvinggk", "kill_score": 750},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_Rvinggk.bmp", "enemy_sheet_id": "alien_rvinggk", "kill_score": 750}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 60,
+      "archive_member": "classic_level_060.lvd",
+      "sha256": "09901b45fe4d24e0da9e945161c17bf45d59a9f61dd9550fd559b19dda8e52db",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Rvinggk.bmp",
+      "packaged_enemy_id": "alien_rvinggk",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_Rvinggk.bmp", "enemy_sheet_id": "alien_rvinggk", "kill_score": 750},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_Gvingbk.bmp", "enemy_sheet_id": "alien_gvingbk", "kill_score": 750}
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 61,
+      "archive_member": "classic_level_061.lvd",
+      "sha256": "2767de87ae0e6d5335d1dc2b5edc4a1d7262a83c43523a8512de63097b4132a7",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Rvinggk.bmp",
+      "packaged_enemy_id": "alien_rvinggk",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_Rvinggk.bmp", "enemy_sheet_id": "alien_rvinggk", "kill_score": 750},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_Gvingbk.bmp", "enemy_sheet_id": "alien_gvingbk", "kill_score": 750}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 62,
+      "archive_member": "classic_level_062.lvd",
+      "sha256": "ed86616a4a51717733cf52d4a19b935202afbb59eb0a4b688fe127313465cb73",
+      "size": 117656,
+      "title": "K A M I K A Z E",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Gvingbk.bmp",
+      "packaged_enemy_id": "alien_gvingbk",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_Gvingbk.bmp", "enemy_sheet_id": "alien_gvingbk", "kill_score": 500}
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 63,
+      "archive_member": "classic_level_063.lvd",
+      "sha256": "3c3598d22e592abdcc7e31f60f4d5e4db345f79aab2899324ebea7181720db47",
+      "size": 117656,
+      "title": "HIT AND RUN",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_lila_royr.bmp",
+      "packaged_enemy_id": "alien_lila_royr",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_lila_royr.bmp",
+          "enemy_sheet_id": "alien_lila_royr",
+          "kill_score": 1000
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 64,
+      "archive_member": "classic_level_064.lvd",
+      "sha256": "95248520dc876c92214a4f6bf27cd452e3d05d159750810521ca10a6706036ea",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_lblaa_royr.bmp",
+      "packaged_enemy_id": "alien_lblaa_royr",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_lblaa_royr.bmp",
+          "enemy_sheet_id": "alien_lblaa_royr",
+          "kill_score": 1000
+        }
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 65,
+      "archive_member": "classic_level_065.lvd",
+      "sha256": "1e7e3b0c250e40bcf2169e51ab91f0e8df8553770ba362e626b41013d80ee685",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_lblaa_royr.bmp",
+      "packaged_enemy_id": "alien_lblaa_royr",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_lblaa_royr.bmp",
+          "enemy_sheet_id": "alien_lblaa_royr",
+          "kill_score": 1000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_lila_royr.bmp",
+          "enemy_sheet_id": "alien_lila_royr",
+          "kill_score": 1000
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 66,
+      "archive_member": "classic_level_066.lvd",
+      "sha256": "eb7db65afba9a4ad2f81680015cc662f8301b5716d57e8a51919b10403797e9a",
+      "size": 117656,
+      "title": "* * *  B O N U S   L E V E L  * * *",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_lblaa_royr.bmp",
+      "packaged_enemy_id": "alien_lblaa_royr",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_lblaa_royr.bmp",
+          "enemy_sheet_id": "alien_lblaa_royr",
+          "kill_score": 1000
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 67,
+      "archive_member": "classic_level_067.lvd",
+      "sha256": "871b7ec09bf59a026091da5dc965c5702eb833019d7e42c55eb05a7f47fe418d",
+      "size": 117656,
+      "title": "HIDDEN DANGER",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_lilla_makk.bmp",
+      "packaged_enemy_id": "alien_lilla_makk",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_lilla_makk.bmp",
+          "enemy_sheet_id": "alien_lilla_makk",
+          "kill_score": 1000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_lblaa_makk.bmp",
+          "enemy_sheet_id": "alien_lblaa_makk",
+          "kill_score": 1500
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 68,
+      "archive_member": "classic_level_068.lvd",
+      "sha256": "71f357ecd79ea63c0ee98d151135b3516343445a342ed0ba8ab153918db6d805",
+      "size": 117656,
+      "title": "FALL OUT",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_lilla_makk.bmp",
+      "packaged_enemy_id": "alien_lilla_makk",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_lilla_makk.bmp",
+          "enemy_sheet_id": "alien_lilla_makk",
+          "kill_score": 1000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_lblaa_makk.bmp",
+          "enemy_sheet_id": "alien_lblaa_makk",
+          "kill_score": 1500
+        }
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 69,
+      "archive_member": "classic_level_069.lvd",
+      "sha256": "9baeac897c6e378f21a926977565711f5bd1a6beee0a2c91152b7c60222873cd",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_lblaa_makk.bmp",
+      "packaged_enemy_id": "alien_lblaa_makk",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_lblaa_makk.bmp",
+          "enemy_sheet_id": "alien_lblaa_makk",
+          "kill_score": 1000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_lilla_makk.bmp",
+          "enemy_sheet_id": "alien_lilla_makk",
+          "kill_score": 1500
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 70,
+      "archive_member": "classic_level_070.lvd",
+      "sha256": "a7fea57385c5a5ae103838700ac5b8b0be211553290e1a087bc0ca77db6d2155",
+      "size": 117656,
+      "title": "K A M I K A Z E",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_lblaa_makk.bmp",
+      "packaged_enemy_id": "alien_lblaa_makk",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_lblaa_makk.bmp",
+          "enemy_sheet_id": "alien_lblaa_makk",
+          "kill_score": 1500
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 71,
+      "archive_member": "classic_level_071.lvd",
+      "sha256": "14f9aff909b5bd954ffe29daff17cede8c09a76bc9f21bd9b4744cbf346114a1",
+      "size": 117656,
+      "title": "ENDLESS DIVEBOMBERS",
+      "author": "JOSHUA WAYNE",
+      "raw_enemy_reference": "ALIEN_rocktalien.bmp",
+      "packaged_enemy_id": "alien_rocktalien",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_rocktalien.bmp",
+          "enemy_sheet_id": "alien_rocktalien",
+          "kill_score": 1500
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 72,
+      "archive_member": "classic_level_072.lvd",
+      "sha256": "714d2e0f9a255c55607741fa90d549a291022548b9e40f1933f2ea941472fd80",
+      "size": 117656,
+      "title": "",
+      "author": "JOSHUA WAYNE",
+      "raw_enemy_reference": "ALIEN_rocktalienG.BMP",
+      "packaged_enemy_id": "alien_rocktalieng",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_rocktalienG.BMP",
+          "enemy_sheet_id": "alien_rocktalieng",
+          "kill_score": 0
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_rocktalien.bmp",
+          "enemy_sheet_id": "alien_rocktalien",
+          "kill_score": 1500
+        }
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 73,
+      "archive_member": "classic_level_073.lvd",
+      "sha256": "475ae2514c32ba8425ccf37156df76f021da667f25ccb3b0fe60c92741dce548",
+      "size": 117656,
+      "title": "",
+      "author": "JOSHUA WAYNE",
+      "raw_enemy_reference": "ALIEN_rocktalien.bmp",
+      "packaged_enemy_id": "alien_rocktalien",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_rocktalien.bmp",
+          "enemy_sheet_id": "alien_rocktalien",
+          "kill_score": 1500
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_rocktalienG.bmp",
+          "enemy_sheet_id": "alien_rocktalieng",
+          "kill_score": 1500
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 74,
+      "archive_member": "classic_level_074.lvd",
+      "sha256": "0585dbd594c6bedd6c84a4d5c0871e289bd0d946b5a1ffb434629d8e402ab221",
+      "size": 117656,
+      "title": "* * *  B O N U S   L E V E L  * * *",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_rocktalien.bmp",
+      "packaged_enemy_id": "alien_rocktalien",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_rocktalien.bmp",
+          "enemy_sheet_id": "alien_rocktalien",
+          "kill_score": 3000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_rocktalienG.bmp",
+          "enemy_sheet_id": "alien_rocktalieng",
+          "kill_score": 3000
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 75,
+      "archive_member": "classic_level_075.lvd",
+      "sha256": "ddf0e2cb291b587cfd95b36fa25e507e1a3c747edbd3032275b51f7e724a42b9",
+      "size": 117656,
+      "title": "* * * *   B I G  T R O U B L E  * *",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_big3_1.bmp",
+      "packaged_enemy_id": "alien_big3_1",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_big3_1.bmp",
+          "enemy_sheet_id": "alien_big3_1",
+          "kill_score": 50
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_big3_2.bmp",
+          "enemy_sheet_id": "alien_big3_2",
+          "kill_score": 50
+        },
+        {
+          "resource_slot_id": 3,
+          "raw_name": "ALIEN_big3_3.bmp",
+          "enemy_sheet_id": "alien_big3_3",
+          "kill_score": 0
+        },
+        {
+          "resource_slot_id": 4,
+          "raw_name": "ALIEN_big3_4.bmp",
+          "enemy_sheet_id": "alien_big3_4",
+          "kill_score": 0
+        },
+        {
+          "resource_slot_id": 5,
+          "raw_name": "ALIEN_big3_5.bmp",
+          "enemy_sheet_id": "alien_big3_5",
+          "kill_score": 0
+        },
+        {
+          "resource_slot_id": 6,
+          "raw_name": "ALIEN_big3_6.bmp",
+          "enemy_sheet_id": "alien_big3_6",
+          "kill_score": 0
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 76,
+      "archive_member": "classic_level_076.lvd",
+      "sha256": "d32279252be0b23d6ae3dd3c88477289ce8b091f81d9f8f3d9a1b319a1863a2e",
+      "size": 117656,
+      "title": "ZIG ZAG",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Gspis.bmp",
+      "packaged_enemy_id": "alien_gspis",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_Gspis.bmp",
+          "enemy_sheet_id": "alien_gspis",
+          "kill_score": 1500
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_Rspis.bmp",
+          "enemy_sheet_id": "alien_rspis",
+          "kill_score": 1500
+        }
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 77,
+      "archive_member": "classic_level_077.lvd",
+      "sha256": "56f88564889780d96ac48e48d4dd1673a0d0ec8d2ac0425b3aa20e15fb038428",
+      "size": 117656,
+      "title": "LOOK OUT!!!",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Gspis.bmp",
+      "packaged_enemy_id": "alien_gspis",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_Gspis.bmp",
+          "enemy_sheet_id": "alien_gspis",
+          "kill_score": 1500
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 78,
+      "archive_member": "classic_level_078.lvd",
+      "sha256": "556bdb970e755ccdaa9b2c79979c56fd966f3b21ab952291761ccd14e378060f",
+      "size": 117656,
+      "title": "FLOATING UP...",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Rspis.bmp",
+      "packaged_enemy_id": "alien_rspis",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_Rspis.bmp",
+          "enemy_sheet_id": "alien_rspis",
+          "kill_score": 1500
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 79,
+      "archive_member": "classic_level_079.lvd",
+      "sha256": "d6958fd448af2be3cecfad6fcd5255874e078a0a162ac6cb69dc17140ee5f3b7",
+      "size": 117656,
+      "title": "K A M I K A Z E",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Rspis.bmp",
+      "packaged_enemy_id": "alien_rspis",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_Rspis.bmp",
+          "enemy_sheet_id": "alien_rspis",
+          "kill_score": 1500
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_Gspis.bmp",
+          "enemy_sheet_id": "alien_gspis",
+          "kill_score": 2000
+        },
+        {
+          "resource_slot_id": 3,
+          "raw_name": "ALIEN_gulkreps.bmp",
+          "enemy_sheet_id": "alien_gulkreps",
+          "kill_score": 2000
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 80,
+      "archive_member": "classic_level_080.lvd",
+      "sha256": "723010084cb9d0d60f917ab0846ad3b095b038bc3ee06bd6d57dad42974305f2",
+      "size": 117656,
+      "title": "THEY HAVE DEFENDERS NOW !!",
+      "author": "HITM4N",
+      "raw_enemy_reference": "ALIEN001_gul.bmp",
+      "packaged_enemy_id": "alien001_gul",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN001_gul.bmp",
+          "enemy_sheet_id": "alien001_gul",
+          "kill_score": 1000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN001_raud.bmp",
+          "enemy_sheet_id": "alien001_raud",
+          "kill_score": 1000
+        },
+        {
+          "resource_slot_id": 3,
+          "raw_name": "ALIEN001.bmp",
+          "enemy_sheet_id": "alien001",
+          "kill_score": 1000
+        }
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 81,
+      "archive_member": "classic_level_081.lvd",
+      "sha256": "7b9232b1493e085d7515fec0b945c0e1b0ff97e1ead415d4b36377a23a37b022",
+      "size": 117656,
+      "title": "THEIR DEFENCE GETS STRONGER !",
+      "author": "HITM4N",
+      "raw_enemy_reference": "ALIEN001_blue.bmp",
+      "packaged_enemy_id": "alien001_blue",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN001_blue.bmp",
+          "enemy_sheet_id": "alien001_blue",
+          "kill_score": 1500
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN001_raud.bmp",
+          "enemy_sheet_id": "alien001_raud",
+          "kill_score": 1500
+        },
+        {
+          "resource_slot_id": 3,
+          "raw_name": "ALIEN002.bmp",
+          "enemy_sheet_id": "alien002",
+          "kill_score": 0
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 82,
+      "archive_member": "classic_level_082.lvd",
+      "sha256": "cd8ec228fac049d888003d7e86fea2955430d893860e97f0e41f7f68257eca05",
+      "size": 117656,
+      "title": "BREAK THRU TO THOSE MOTHERS !",
+      "author": "HITM4N",
+      "raw_enemy_reference": "ALIEN001_gul.bmp",
+      "packaged_enemy_id": "alien001_gul",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN001_gul.bmp",
+          "enemy_sheet_id": "alien001_gul",
+          "kill_score": 200
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN001.bmp",
+          "enemy_sheet_id": "alien001",
+          "kill_score": 0
+        },
+        {
+          "resource_slot_id": 3,
+          "raw_name": "ALIEN002.bmp",
+          "enemy_sheet_id": "alien002",
+          "kill_score": 0
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 83,
+      "archive_member": "classic_level_083.lvd",
+      "sha256": "63ec46e5a4ac991065236e2e33886017eb8c1a014d0aacff47aea2c5f05a192f",
+      "size": 117656,
+      "title": "* *  BONUS LEVEL  * *",
+      "author": "HITM4N",
+      "raw_enemy_reference": "ALIEN001_raud.bmp",
+      "packaged_enemy_id": "alien001_raud",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN001_raud.bmp",
+          "enemy_sheet_id": "alien001_raud",
+          "kill_score": 2000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN001.bmp",
+          "enemy_sheet_id": "alien001",
+          "kill_score": 0
+        },
+        {
+          "resource_slot_id": 3,
+          "raw_name": "ALIEN002.bmp",
+          "enemy_sheet_id": "alien002",
+          "kill_score": 0
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 84,
+      "archive_member": "classic_level_084.lvd",
+      "sha256": "f304408948c7ffbc847d4496032ce58b0d32f52a6f78c6a03b3292945efcf60a",
+      "size": 117656,
+      "title": "LOOKS EASY ? HOW WRONG CAN YOU BE",
+      "author": "HITM4N",
+      "raw_enemy_reference": "ALIEN_lysper2.bmp",
+      "packaged_enemy_id": "alien_lysper2",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_lysper2.bmp",
+          "enemy_sheet_id": "alien_lysper2",
+          "kill_score": 3000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN001.bmp",
+          "enemy_sheet_id": "alien001",
+          "kill_score": 0
+        }
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 85,
+      "archive_member": "classic_level_085.lvd",
+      "sha256": "9b85a545fccb1b031716ec4315cc4cf6c65298e7df02660432b16ab24d8b295a",
+      "size": 117656,
+      "title": "THE RING",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_lysper2.bmp",
+      "packaged_enemy_id": "alien_lysper2",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_lysper2.bmp",
+          "enemy_sheet_id": "alien_lysper2",
+          "kill_score": 3000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_lysper.bmp",
+          "enemy_sheet_id": "alien_lysper",
+          "kill_score": 3000
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 86,
+      "archive_member": "classic_level_086.lvd",
+      "sha256": "aa9b446e000969e4a3fa5bb0cd4a9948e7b143374fc8b8cc442b49e65b278a9f",
+      "size": 117656,
+      "title": "THE FALL",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_lysper2.bmp",
+      "packaged_enemy_id": "alien_lysper2",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_lysper2.bmp",
+          "enemy_sheet_id": "alien_lysper2",
+          "kill_score": 2000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_lysper.bmp",
+          "enemy_sheet_id": "alien_lysper",
+          "kill_score": 2000
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 87,
+      "archive_member": "classic_level_087.lvd",
+      "sha256": "c888d986f666654481254486a50a5f859590bde5cb030f25f8cd85599b913567",
+      "size": 117656,
+      "title": "K A M I K A Z E !",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_lysper2.bmp",
+      "packaged_enemy_id": "alien_lysper2",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_lysper2.bmp",
+          "enemy_sheet_id": "alien_lysper2",
+          "kill_score": 2500
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 88,
+      "archive_member": "classic_level_088.lvd",
+      "sha256": "63d9060d69d7425b8ef47cefe800774fcae7e496c2f155493dc83bb79c09845f",
+      "size": 117656,
+      "title": "THEY ARE HIDING",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_n1_bla.bmp",
+      "packaged_enemy_id": "alien_n1_bla",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_n1_bla.bmp",
+          "enemy_sheet_id": "alien_n1_bla",
+          "kill_score": 2500
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_n1_gron.bmp",
+          "enemy_sheet_id": "alien_n1_gron",
+          "kill_score": 2500
+        }
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 89,
+      "archive_member": "classic_level_089.lvd",
+      "sha256": "0b3e8dc8ccb5161d10beed7bca111c930b6bad62abae5b0e20815ce4fbee758d",
+      "size": 117656,
+      "title": "THE ONE",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_n1_bla.bmp",
+      "packaged_enemy_id": "alien_n1_bla",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_n1_bla.bmp",
+          "enemy_sheet_id": "alien_n1_bla",
+          "kill_score": 2500
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_n1_gron.bmp",
+          "enemy_sheet_id": "alien_n1_gron",
+          "kill_score": 2500
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 90,
+      "archive_member": "classic_level_090.lvd",
+      "sha256": "66155208dd5055e27ac5dd95729475bfc0033976e0bf6137af2bfaf217e4ee57",
+      "size": 117656,
+      "title": "SQUARE DANCE",
+      "author": "",
+      "raw_enemy_reference": "ALIEN_n1_bla.bmp",
+      "packaged_enemy_id": "alien_n1_bla",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_n1_bla.bmp",
+          "enemy_sheet_id": "alien_n1_bla",
+          "kill_score": 3000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_n1_gron.bmp",
+          "enemy_sheet_id": "alien_n1_gron",
+          "kill_score": 2500
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 91,
+      "archive_member": "classic_level_091.lvd",
+      "sha256": "fd09b79f1f0a9a77e52e9259deaf21b76c13f0cbeddf8b42c7bae26f21f0ba11",
+      "size": 117656,
+      "title": "* * * *   B O N U S  * * * *",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_n1_lilla.bmp",
+      "packaged_enemy_id": "alien_n1_lilla",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_n1_lilla.bmp",
+          "enemy_sheet_id": "alien_n1_lilla",
+          "kill_score": 5000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_n1_bla.bmp",
+          "enemy_sheet_id": "alien_n1_bla",
+          "kill_score": 2000
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 92,
+      "archive_member": "classic_level_092.lvd",
+      "sha256": "bcb20db3bae4d20b1ccaaa7ded04981d2b6f41b415ef6369f60417e598e21090",
+      "size": 117656,
+      "title": "SLICING",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_n2_bla.bmp",
+      "packaged_enemy_id": "alien_n2_bla",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_n2_bla.bmp",
+          "enemy_sheet_id": "alien_n2_bla",
+          "kill_score": 3000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_n2_red.bmp",
+          "enemy_sheet_id": "alien_n2_red",
+          "kill_score": 3000
+        }
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 93,
+      "archive_member": "classic_level_093.lvd",
+      "sha256": "5ae77f8205f2db5d79261204f264bd10fd50f96816761afbdd9629ef2a9c62c6",
+      "size": 117656,
+      "title": "PROTECTION",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_n2_bla.bmp",
+      "packaged_enemy_id": "alien_n2_bla",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_n2_bla.bmp",
+          "enemy_sheet_id": "alien_n2_bla",
+          "kill_score": 3000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_n2_red.bmp",
+          "enemy_sheet_id": "alien_n2_red",
+          "kill_score": 3000
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 94,
+      "archive_member": "classic_level_094.lvd",
+      "sha256": "53869f96e2f85482b602a0cf5e535c3c8f062283725eb4ea8fc19d076385a359",
+      "size": 117656,
+      "title": "CIRCLES",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_n2_green.bmp",
+      "packaged_enemy_id": "alien_n2_green",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_n2_green.bmp",
+          "enemy_sheet_id": "alien_n2_green",
+          "kill_score": 3000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_n1_lilla.bmp",
+          "enemy_sheet_id": "alien_n1_lilla",
+          "kill_score": 3000
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 95,
+      "archive_member": "classic_level_095.lvd",
+      "sha256": "c393d5e0379a03e4f604435ec4473c9fc9c6268f5ee2d232c1f1d8bfacc1d805",
+      "size": 117656,
+      "title": "K A M I K A Z E !",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_metaballs.bmp",
+      "packaged_enemy_id": "alien_metaballs",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_metaballs.bmp",
+          "enemy_sheet_id": "alien_metaballs",
+          "kill_score": 5000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_metaball2.bmp",
+          "enemy_sheet_id": "alien_metaball2",
+          "kill_score": 5000
+        },
+        {
+          "resource_slot_id": 3,
+          "raw_name": "ALIEN_metaball3.bmp",
+          "enemy_sheet_id": "alien_metaball3",
+          "kill_score": 5000
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 96,
+      "archive_member": "classic_level_096.lvd",
+      "sha256": "f8dd3e734d6d57c5a6425587cc5d148964e140ab3a05d9b06c9a3ea2503cae43",
+      "size": 117656,
+      "title": "WINGS",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN003_3.bmp",
+      "packaged_enemy_id": "alien003_3",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN003_3.bmp",
+          "enemy_sheet_id": "alien003_3",
+          "kill_score": 3000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_RaudKule2.bmp",
+          "enemy_sheet_id": "alien_raudkule2",
+          "kill_score": 4000
+        },
+        {
+          "resource_slot_id": 3,
+          "raw_name": "ALIEN_kuleR.bmp",
+          "enemy_sheet_id": "alien_kuler",
+          "kill_score": 5000
+        },
+        {
+          "resource_slot_id": 4,
+          "raw_name": "ALIEN_kuleG.bmp",
+          "enemy_sheet_id": "alien_kuleg",
+          "kill_score": 5000
+        }
+      ],
+      "shop_after": true
+    },
+    {
+      "id": 97,
+      "archive_member": "classic_level_097.lvd",
+      "sha256": "f5f398438cdc9b2cf2fc5a3198e41972269a0a0316f7df626a617f7357cd60e5",
+      "size": 117656,
+      "title": "THE DROP",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_kuleG.bmp",
+      "packaged_enemy_id": "alien_kuleg",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_kuleG.bmp",
+          "enemy_sheet_id": "alien_kuleg",
+          "kill_score": 3000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_kuleB.bmp",
+          "enemy_sheet_id": "alien_kuleb",
+          "kill_score": 3000
+        },
+        {
+          "resource_slot_id": 3,
+          "raw_name": "ALIEN_kuleO.bmp",
+          "enemy_sheet_id": "alien_kuleo",
+          "kill_score": 3000
+        },
+        {
+          "resource_slot_id": 4,
+          "raw_name": "ALIEN_kuleL.bmp",
+          "enemy_sheet_id": "alien_kulel",
+          "kill_score": 3000
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 98,
+      "archive_member": "classic_level_098.lvd",
+      "sha256": "de80e35055d94d5b78aad837616f9306350dc02f18b23cf738c12c885390dcc7",
+      "size": 117656,
+      "title": "WALLS",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_kuleR.bmp",
+      "packaged_enemy_id": "alien_kuler",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_kuleR.bmp",
+          "enemy_sheet_id": "alien_kuler",
+          "kill_score": 5000
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_kuleO.bmp",
+          "enemy_sheet_id": "alien_kuleo",
+          "kill_score": 5000
+        },
+        {
+          "resource_slot_id": 3,
+          "raw_name": "ALIEN_MkuleR.bmp",
+          "enemy_sheet_id": "alien_mkuler",
+          "kill_score": 50000
+        },
+        {
+          "resource_slot_id": 4,
+          "raw_name": "ALIEN_kuleL.bmp",
+          "enemy_sheet_id": "alien_kulel",
+          "kill_score": 3000
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 99,
+      "archive_member": "classic_level_099.lvd",
+      "sha256": "710b493678cc4181dc459f18ae3a2b19e4ebee005158405d2f55640ec9701498",
+      "size": 117656,
+      "title": "* * *  B O N U S   L E V E L  * * *",
+      "author": "JOSHUA WAYNE",
+      "raw_enemy_reference": "ALIEN_n2_bla.bmp",
+      "packaged_enemy_id": "alien_n2_bla",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_n2_bla.bmp",
+          "enemy_sheet_id": "alien_n2_bla",
+          "kill_score": 5000
+        }
+      ],
+      "shop_after": false
+    },
+    {
+      "id": 100,
+      "archive_member": "classic_level_100.lvd",
+      "sha256": "b995a8a390b610bf064ac045db369c12c223f7d59aa3bc3fb5c1632169343e82",
+      "size": 117656,
+      "title": "* * *    B I G  T R O U B L E  * * ",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_big4_1.bmp",
+      "packaged_enemy_id": "alien_big4_1",
+      "enemy_resources": [
+        {
+          "resource_slot_id": 1,
+          "raw_name": "ALIEN_big4_1.bmp",
+          "enemy_sheet_id": "alien_big4_1",
+          "kill_score": 50
+        },
+        {
+          "resource_slot_id": 2,
+          "raw_name": "ALIEN_big4_2.bmp",
+          "enemy_sheet_id": "alien_big4_2",
+          "kill_score": 2500
+        },
+        {
+          "resource_slot_id": 3,
+          "raw_name": "ALIEN_big4_3.bmp",
+          "enemy_sheet_id": "alien_big4_3",
+          "kill_score": 0
+        },
+        {
+          "resource_slot_id": 4,
+          "raw_name": "ALIEN_big4_4.bmp",
+          "enemy_sheet_id": "alien_big4_4",
+          "kill_score": 0
+        },
+        {
+          "resource_slot_id": 5,
+          "raw_name": "ALIEN_big4_5.bmp",
+          "enemy_sheet_id": "alien_big4_5",
+          "kill_score": 0
+        },
+        {
+          "resource_slot_id": 6,
+          "raw_name": "ALIEN_big4_6.bmp",
+          "enemy_sheet_id": "alien_big4_6",
+          "kill_score": 0
+        }
+      ],
+      "shop_after": true
+    }
+  ],
+  "level_boundary": {
+    "shop_cadence": {
+      "value": 4,
+      "unit": "levels",
+      "evidence": "The manual states that every fourth level has a shop."
+    },
+    "wave_semantics": "predecessor_read_compatibility_only",
+    "playable_content_policy": "Levels 1-100 use losslessly decoded LVD authored logic plus explicit executable-backed v9 runtime contracts. Legacy waves remain readable scaffolding and cannot alter current authoritative play."
+  },
+  "time_trial_levels": [
+    {
+      "id": 1,
+      "archive_member": "timetrial_01.lvd",
+      "sha256": "bc4a6d227b203890b18bc80c3da9e8ac0a4f1887e7ec3ca33e0d592d6ac345f7",
+      "size": 117656,
+      "title": "B RUNNER",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_TimeTrial_1.bmp",
+      "packaged_enemy_id": "alien_timetrial_1",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_TimeTrial_1.bmp", "enemy_sheet_id": "alien_timetrial_1", "kill_score": 500},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_TimeTrial_3k.bmp", "enemy_sheet_id": "alien_timetrial_3k", "kill_score": 50}
+      ]
+    },
+    {
+      "id": 2,
+      "archive_member": "timetrial_02.lvd",
+      "sha256": "8b7198cb4aececc206c1a8bee6d7f0554971e9c2ca0603dcb7ae151bc11fd6ab",
+      "size": 117656,
+      "title": "B RUNNER",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_TimeTrial_2.bmp",
+      "packaged_enemy_id": "alien_timetrial_2",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_TimeTrial_2.bmp", "enemy_sheet_id": "alien_timetrial_2", "kill_score": 500}
+      ]
+    },
+    {
+      "id": 3,
+      "archive_member": "timetrial_03.lvd",
+      "sha256": "e435e62c056f2ae1e2f64214822b4fecac793b5996ebedd155e8f9d17c2efaa3",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "Alien3.bmp",
+      "packaged_enemy_id": "alien3",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "Alien3.bmp", "enemy_sheet_id": "alien3", "kill_score": 500}
+      ]
+    },
+    {
+      "id": 4,
+      "archive_member": "timetrial_04.lvd",
+      "sha256": "1876d5779dde31bed8042310ed38bebe47e5dc5b0690677d3d82d93454836649",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_TimeTrial_3.bmp",
+      "packaged_enemy_id": "alien_timetrial_3",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_TimeTrial_3.bmp", "enemy_sheet_id": "alien_timetrial_3", "kill_score": 500},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_TimeTrial_3b.bmp", "enemy_sheet_id": "alien_timetrial_3b", "kill_score": 500},
+        {"resource_slot_id": 3, "raw_name": "ALIEN_TimeTrial_3c.bmp", "enemy_sheet_id": "alien_timetrial_3c", "kill_score": 500}
+      ]
+    },
+    {
+      "id": 5,
+      "archive_member": "timetrial_05.lvd",
+      "sha256": "5b7c76f637703ea8a22e254945cb9a2c5b4c15d4e3de117d5e0ddc7b991a6796",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_brownkreps.bmp",
+      "packaged_enemy_id": "alien_brownkreps",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_brownkreps.bmp", "enemy_sheet_id": "alien_brownkreps", "kill_score": 1500},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_lila_royr.bmp", "enemy_sheet_id": "alien_lila_royr", "kill_score": 2000},
+        {"resource_slot_id": 3, "raw_name": "ALIEN_lilla_makk.bmp", "enemy_sheet_id": "alien_lilla_makk", "kill_score": 2500}
+      ]
+    },
+    {
+      "id": 6,
+      "archive_member": "timetrial_06.lvd",
+      "sha256": "894396dde1840085e368147f0a8aadf36b5cb88eb0cbb8d0cf340636fbf4ce7c",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_Rspis.bmp",
+      "packaged_enemy_id": "alien_rspis",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_Rspis.bmp", "enemy_sheet_id": "alien_rspis", "kill_score": 3000},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_Rvinggk.bmp", "enemy_sheet_id": "alien_rvinggk", "kill_score": 4000}
+      ]
+    },
+    {
+      "id": 7,
+      "archive_member": "timetrial_07.lvd",
+      "sha256": "38d354d207093267ccdbbb9ccc2221c505bcfc2abb26724094c061611ecb8903",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_kuleO.bmp",
+      "packaged_enemy_id": "alien_kuleo",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_kuleO.bmp", "enemy_sheet_id": "alien_kuleo", "kill_score": 5000},
+        {"resource_slot_id": 2, "raw_name": "ALIEN_kuleR.bmp", "enemy_sheet_id": "alien_kuler", "kill_score": 5000}
+      ]
+    },
+    {
+      "id": 8,
+      "archive_member": "timetrial_08.lvd",
+      "sha256": "d4bac10e8bcd5d27a9e1f4821685160c384bf74872e1ee13e5de6d0abd4a0501",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN001_raud.bmp",
+      "packaged_enemy_id": "alien001_raud",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN001_raud.bmp", "enemy_sheet_id": "alien001_raud", "kill_score": 5000},
+        {"resource_slot_id": 2, "raw_name": "ALIEN001_blue.bmp", "enemy_sheet_id": "alien001_blue", "kill_score": 15000}
+      ]
+    },
+    {
+      "id": 9,
+      "archive_member": "timetrial_09.lvd",
+      "sha256": "eec1f923b088f9c598c236915299272cb30d594e28f4b3307dd208f8748f493b",
+      "size": 117656,
+      "title": "",
+      "author": "",
+      "raw_enemy_reference": "ALIEN_kuleB.bmp",
+      "packaged_enemy_id": "alien_kuleb",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_kuleB.bmp", "enemy_sheet_id": "alien_kuleb", "kill_score": 5000},
+        {"resource_slot_id": 2, "raw_name": "ALIEN001_blue.bmp", "enemy_sheet_id": "alien001_blue", "kill_score": 5000}
+      ]
+    },
+    {
+      "id": 10,
+      "archive_member": "timetrial_10.lvd",
+      "sha256": "0555008f63543b3b23a03b9ab5fbd9bf85dc8d5209b2ac8341aaf9a70752c3a8",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "ALIEN_lblaa_makk.bmp",
+      "packaged_enemy_id": "alien_lblaa_makk",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN_lblaa_makk.bmp", "enemy_sheet_id": "alien_lblaa_makk", "kill_score": 7500}
+      ]
+    },
+    {
+      "id": 11,
+      "archive_member": "timetrial_11.lvd",
+      "sha256": "e08e93d0bc02aed90996b7a585a1e0d5840616a4bc2f3ef771ebc8afe99bf563",
+      "size": 117656,
+      "title": "B RUNNER",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "Alien_10_green.bmp",
+      "packaged_enemy_id": "alien_10_green",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "Alien_10_green.bmp", "enemy_sheet_id": "alien_10_green", "kill_score": 250},
+        {"resource_slot_id": 2, "raw_name": "Alien_10.bmp", "enemy_sheet_id": "alien_10", "kill_score": 500},
+        {"resource_slot_id": 3, "raw_name": "Alien_10_lilla.bmp", "enemy_sheet_id": "alien_10_lilla", "kill_score": 4000}
+      ]
+    },
+    {
+      "id": 12,
+      "archive_member": "timetrial_12.lvd",
+      "sha256": "84d4bd6f4ed60eb366f80c4ad38448f143de3491cabb9c22031340a8f1fa81cf",
+      "size": 117656,
+      "title": "",
+      "author": "",
+      "raw_enemy_reference": "Alien_12.bmp",
+      "packaged_enemy_id": "alien_12",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "Alien_12.bmp", "enemy_sheet_id": "alien_12", "kill_score": 500},
+        {"resource_slot_id": 2, "raw_name": "Alien_12_blue.bmp", "enemy_sheet_id": "alien_12_blue", "kill_score": 500},
+        {"resource_slot_id": 3, "raw_name": "Alien_12_red.bmp", "enemy_sheet_id": "alien_12_red", "kill_score": 500}
+      ]
+    },
+    {
+      "id": 13,
+      "archive_member": "timetrial_13.lvd",
+      "sha256": "7713f238653d853f89bf01a8d3d96b069b947b877487b871fea31f226c044d7d",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "Alien_12.bmp",
+      "packaged_enemy_id": "alien_12",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "Alien_12.bmp", "enemy_sheet_id": "alien_12", "kill_score": 500},
+        {"resource_slot_id": 2, "raw_name": "Alien_11.bmp", "enemy_sheet_id": "alien_11", "kill_score": 650},
+        {"resource_slot_id": 3, "raw_name": "Alien_11_gul.bmp", "enemy_sheet_id": "alien_11_gul", "kill_score": 1000},
+        {"resource_slot_id": 4, "raw_name": "Alien_10.bmp", "enemy_sheet_id": "alien_10", "kill_score": 1500}
+      ]
+    },
+    {
+      "id": 14,
+      "archive_member": "timetrial_14.lvd",
+      "sha256": "88dda80e1786f15f07d02c111d5d62fb56e7c1cd43689dabfc6b27cf5fbfc10c",
+      "size": 117656,
+      "title": "",
+      "author": "EDGAR VIGDAL",
+      "raw_enemy_reference": "Alien_13.bmp",
+      "packaged_enemy_id": "alien_13",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "Alien_13.bmp", "enemy_sheet_id": "alien_13", "kill_score": 2000},
+        {"resource_slot_id": 2, "raw_name": "Alien_13_orange.bmp", "enemy_sheet_id": "alien_13_orange", "kill_score": 2000},
+        {"resource_slot_id": 3, "raw_name": "Alien_11_gul.bmp", "enemy_sheet_id": "alien_11_gul", "kill_score": 25000},
+        {"resource_slot_id": 4, "raw_name": "Alien_10.bmp", "enemy_sheet_id": "alien_10", "kill_score": 1500}
+      ]
+    },
+    {
+      "id": 15,
+      "archive_member": "timetrial_15.lvd",
+      "sha256": "2f7ba5ca7582cd09756deec68c088312bc0f8c546a5beabea3da7d754bec3e6f",
+      "size": 117656,
+      "title": "",
+      "author": "",
+      "raw_enemy_reference": "ALIEN002.bmp",
+      "packaged_enemy_id": "alien002",
+      "enemy_resources": [
+        {"resource_slot_id": 1, "raw_name": "ALIEN002.bmp", "enemy_sheet_id": "alien002", "kill_score": 5000},
+        {"resource_slot_id": 2, "raw_name": "alien002_cyan.bmp", "enemy_sheet_id": "alien002_cyan", "kill_score": 5000},
+        {"resource_slot_id": 3, "raw_name": "Alien_11_gul.bmp", "enemy_sheet_id": "alien_11_gul", "kill_score": 25000},
+        {"resource_slot_id": 4, "raw_name": "Alien_10.bmp", "enemy_sheet_id": "alien_10", "kill_score": 1500}
+      ]
+    }
+  ],
+  "weapons": {
+    "weapon_switch_address": "0x005607b7",
+    "weapon_switch_jump_table": "0x00565adc",
+    "root_prototype_table": {
+      "virtual_address": "0x007cefd0",
+      "file_offset": "0x002a97d0",
+      "values": [0, 1, 9, 4, 8, 18, 25, 22, 19]
+    },
+    "damage_table": {
+      "virtual_address": "0x007cf018",
+      "file_offset": "0x002a9818",
+      "raw_hex": "0000803f000000400000404000002040000080400000b0400000c0400000204100007041"
+    },
+    "firing_path": {
+      "routine": "0x005e0ab0",
+      "weapon_id_load": "0x005e0b93",
+      "damage_load": "0x005e0bcb",
+      "root_prototype_load": "0x005e0bd8",
+      "spawn_call": "0x005e0c12",
+      "spawn_thunk": "0x00526653",
+      "spawn_routine": "0x005df6e0",
+      "damage_store": "0x005df9d0",
+      "collision_damage_range": "0x00587465-0x00587487"
+    },
+    "base_fire_delay": {
+      "milliseconds": 100,
+      "reset_sites": ["0x005719fb", "0x00623c8d"],
+      "timer_add_range": "0x005ec8e0-0x005ec8f8",
+      "normalized_60_hz_ticks": 6
+    },
+    "super_autofire_delay": {
+      "milliseconds": 25,
+      "write_site": "0x00561f26"
+    },
+    "definitions": [
+      {
+        "id": 0,
+        "name": "Single Shot",
+        "root_prototype_id": 0,
+        "damage_fp": 65536,
+        "damage_text": "1",
+        "flattened_prototype_ids": [0],
+		"captive_weapon_table_id": 16,
+		"captive_damage_fp": 65536,
+		"captive_root_prototype_id": 48,
+		"captive_flattened_prototype_ids": [48],
+        "volley_damage_fp": 65536
+      },
+      {
+        "id": 1,
+        "name": "Double Shot",
+        "root_prototype_id": 1,
+        "damage_fp": 131072,
+        "damage_text": "2",
+        "flattened_prototype_ids": [1, 66],
+		"captive_weapon_table_id": 15,
+		"captive_damage_fp": 65536,
+		"captive_root_prototype_id": 47,
+		"captive_flattened_prototype_ids": [47],
+        "volley_damage_fp": 262144
+      },
+      {
+        "id": 2,
+        "name": "Triple Shot",
+        "root_prototype_id": 9,
+        "damage_fp": 196608,
+        "damage_text": "3",
+        "flattened_prototype_ids": [9, 14, 15],
+		"captive_weapon_table_id": 14,
+		"captive_damage_fp": 65536,
+		"captive_root_prototype_id": 45,
+		"captive_flattened_prototype_ids": [45, 46],
+        "volley_damage_fp": 589824
+      },
+      {
+        "id": 3,
+        "name": "Quad Shot",
+        "root_prototype_id": 4,
+        "damage_fp": 163840,
+        "damage_text": "2.5",
+        "flattened_prototype_ids": [4, 63, 65, 64],
+		"captive_weapon_table_id": 3,
+		"captive_damage_fp": 163840,
+		"captive_root_prototype_id": 4,
+		"captive_flattened_prototype_ids": [4, 63, 65, 64],
+        "volley_damage_fp": 655360
+      },
+      {
+        "id": 4,
+        "name": "Super Triple Shot",
+        "root_prototype_id": 8,
+        "damage_fp": 262144,
+        "damage_text": "4",
+        "flattened_prototype_ids": [8, 6, 7],
+		"captive_weapon_table_id": 13,
+		"captive_damage_fp": 262144,
+		"captive_root_prototype_id": 42,
+		"captive_flattened_prototype_ids": [42, 43, 44],
+        "volley_damage_fp": 786432
+      },
+      {
+        "id": 5,
+        "name": "Plasma",
+        "root_prototype_id": 18,
+        "damage_fp": 360448,
+        "damage_text": "5.5",
+        "flattened_prototype_ids": [18],
+		"captive_weapon_table_id": 11,
+		"captive_damage_fp": 196608,
+		"captive_root_prototype_id": 38,
+		"captive_flattened_prototype_ids": [38],
+        "volley_damage_fp": 360448
+      },
+      {
+        "id": 6,
+        "name": "Fireballs",
+        "root_prototype_id": 25,
+        "damage_fp": 393216,
+        "damage_text": "6",
+        "flattened_prototype_ids": [25, 26, 30, 31],
+		"captive_weapon_table_id": 17,
+		"captive_damage_fp": 196608,
+		"captive_root_prototype_id": 58,
+		"captive_flattened_prototype_ids": [58],
+        "volley_damage_fp": 1572864
+      },
+      {
+        "id": 7,
+        "name": "Laser",
+        "root_prototype_id": 22,
+        "damage_fp": 655360,
+        "damage_text": "10",
+        "flattened_prototype_ids": [22],
+		"captive_weapon_table_id": 10,
+		"captive_damage_fp": 327680,
+		"captive_root_prototype_id": 35,
+		"captive_flattened_prototype_ids": [35],
+        "volley_damage_fp": 655360
+      },
+      {
+        "id": 8,
+        "name": "War.I.Plasma",
+        "root_prototype_id": 19,
+        "damage_fp": 983040,
+        "damage_text": "15",
+        "flattened_prototype_ids": [19, 20, 21],
+		"captive_weapon_table_id": 12,
+		"captive_damage_fp": 327680,
+		"captive_root_prototype_id": 39,
+		"captive_flattened_prototype_ids": [39, 40, 41],
+        "volley_damage_fp": 2949120
+      }
+    ],
+    "prototype_tables": {
+      "width": {"virtual_address": "0x007cd340", "file_offset": "0x002a7b40"},
+      "height": {"virtual_address": "0x007cd458", "file_offset": "0x002a7c58"},
+      "primary_movement": {"virtual_address": "0x007cd570", "file_offset": "0x002a7d70"},
+      "secondary_movement": {"virtual_address": "0x007cd688", "file_offset": "0x002a7e88"},
+      "child_a": {"virtual_address": "0x007cd7a0", "file_offset": "0x002a7fa0"},
+      "child_b": {"virtual_address": "0x007cd8b8", "file_offset": "0x002a80b8"},
+      "offset_y": {"virtual_address": "0x007cd9d0", "file_offset": "0x002a81d0"},
+      "offset_x": {"virtual_address": "0x007cdae8", "file_offset": "0x002a82e8"}
+    },
+    "prototypes": [
+      {"id": 0, "width": 4, "height": 10, "primary_fp": -360448, "secondary_raw": "0", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 0},
+      {"id": 1, "width": 4, "height": 10, "primary_fp": -360448, "secondary_raw": "0", "child_a": 66, "child_b": 0, "offset_x": -8, "offset_y": 0},
+      {"id": 4, "width": 6, "height": 10, "primary_fp": -498074, "secondary_raw": "0.05999999865889549", "child_a": 63, "child_b": 64, "offset_x": -5, "offset_y": 0},
+      {"id": 6, "width": 10, "height": 12, "primary_fp": -425984, "secondary_raw": "-2", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 0},
+      {"id": 7, "width": 10, "height": 12, "primary_fp": -425984, "secondary_raw": "2", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 0},
+      {"id": 8, "width": 8, "height": 12, "primary_fp": -491520, "secondary_raw": "0", "child_a": 6, "child_b": 7, "offset_x": 0, "offset_y": 0},
+      {"id": 9, "width": 4, "height": 10, "primary_fp": -425984, "secondary_raw": "0", "child_a": 14, "child_b": 15, "offset_x": 0, "offset_y": 0},
+      {"id": 14, "width": 8, "height": 10, "primary_fp": -360448, "secondary_raw": "-1", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 0},
+      {"id": 15, "width": 8, "height": 10, "primary_fp": -360448, "secondary_raw": "1", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 0},
+      {"id": 18, "width": 22, "height": 41, "primary_fp": -1245184, "secondary_raw": "0", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 20},
+      {"id": 19, "width": 32, "height": 78, "primary_fp": -1638400, "secondary_raw": "165", "child_a": 20, "child_b": 21, "offset_x": 0, "offset_y": 5},
+      {"id": 20, "width": 32, "height": 78, "primary_fp": -1638400, "secondary_raw": "163", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 5},
+      {"id": 21, "width": 32, "height": 78, "primary_fp": -1638400, "secondary_raw": "163", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 5},
+      {"id": 22, "width": 16, "height": 100, "primary_fp": 0, "secondary_raw": "0", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 86},
+      {"id": 25, "width": 21, "height": 50, "primary_fp": -458752, "secondary_raw": "200", "child_a": 26, "child_b": 30, "offset_x": 0, "offset_y": 29},
+      {"id": 26, "width": 21, "height": 51, "primary_fp": -524288, "secondary_raw": "200", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 29},
+      {"id": 30, "width": 11, "height": 25, "primary_fp": -524288, "secondary_raw": "190", "child_a": 31, "child_b": 0, "offset_x": 0, "offset_y": 15},
+      {"id": 31, "width": 11, "height": 25, "primary_fp": -589824, "secondary_raw": "190", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 15},
+	  {"id": 35, "width": 8, "height": 50, "primary_fp": 0, "secondary_raw": "0", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 50},
+	  {"id": 38, "width": 11, "height": 20, "primary_fp": -1507328, "secondary_raw": "165", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 10},
+	  {"id": 39, "width": 16, "height": 39, "primary_fp": -1572864, "secondary_raw": "165", "child_a": 40, "child_b": 41, "offset_x": 0, "offset_y": 3},
+	  {"id": 40, "width": 16, "height": 39, "primary_fp": -1599078, "secondary_raw": "163", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 3},
+	  {"id": 41, "width": 16, "height": 39, "primary_fp": -1592525, "secondary_raw": "163", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 3},
+	  {"id": 42, "width": 4, "height": 6, "primary_fp": -393216, "secondary_raw": "0", "child_a": 43, "child_b": 44, "offset_x": 0, "offset_y": 0},
+	  {"id": 43, "width": 5, "height": 6, "primary_fp": -327680, "secondary_raw": "-1", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 0},
+	  {"id": 44, "width": 5, "height": 6, "primary_fp": -327680, "secondary_raw": "1", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 0},
+	  {"id": 45, "width": 4, "height": 5, "primary_fp": -327680, "secondary_raw": "-1", "child_a": 46, "child_b": 0, "offset_x": 0, "offset_y": 0},
+	  {"id": 46, "width": 4, "height": 5, "primary_fp": -327680, "secondary_raw": "1", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 0},
+	  {"id": 47, "width": 12, "height": 5, "primary_fp": -262144, "secondary_raw": "0", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 0},
+	  {"id": 48, "width": 2, "height": 5, "primary_fp": -262144, "secondary_raw": "0", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 0},
+	  {"id": 58, "width": 11, "height": 25, "primary_fp": -524288, "secondary_raw": "200", "child_a": 0, "child_b": 0, "offset_x": 0, "offset_y": 10},
+      {"id": 63, "width": 6, "height": 10, "primary_fp": -491520, "secondary_raw": "0.20000000298023224", "child_a": 65, "child_b": 0, "offset_x": -15, "offset_y": -2},
+      {"id": 64, "width": 6, "height": 10, "primary_fp": -498074, "secondary_raw": "-0.05999999865889549", "child_a": 0, "child_b": 0, "offset_x": 5, "offset_y": 0},
+      {"id": 65, "width": 6, "height": 10, "primary_fp": -491520, "secondary_raw": "-0.20000000298023224", "child_a": 0, "child_b": 0, "offset_x": 15, "offset_y": -2},
+      {"id": 66, "width": 4, "height": 10, "primary_fp": -360448, "secondary_raw": "0", "child_a": 0, "child_b": 0, "offset_x": 8, "offset_y": 0}
+    ],
+    "movement_interpretation": {
+      "confirmed": "The primary and secondary tables participate in projectile movement setup.",
+      "normalization": "For the playable content, primary movement is converted to 16.16 vertical velocity and ordinary secondary values in the range -2 through 2 are converted to horizontal velocity.",
+      "special_encodings": "War.I.Plasma values 163 and 165 produce time-scaled random horizontal velocity; Fireballs values 190 and 200 produce one-time time-scaled spawn-X jitter followed by zero horizontal velocity. Exact arithmetic, float32 endpoint behavior, allocation, update, and collision ordering are pinned in weapon_runtime.json."
+    },
+    "manual_conflict": "Some presentation text describes Super Triple as five-times damage; the executable table stores exactly 4.0."
+  },
+  "shop": {
+    "price_string_range": {
+      "virtual_address": "0x0077d570-0x0077d7b5",
+      "file_offset": "0x00258970"
+    },
+    "price_initializer_range": "0x00774f60-0x007750e9",
+    "purchase_subtract_range": "0x0055fcb3-0x0055fcb8",
+    "first_shop_visible_item_cap": 17,
+    "first_shop_after_level": 4,
+    "items": [
+      {"id": 1, "name": "Extra Speed", "price": 50},
+      {"id": 2, "name": "Extra Bullet", "price": 75},
+      {"id": 3, "name": "Double Shot", "price": 100},
+      {"id": 4, "name": "Less Speed", "price": 150},
+      {"id": 5, "name": "Triple Shot", "price": 200},
+      {"id": 6, "name": "Quad Shot", "price": 300},
+      {"id": 7, "name": "Auto Fire", "price": 400},
+      {"id": 8, "name": "Super Triple Shot", "price": 500},
+      {"id": 9, "name": "Armour", "price": 600},
+      {"id": 10, "name": "Plasma", "price": 750},
+      {"id": 11, "name": "Extra Life", "price": 800},
+      {"id": 12, "name": "Fireballs", "price": 990},
+      {"id": 13, "name": "Game Secret", "price": 1000},
+      {"id": 14, "name": "Rank Marker", "price": 1250},
+      {"id": 15, "name": "Extra Time", "price": 1500},
+      {"id": 16, "name": "Laser", "price": 2000},
+      {"id": 17, "name": "War.I.Plasma", "price": 3000},
+      {"id": 18, "name": "Rocket Pack", "price": 5000},
+      {"id": 19, "name": "Alien Lock", "price": 15000},
+      {"id": 20, "name": "Super Auto Fire", "price": 30000},
+      {"id": 21, "name": "Clear Profile Shields", "price": 500000}
+    ],
+    "late_item_gates": {
+      "gate_range": "0x0055fc26-0x0055fcbb",
+      "metric_name_site": "0x0054b723",
+      "items": [
+        {"id": 18, "kind": "hit_percent_above_level_25", "threshold": 70},
+        {"id": 19, "kind": "hit_percent_above_level_25", "threshold": 80},
+        {"id": 20, "kind": "hit_percent_above_level_25", "threshold": 90},
+        {"id": 21, "kind": "all_profile_shields", "required_mask": 63}
+      ]
+    }
+  },
+  "difficulties": {
+    "confirmed_ids": ["easy", "normal", "hard", "ace"],
+    "runtime_contracts": "Executable-backed simulation scales, timer adjustments/floors, projectile and player speeds, timed-effect durations, Extra Time floors, and falling-bonus drop denominators are represented as deterministic rational/integer server values.",
+    "cash_scaling": "evidence_only_no_reachable_runtime_consumer",
+    "playable_content_policy": "content/difficulties.json contains only consumer-backed retail behavior or explicit deterministic rational normalization; it does not fabricate a cash multiplier."
+  },
+  "asset_notes": {
+    "hma_format": "For the inspected matching sprites, HMA contains exactly one byte per image pixel with observed values 0 and 1.",
+    "first_five_enemy_sheets": ["alien001", "alien_2"],
+    "levels_six_to_ten_enemy_sheets": ["alien_2", "alien_3"],
+    "levels_eleven_to_twenty_enemy_sheets": ["alien_3", "alien000", "alien_lilla"],
+    "levels_twenty_one_to_twenty_five_enemy_sheets": [
+      "alien003",
+      "alien003_3",
+      "alien_big1_1",
+      "alien_big1_2",
+      "alien_big1_3",
+      "alien_big1_4",
+      "alien_big1_5",
+      "alien_big1_6"
+    ],
+    "levels_twenty_six_to_thirty_enemy_sheets": [
+      "alien_rakett",
+      "alien_rakett_gronn",
+      "alien_baller",
+      "alien_baller2"
+    ],
+    "level_fifty_enemy_sheets": [
+      "alien_big2_1",
+      "alien_big2_2",
+      "alien_big2_3",
+      "alien_big2_4",
+      "alien_big2_5",
+      "alien_big2_6"
+    ],
+    "levels_fifty_one_to_sixty_two_enemy_sheets": [
+      "alien_gultop",
+      "alien_lillatop",
+      "alien_bluekreps",
+      "alien_lbluekreps",
+      "alien_brownkreps",
+      "alien_brownkreps2",
+      "alien_gulkreps",
+      "alien_rvinggk",
+      "alien_gvingbk"
+    ],
+    "attack_path_members": [
+      "att001.swd",
+      "att002.swd",
+      "att003.swd",
+      "att004.swd",
+      "att005.swd",
+      "att006.swd",
+      "att007.swd",
+      "att008.swd",
+      "att009.swd",
+      "att010.swd",
+      "att011.swd",
+      "att012.swd",
+      "att013.swd",
+      "att014.swd"
+    ],
+    "attack_path_usage": "The executable globally compacts all 14 SWDs and state 2 selects from that catalog; the traced load and selection paths prove there is no per-LVD SWD assignment.",
+    "bonus_mode_voice_files": [
+      {
+        "key": "bonus",
+        "path": "data/samples/voices/1/bonus.mp3",
+        "size": 10345,
+        "sha256": "332a922df758b5596af0ccce8c68b0039673c82a106d01fbfd5b2f62a5c45e7a",
+        "executable_binding": "Meteor gem pickup ordinary announcement at 0x005ffb14-0x005ffb23"
+      },
+      {
+        "key": "gemdrop",
+        "path": "data/samples/voices/1/gemdrop.mp3",
+        "size": 10345,
+        "sha256": "05486de262319e8a4f3fec06b9a5b2005e9265db48b9662f9ffb289b2c103a98",
+        "executable_binding": "Meteor Gem Drop threshold announcements at 0x005fea82, 0x005ff133, and 0x005ff7b4"
+      }
+    ],
+    "gem_drop_controller_assets": [
+      {
+        "key": "gems",
+        "path": "data/music/gems.mp3",
+        "size": 909708,
+        "sha256": "86a42f33ba58c038f62c4a095b89c0ab418ad262190c497759399483a1504aa3",
+        "executable_binding": "State-18 Gem Drop music switch at 0x005f8f30-0x005f8f96"
+      },
+      {
+        "key": "diamantbig",
+        "path": "warblade.pac:diamantbig.tga",
+        "size": 224373,
+        "sha256": "3095482e8d7318cad85d930c9a9d5e228f79e5c2b964413b827bd670ab4e2288",
+        "executable_binding": "Gem Drop renderer at 0x005fd5b0-0x005fd95a"
+      },
+      {
+        "key": "diamantbig_hma",
+        "path": "warblade.pac:diamantbig.hma",
+        "size": 134640,
+        "sha256": "89278f8d79c3da7fb3375be0bc130ab7b7504f44a7b2375af0c5a116225fb0cb",
+        "executable_binding": "Gem Drop mask collision at 0x006003c0-0x0060117e"
+      },
+      {
+        "key": "jingles",
+        "path": "data/samples/jingles.mp3",
+        "size": 18348,
+        "sha256": "20cee89abd4909f467ce69decde7d696797498939459f10dbb00a1fe0f1f857b",
+        "executable_binding": "Gem collection SFX at 0x0060062f-0x0060067b"
+      },
+      {
+        "key": "harpgliss1",
+        "path": "data/samples/HarpGliss1.mp3",
+        "size": 17296,
+        "sha256": "2036e2b6ca540141593a8bacce22c9053cb608f318779eabeef5653d1b32dd7c",
+        "executable_binding": "Memory Station non-Gem completion at 0x005e79f4-0x005e7a18"
+      }
+    ]
+  },
+  "rights_notices": {
+    "voice_pack": {
+      "path": "data/samples/voices/1/readme.txt",
+      "sha256": "ac3578dd556a6346bb83a942f5764b2a1c0c898f1c682fd4cd42cff8fcf90da8",
+      "summary": "The bundled notice reserves all rights, limits the voice packs to Warblade, and prohibits copying, redistribution, and modification.",
+      "pipeline_action": "Voice-pack directories remain excluded except for executable-referenced first-ten, Memory Station, Meteor Storm (including bonus and gemdrop), malfunction, and rank-1-through-20 cues copied only for the user-requested local Warblade remake."
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "schema": "warblade.sprite-concept.v1",
+  "concept": "alien_3",
+  "style": "solstice",
+  "kind": "enemy_sheet",
+  "prompt_subject": "ornate azure crab alien creature seen from above, glowing cyan energy core set in its shell, deep blue carapace with gold filigree engraving, large claws with gold tips",
+  "texture_seed": 20260813,
+  "yaw_offset_degrees": 0.0,
+  "clockwise": true,
+  "model_rotation_degrees": [
+    0.0,
+    0.0,
+    90.0
+  ],
+  "texture_keys": [
+    "alien_3"
+  ],
+  "recolor_variants": {},
+  "masks": []
+}

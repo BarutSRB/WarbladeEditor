@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Warblade lobby admin</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; background: #0a0f1a; color: #d6e2f0; }
+  header { padding: 12px 20px; background: #101a2c; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  header h1 { font-size: 16px; margin: 0; color: #ffd66b; }
+  header input { background: #0a0f1a; color: #d6e2f0; border: 1px solid #33425a; padding: 4px 8px; }
+  main { padding: 16px 20px; display: grid; gap: 20px; }
+  section { background: #101a2c; border: 1px solid #22304a; padding: 12px 14px; }
+  h2 { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: #809bb4; margin: 0 0 8px; }
+  .cards { display: flex; flex-wrap: wrap; gap: 10px; }
+  .card { background: #0a0f1a; border: 1px solid #22304a; padding: 8px 12px; min-width: 120px; }
+  .card b { display: block; font-size: 20px; color: #ffe8a0; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th, td { text-align: left; padding: 4px 6px; border-bottom: 1px solid #1c2840; vertical-align: top; }
+  th { color: #809bb4; font-weight: normal; }
+  button { background: #1a2a44; color: #d6e2f0; border: 1px solid #33425a; padding: 2px 8px; cursor: pointer; font-size: 11px; }
+  button:hover { background: #24395c; }
+  #status { color: #ff7b6b; font-size: 12px; }
+  .muted { color: #6f8399; }
+</style>
+</head>
+<body>
+<header>
+  <h1>WARBLADE LOBBY ADMIN</h1>
+  <label>token <input id="token" type="password" size="28"></label>
+  <button id="connect">connect</button>
+  <button id="notice">send notice</button>
+  <span id="status"></span>
+</header>
+<main>
+  <section><h2>Overview</h2><div class="cards" id="overview"></div></section>
+  <section><h2>Connected now</h2><table id="sessions"></table></section>
+  <section><h2>Lobbies</h2><table id="lobbies"></table></section>
+  <section><h2>Recent matches</h2><table id="matches"></table></section>
+  <section><h2>Global chat</h2><table id="chat"></table></section>
+  <section><h2>Accounts <input id="account_query" placeholder="filter" size="16"></h2><table id="accounts"></table></section>
+</main>
+<script>
+(function () {
+  var tokenInput = document.getElementById("token");
+  var status = document.getElementById("status");
+  var timer = null;
+  try { tokenInput.value = sessionStorage.getItem("wb_admin_token") || ""; } catch (e) {}
+
+  function esc(text) {
+    return String(text === null || text === undefined ? "" : text).replace(/[&<>"']/g, function (c) {
+      return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c];
+    });
+  }
+  function when(unix) {
+    if (!unix) { return "-"; }
+    var d = new Date(unix * 1000);
+    return d.toISOString().replace("T", " ").slice(0, 19);
+  }
+  function api(path, options) {
+    options = options || {};
+    options.headers = Object.assign({"Authorization": "Bearer " + tokenInput.value}, options.headers || {});
+    return fetch(path, options).then(function (response) { return response.json(); }).then(function (body) {
+      if (!body.ok) { throw new Error(body.error ? body.error.code + ": " + body.error.message : "request failed"); }
+      return body;
+    });
+  }
+  function table(id, columns, rows, actions) {
+    var html = "<tr>" + columns.map(function (c) { return "<th>" + esc(c[0]) + "</th>"; }).join("") + (actions ? "<th></th>" : "") + "</tr>";
+    if (!rows.length) { html += "<tr><td class=\"muted\" colspan=\"" + (columns.length + 1) + "\">none</td></tr>"; }
+    rows.forEach(function (row) {
+      html += "<tr>" + columns.map(function (c) { return "<td>" + esc(typeof c[1] === "function" ? c[1](row) : row[c[1]]) + "</td>"; }).join("");
+      if (actions) { html += "<td>" + actions(row) + "</td>"; }
+      html += "</tr>";
+    });
+    document.getElementById(id).innerHTML = html;
+  }
+  function refresh() {
+    api("/admin/api/overview").then(function (body) {
+      var o = body.overview;
+      var cards = [
+        ["connected", o.connections.current], ["registered", o.connections.registered], ["accounts", o.accounts_total],
+        ["lobbies open", o.lobbies.open], ["lobbies full", o.lobbies.full], ["in match", o.lobbies.in_match],
+        ["chat today", o.chat.today], ["matches today", o.matches.today], ["matches total", o.matches.total],
+        ["udp echoed", o.udp.echoed], ["udp dropped", o.udp.dropped], ["uptime h", (o.uptime_sec / 3600).toFixed(1)]
+      ];
+      document.getElementById("overview").innerHTML = cards.map(function (c) { return "<div class=\"card\"><span>" + esc(c[0]) + "</span><b>" + esc(c[1]) + "</b></div>"; }).join("");
+      status.textContent = "";
+      try { sessionStorage.setItem("wb_admin_token", tokenInput.value); } catch (e) {}
+    }).catch(function (error) { status.textContent = error.message; });
+    api("/admin/api/sessions").then(function (body) {
+      table("sessions", [["id", "session_id"], ["nickname", "nickname"], ["ip", "ip"], ["presence", "presence"], ["idle s", "idle_sec"], ["client", "client_version"]], body.sessions, function (row) {
+        return "<button data-kick=\"" + row.session_id + "\">kick</button>";
+      });
+    }).catch(function () {});
+    api("/admin/api/lobbies").then(function (body) {
+      table("lobbies", [["id", "lobby_id"], ["name", "name"], ["host", "host_nickname"], ["joiner", "joiner_nickname"], ["state", "state"], ["difficulty", "difficulty"], ["public", function (r) { return r.public ? r.public.ip + ":" + r.public.port : "-"; }], ["lan", function (r) { return r.lan ? r.lan.ip + ":" + r.lan.port : "-"; }], ["upnp", "upnp_mapped"], ["fresh", "host_fresh"], ["created", function (r) { return when(r.created_at); }]], body.lobbies);
+    }).catch(function () {});
+    api("/admin/api/matches?limit=50").then(function (body) {
+      table("matches", [["id", "id"], ["kind", "kind"], ["players", function (r) { return r.players.map(function (p) { return p.nickname + " (+" + p.points_awarded + ")"; }).join(" & "); }], ["mode", function (r) { return r.mode + " " + r.difficulty + " " + r.coop_balance; }], ["result", "result"], ["score", "score"], ["level", "level_reached"], ["started", function (r) { return when(r.started_at); }], ["ended", function (r) { return when(r.ended_at); }]], body.matches);
+    }).catch(function () {});
+    api("/admin/api/chat?limit=100").then(function (body) {
+      table("chat", [["id", "id"], ["when", function (r) { return when(r.sent_at); }], ["nickname", "nickname"], ["message", "body"]], body.messages.slice().reverse());
+    }).catch(function () {});
+    var query = document.getElementById("account_query").value;
+    api("/admin/api/accounts?query=" + encodeURIComponent(query)).then(function (body) {
+      table("accounts", [["id", "id"], ["nickname", "nickname"], ["points", "talent_points"], ["earned", "points_earned_total"], ["talents", "talents_owned"], ["matches", "matches_played"], ["last login", function (r) { return when(r.last_login_at); }], ["last ip", "last_ip"], ["disabled", "disabled"]], body.accounts, function (row) {
+        return "<button data-rename=\"" + row.id + "\">rename</button> <button data-points=\"" + row.id + "\">points</button> <button data-reset=\"" + row.id + "\">reset key</button> <button data-toggle=\"" + row.id + "\" data-disabled=\"" + row.disabled + "\">" + (row.disabled ? "enable" : "disable") + "</button>";
+      });
+    }).catch(function () {});
+  }
+  function post(path, body) {
+    return api(path, {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body || {})});
+  }
+  document.body.addEventListener("click", function (event) {
+    var target = event.target;
+    if (target.dataset.kick) { post("/admin/api/sessions/" + target.dataset.kick + "/kick").then(refresh).catch(function (e) { status.textContent = e.message; }); }
+    if (target.dataset.rename) { var name = prompt("New nickname"); if (name) { post("/admin/api/accounts/" + target.dataset.rename + "/rename", {nickname: name}).then(refresh).catch(function (e) { status.textContent = e.message; }); } }
+    if (target.dataset.points) { var delta = prompt("Points delta (e.g. 50 or -10)"); if (delta) { post("/admin/api/accounts/" + target.dataset.points + "/points", {delta: parseInt(delta, 10)}).then(refresh).catch(function (e) { status.textContent = e.message; }); } }
+    if (target.dataset.reset) { if (confirm("Replace this account's device key? The player must paste the new key into user://identity.json.")) { post("/admin/api/accounts/" + target.dataset.reset + "/reset_key").then(function (body) { prompt("New device key (copy it now)", body.device_key); refresh(); }).catch(function (e) { status.textContent = e.message; }); } }
+    if (target.dataset.toggle) { var action = target.dataset.disabled === "true" ? "enable" : "disable"; post("/admin/api/accounts/" + target.dataset.toggle + "/" + action).then(refresh).catch(function (e) { status.textContent = e.message; }); }
+  });
+  document.getElementById("connect").addEventListener("click", function () { refresh(); if (timer) { clearInterval(timer); } timer = setInterval(refresh, 5000); });
+  document.getElementById("notice").addEventListener("click", function () { var message = prompt("Notice to every connected player"); if (message) { post("/admin/api/notice", {message: message}).then(function (body) { status.textContent = "sent to " + body.recipients; }).catch(function (e) { status.textContent = e.message; }); } });
+  document.getElementById("account_query").addEventListener("change", refresh);
+  if (tokenInput.value) { refresh(); timer = setInterval(refresh, 5000); }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "schema": "warblade.sprite-concept.v1",
+  "concept": "alien000",
+  "style": "solstice",
+  "kind": "enemy_sheet",
+  "prompt_subject": "ornate ember wasp alien creature seen from above, glowing orange energy core in its abdomen, dusk-violet translucent wings, bronze striped body with gold filigree, sharp stinger",
+  "texture_seed": 20260814,
+  "yaw_offset_degrees": 0.0,
+  "clockwise": true,
+  "model_rotation_degrees": [
+    0.0,
+    0.0,
+    90.0
+  ],
+  "texture_keys": [
+    "alien000"
+  ],
+  "recolor_variants": {},
+  "masks": []
+}

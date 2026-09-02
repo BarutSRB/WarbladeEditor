@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "schema": "warblade.talents.v1",
+  "content_status": "remake_original",
+  "applies_to_modes": ["solo", "coop"],
+  "respec": {"kind": "full_refund", "cost_points": 0, "cooldown_sec": 86400},
+  "shop_migration": {
+    "talent_gated_effects": [
+      "enable_autofire",
+      "enable_super_autofire",
+      "rocket_pack",
+      "enable_alien_lock"
+    ],
+    "replaces_retail_unlocks": true
+  },
+  "grant_keys": {
+    "int": ["bullet_capacity", "speed_steps", "armour_charges", "money", "bonus_time", "starting_rockets"],
+    "bool": ["auto_fire", "super_auto_fire", "bullet_speed_up", "gem_counter", "secret_counter", "missile_stealth", "autofire_through_shop", "bonus_time_half_max", "alien_lock"]
+  },
+  "branches": [
+    {
+      "id": "gunnery",
+      "name": "GUNNERY",
+      "nodes": [
+        {"id": "gunnery_capacity_1", "name": "EXTRA MAGAZINE", "tier": 1, "cost": 10, "requires": [], "kind": "grant", "grants": {"bullet_capacity": 8}, "text": "Start every game with 8 bullet slots instead of 5."},
+        {"id": "gunnery_capacity_2", "name": "DEEP MAGAZINE", "tier": 2, "cost": 20, "requires": ["gunnery_capacity_1"], "kind": "grant", "grants": {"bullet_capacity": 12}, "text": "Start every game with 12 bullet slots."},
+        {"id": "gunnery_bullet_speed", "name": "HOT LOADS", "tier": 2, "cost": 25, "requires": ["gunnery_capacity_1"], "kind": "grant", "grants": {"bullet_speed_up": true}, "text": "Start every game with faster bullets."},
+        {"id": "gunnery_capacity_3", "name": "FULL BELTS", "tier": 3, "cost": 40, "requires": ["gunnery_capacity_2"], "kind": "grant", "grants": {"bullet_capacity": 18}, "text": "Start every game with 18 bullet slots."},
+        {"id": "gunnery_autofire_license", "name": "AUTO FIRE LICENSE", "tier": 3, "cost": 30, "requires": ["gunnery_capacity_2"], "kind": "shop_unlock", "shop_effect": "enable_autofire", "text": "Auto Fire appears in the shop for you."},
+        {"id": "gunnery_autofire_start", "name": "TRIGGER SERVOS", "tier": 4, "cost": 50, "requires": ["gunnery_autofire_license"], "kind": "grant", "grants": {"auto_fire": true}, "text": "Start every game with Auto Fire installed."},
+        {"id": "gunnery_super_license", "name": "SUPER FIRE LICENSE", "tier": 5, "cost": 60, "requires": ["gunnery_autofire_start"], "kind": "shop_unlock", "shop_effect": "enable_super_autofire", "text": "Super Auto Fire appears in the shop for you."},
+        {"id": "gunnery_super_start", "name": "OVERDRIVEN SERVOS", "tier": 6, "cost": 90, "requires": ["gunnery_super_license"], "kind": "grant", "grants": {"super_auto_fire": true}, "text": "Start every game with Super Auto Fire installed."}
+      ]
+    },
+    {
+      "id": "ordnance",
+      "name": "ORDNANCE",
+      "nodes": [
+        {"id": "ordnance_rocket_license", "name": "ROCKET PACK LICENSE", "tier": 1, "cost": 15, "requires": [], "kind": "shop_unlock", "shop_effect": "rocket_pack", "text": "The Rocket Pack appears in the shop for you."},
+        {"id": "ordnance_rockets_1", "name": "SPARE RACK", "tier": 2, "cost": 20, "requires": ["ordnance_rocket_license"], "kind": "grant", "grants": {"starting_rockets": 10}, "text": "Start every game with 10 rockets."},
+        {"id": "ordnance_rockets_2", "name": "FULL RACK", "tier": 3, "cost": 35, "requires": ["ordnance_rockets_1"], "kind": "grant", "grants": {"starting_rockets": 20}, "text": "Start every game with 20 rockets."},
+        {"id": "ordnance_lock_license", "name": "ALIEN LOCK LICENSE", "tier": 3, "cost": 40, "requires": ["ordnance_rockets_1"], "kind": "shop_unlock", "shop_effect": "enable_alien_lock", "text": "The Alien Lock appears in the shop for you."},
+        {"id": "ordnance_rockets_3", "name": "MAGAZINE BAY", "tier": 4, "cost": 55, "requires": ["ordnance_rockets_2"], "kind": "grant", "grants": {"starting_rockets": 30}, "text": "Start every game with 30 rockets."},
+        {"id": "ordnance_lock_start", "name": "FACTORY LOCK", "tier": 5, "cost": 80, "requires": ["ordnance_lock_license"], "kind": "grant", "grants": {"alien_lock": true}, "text": "Start every game with the Alien Lock installed."}
+      ]
+    },
+    {
+      "id": "hull",
+      "name": "HULL",
+      "nodes": [
+        {"id": "hull_speed_1", "name": "TUNED THRUSTERS", "tier": 1, "cost": 10, "requires": [], "kind": "grant", "grants": {"speed_steps": 1}, "text": "Start every game one speed step up."},
+        {"id": "hull_speed_2", "name": "RACING THRUSTERS", "tier": 2, "cost": 25, "requires": ["hull_speed_1"], "kind": "grant", "grants": {"speed_steps": 2}, "text": "Start every game two speed steps up."},
+        {"id": "hull_armour_1", "name": "PLATED HULL", "tier": 2, "cost": 30, "requires": ["hull_speed_1"], "kind": "grant", "grants": {"armour_charges": 1}, "text": "Start every game with one armour charge."},
+        {"id": "hull_bonus_time_1", "name": "EXTENDED TIMER", "tier": 3, "cost": 25, "requires": ["hull_armour_1"], "kind": "grant", "grants": {"bonus_time": 5}, "text": "Bonus rounds start with extra time."},
+        {"id": "hull_speed_3", "name": "VECTOR THRUSTERS", "tier": 4, "cost": 45, "requires": ["hull_speed_2"], "kind": "grant", "grants": {"speed_steps": 3}, "text": "Start every game three speed steps up."},
+        {"id": "hull_armour_2", "name": "REINFORCED HULL", "tier": 4, "cost": 60, "requires": ["hull_armour_1"], "kind": "grant", "grants": {"armour_charges": 2}, "text": "Start every game with two armour charges."},
+        {"id": "hull_bonus_time_2", "name": "MAX TIMER", "tier": 5, "cost": 50, "requires": ["hull_bonus_time_1"], "kind": "grant", "grants": {"bonus_time_half_max": true}, "text": "Bonus-round timers start half filled."}
+      ]
+    },
+    {
+      "id": "fortune",
+      "name": "FORTUNE",
+      "nodes": [
+        {"id": "fortune_money_1", "name": "SIGN-ON BONUS", "tier": 1, "cost": 10, "requires": [], "kind": "grant", "grants": {"money": 250}, "text": "Start every game with 250 cash."},
+        {"id": "fortune_money_2", "name": "INVESTOR", "tier": 2, "cost": 25, "requires": ["fortune_money_1"], "kind": "grant", "grants": {"money": 500}, "text": "Start every game with 500 cash."},
+        {"id": "fortune_gem_counter", "name": "GEM COUNTER", "tier": 2, "cost": 20, "requires": ["fortune_money_1"], "kind": "grant", "grants": {"gem_counter": true}, "text": "The HUD counts your collected gems."},
+        {"id": "fortune_secret_counter", "name": "SECRET COUNTER", "tier": 3, "cost": 30, "requires": ["fortune_gem_counter"], "kind": "grant", "grants": {"secret_counter": true}, "text": "The HUD counts the secrets you have found."},
+        {"id": "fortune_shop_autofire", "name": "SHOP TRIGGER LINK", "tier": 3, "cost": 35, "requires": ["fortune_money_2"], "kind": "grant", "grants": {"autofire_through_shop": true}, "text": "Auto fire keeps working while you browse the shop."},
+        {"id": "fortune_money_3", "name": "WAR CHEST", "tier": 4, "cost": 50, "requires": ["fortune_money_2"], "kind": "grant", "grants": {"money": 1000}, "text": "Start every game with 1000 cash."},
+        {"id": "fortune_missile_stealth", "name": "MISSILE STEALTH", "tier": 5, "cost": 70, "requires": ["fortune_secret_counter"], "kind": "grant", "grants": {"missile_stealth": true}, "text": "Alien missiles no longer target you first."}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "schema": "warblade.sprite-concept.v1",
+  "concept": "weapons",
+  "style": "solstice",
+  "kind": "procedural_weapons",
+  "prompt_subject": "procedural: banded energy bolts and beams per weapon family",
+  "texture_seed": 0,
+  "texture_keys": ["weapons_big"],
+  "recolor_variants": {},
+  "masks": []
+}

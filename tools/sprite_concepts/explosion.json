@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "schema": "warblade.sprite-concept.v1",
+  "concept": "explosion",
+  "style": "solstice",
+  "kind": "procedural_explosion",
+  "prompt_subject": "procedural: 13-frame gold-white flash with magenta bloom ring",
+  "texture_seed": 0,
+  "texture_keys": ["expl_small"],
+  "recolor_variants": {},
+  "masks": []
+}

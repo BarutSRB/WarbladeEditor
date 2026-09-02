@@ -1,0 +1,25 @@
+[Unit]
+Description=Warblade lobby server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=warblade
+Group=warblade
+WorkingDirectory=/var/lib/warblade-lobby
+EnvironmentFile=/etc/warblade-lobby/env
+ExecStart=/usr/local/bin/warblade-lobby
+Restart=on-failure
+RestartSec=2
+KillSignal=SIGTERM
+TimeoutStopSec=10
+LimitNOFILE=4096
+MemoryMax=192M
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ReadWritePaths=/var/lib/warblade-lobby
+
+[Install]
+WantedBy=multi-user.target

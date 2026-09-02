@@ -1,0 +1,106 @@
+config_version=5
+
+[application]
+
+config/name="Warblade Remake"
+config/description="A macOS-first, server-authoritative remake of Warblade."
+config/version="1.0.0"
+run/main_scene="res://scenes/main.tscn"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
+window/size/window_width_override=1280
+window/size/window_height_override=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+window/dpi/allow_hidpi=true
+window/vsync/vsync_mode=1
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
+
+[physics]
+
+common/physics_ticks_per_second=60
+
+[audio]
+
+driver/enable_input=false
+
+[input]
+
+p1_left={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":65), Object(InputEventJoypadMotion,"device":0,"axis":0,"axis_value":-1.0)]
+}
+p1_right={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":68), Object(InputEventJoypadMotion,"device":0,"axis":0,"axis_value":1.0)]
+}
+p1_up={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":87), Object(InputEventJoypadMotion,"device":0,"axis":1,"axis_value":-1.0)]
+}
+p1_down={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":83), Object(InputEventJoypadMotion,"device":0,"axis":1,"axis_value":1.0)]
+}
+p1_fire={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":32), Object(InputEventJoypadButton,"device":0,"button_index":0)]
+}
+p1_secondary={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":81), Object(InputEventJoypadButton,"device":0,"button_index":1)]
+}
+p1_confirm={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":4194309), Object(InputEventJoypadButton,"device":0,"button_index":0)]
+}
+p1_cancel={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":4194305), Object(InputEventJoypadButton,"device":0,"button_index":1)]
+}
+p2_left={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":4194319), Object(InputEventJoypadMotion,"device":1,"axis":0,"axis_value":-1.0)]
+}
+p2_right={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":4194321), Object(InputEventJoypadMotion,"device":1,"axis":0,"axis_value":1.0)]
+}
+p2_up={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":4194320), Object(InputEventJoypadMotion,"device":1,"axis":1,"axis_value":-1.0)]
+}
+p2_down={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":4194322), Object(InputEventJoypadMotion,"device":1,"axis":1,"axis_value":1.0)]
+}
+p2_fire={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":4194309), Object(InputEventJoypadButton,"device":1,"button_index":0)]
+}
+p2_secondary={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":4194325), Object(InputEventJoypadButton,"device":1,"button_index":1)]
+}
+p2_confirm={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":4194309), Object(InputEventJoypadButton,"device":1,"button_index":0)]
+}
+p2_cancel={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":4194305), Object(InputEventJoypadButton,"device":1,"button_index":1)]
+}
+pause={
+"deadzone": 0.25,
+"events": [Object(InputEventKey,"physical_keycode":80), Object(InputEventKey,"physical_keycode":4194305), Object(InputEventJoypadButton,"device":0,"button_index":6)]
+}

@@ -1,0 +1,193 @@
+{
+  "display_name": "SOLSTICE",
+  "generator": {
+    "tool": "tripo_pipeline.py"
+  },
+  "name": "solstice",
+  "schema": "warblade.sprite-pack.v1",
+  "textures": {
+    "alien000": {
+      "height": 96,
+      "path": "textures/alien000.png",
+      "source": {
+        "concept": "alien000",
+        "created_utc": "2026-08-10T23:51:36Z",
+        "prompt": "ornate ember wasp alien creature seen from above, glowing orange energy core in its abdomen, dusk-violet translucent wings, bronze striped body with gold filigree, sharp stinger, celestial fantasy, gold filigree trim, sun and moon motifs, glowing energy core, intricate painterly texture, rich saturated color, clean silhouette, centered, single object, dark void background",
+        "style": "solstice",
+        "texture_seed": 20260814,
+        "tripo_task_id": "4bc3853d-35ea-46e4-baaa-f017e53da466"
+      },
+      "width": 576
+    },
+    "alien001": {
+      "height": 96,
+      "path": "textures/alien001.png",
+      "source": {
+        "concept": "alien001",
+        "created_utc": "2026-08-10T22:59:37Z",
+        "prompt": "ornate copper scarab beetle alien creature seen from above, glowing amber energy core orb set in its shell, bronze carapace with gold filigree, segmented insect legs, small mandibles, celestial fantasy, gold filigree trim, sun and moon motifs, glowing energy core, intricate painterly texture, rich saturated color, clean silhouette, centered, single object, dark void background",
+        "style": "solstice",
+        "texture_seed": 20260811,
+        "tripo_task_id": "80193198-7fe1-4b13-b458-dd7bf5f148f7"
+      },
+      "width": 576
+    },
+    "alien001_blue": {
+      "height": 96,
+      "path": "textures/alien001_blue.png",
+      "source": {
+        "concept": "alien001",
+        "created_utc": "2026-08-10T22:59:37Z",
+        "prompt": "ornate copper scarab beetle alien creature seen from above, glowing amber energy core orb set in its shell, bronze carapace with gold filigree, segmented insect legs, small mandibles, celestial fantasy, gold filigree trim, sun and moon motifs, glowing energy core, intricate painterly texture, rich saturated color, clean silhouette, centered, single object, dark void background",
+        "style": "solstice",
+        "texture_seed": 20260811,
+        "tripo_task_id": "80193198-7fe1-4b13-b458-dd7bf5f148f7"
+      },
+      "width": 576
+    },
+    "alien001_gul": {
+      "height": 96,
+      "path": "textures/alien001_gul.png",
+      "source": {
+        "concept": "alien001",
+        "created_utc": "2026-08-10T22:59:37Z",
+        "prompt": "ornate copper scarab beetle alien creature seen from above, glowing amber energy core orb set in its shell, bronze carapace with gold filigree, segmented insect legs, small mandibles, celestial fantasy, gold filigree trim, sun and moon motifs, glowing energy core, intricate painterly texture, rich saturated color, clean silhouette, centered, single object, dark void background",
+        "style": "solstice",
+        "texture_seed": 20260811,
+        "tripo_task_id": "80193198-7fe1-4b13-b458-dd7bf5f148f7"
+      },
+      "width": 576
+    },
+    "alien001_raud": {
+      "height": 96,
+      "path": "textures/alien001_raud.png",
+      "source": {
+        "concept": "alien001",
+        "created_utc": "2026-08-10T22:59:37Z",
+        "prompt": "ornate copper scarab beetle alien creature seen from above, glowing amber energy core orb set in its shell, bronze carapace with gold filigree, segmented insect legs, small mandibles, celestial fantasy, gold filigree trim, sun and moon motifs, glowing energy core, intricate painterly texture, rich saturated color, clean silhouette, centered, single object, dark void background",
+        "style": "solstice",
+        "texture_seed": 20260811,
+        "tripo_task_id": "80193198-7fe1-4b13-b458-dd7bf5f148f7"
+      },
+      "width": 576
+    },
+    "alien003": {
+      "height": 96,
+      "path": "textures/alien003.png",
+      "source": {
+        "concept": "alien003",
+        "created_utc": "2026-08-10T23:51:03Z",
+        "prompt": "ornate gilded dragonfly alien creature seen from above, glowing white-gold energy core, twin long tails, four elongated gold-trimmed wings, emerald body with filigree, celestial fantasy, gold filigree trim, sun and moon motifs, glowing energy core, intricate painterly texture, rich saturated color, clean silhouette, centered, single object, dark void background",
+        "style": "solstice",
+        "texture_seed": 20260816,
+        "tripo_task_id": "427bee94-a4f5-43e2-a0b4-6e456fa9e492"
+      },
+      "width": 576
+    },
+    "alien_2": {
+      "height": 96,
+      "path": "textures/alien_2.png",
+      "source": {
+        "concept": "alien_2",
+        "created_utc": "2026-08-10T23:50:13Z",
+        "prompt": "ornate jade moth alien creature seen from above, luminous green energy core on its thorax, iridescent green wings with magenta eye-spots, gold filigree wing edges, feathered antennae, celestial fantasy, gold filigree trim, sun and moon motifs, glowing energy core, intricate painterly texture, rich saturated color, clean silhouette, centered, single object, dark void background",
+        "style": "solstice",
+        "texture_seed": 20260812,
+        "tripo_task_id": "24dce4a7-30cd-4c35-b85a-95e32d4727f2"
+      },
+      "width": 576
+    },
+    "alien_3": {
+      "height": 96,
+      "path": "textures/alien_3.png",
+      "source": {
+        "concept": "alien_3",
+        "created_utc": "2026-08-10T23:50:13Z",
+        "prompt": "ornate azure crab alien creature seen from above, glowing cyan energy core set in its shell, deep blue carapace with gold filigree engraving, large claws with gold tips, celestial fantasy, gold filigree trim, sun and moon motifs, glowing energy core, intricate painterly texture, rich saturated color, clean silhouette, centered, single object, dark void background",
+        "style": "solstice",
+        "texture_seed": 20260813,
+        "tripo_task_id": "c70f19ce-af14-4e69-8725-fd1778cbe9c8"
+      },
+      "width": 576
+    },
+    "alien_lilla": {
+      "height": 96,
+      "path": "textures/alien_lilla.png",
+      "source": {
+        "concept": "alien_lilla",
+        "created_utc": "2026-08-10T23:50:40Z",
+        "prompt": "ornate violet mantis alien creature seen from above, glowing magenta energy core in its thorax, purple carapace with gold filigree, silver blade forelimbs folded forward, celestial fantasy, gold filigree trim, sun and moon motifs, glowing energy core, intricate painterly texture, rich saturated color, clean silhouette, centered, single object, dark void background",
+        "style": "solstice",
+        "texture_seed": 20260815,
+        "tripo_task_id": "73f736d4-f9d3-401d-a072-a7287132495a"
+      },
+      "width": 576
+    },
+    "bonuses": {
+      "height": 740,
+      "path": "textures/bonuses.png",
+      "source": {
+        "concept": "pickups",
+        "created_utc": "2026-08-10T23:47:57Z",
+        "prompt": "",
+        "style": "solstice",
+        "texture_seed": 0,
+        "tripo_task_id": ""
+      },
+      "width": 200
+    },
+    "expl_small": {
+      "height": 96,
+      "path": "textures/expl_small.png",
+      "source": {
+        "concept": "explosion",
+        "created_utc": "2026-08-10T23:47:58Z",
+        "prompt": "",
+        "style": "solstice",
+        "texture_seed": 0,
+        "tripo_task_id": ""
+      },
+      "width": 160
+    },
+    "fighter1": {
+      "height": 28,
+      "path": "textures/fighter1.png",
+      "source": {
+        "concept": "fighter",
+        "created_utc": "2026-08-10T22:59:37Z",
+        "prompt": "sleek silver-lavender space fighter jet seen from above, swept delta wings, ornate gold sun emblem on the hull, crescent moon markings on the wings, teal glass cockpit, twin teal engine nozzles, celestial fantasy, gold filigree trim, sun and moon motifs, glowing energy core, intricate painterly texture, rich saturated color, clean silhouette, centered, single object, dark void background",
+        "style": "solstice",
+        "texture_seed": 20260810,
+        "tripo_task_id": "0080fa88-edd3-4adc-adde-fd1164a8f42a"
+      },
+      "width": 440
+    },
+    "fighter2": {
+      "height": 28,
+      "path": "textures/fighter2.png",
+      "source": {
+        "concept": "fighter",
+        "created_utc": "2026-08-10T22:59:37Z",
+        "prompt": "sleek silver-lavender space fighter jet seen from above, swept delta wings, ornate gold sun emblem on the hull, crescent moon markings on the wings, teal glass cockpit, twin teal engine nozzles, celestial fantasy, gold filigree trim, sun and moon motifs, glowing energy core, intricate painterly texture, rich saturated color, clean silhouette, centered, single object, dark void background",
+        "style": "solstice",
+        "texture_seed": 20260810,
+        "tripo_task_id": "0080fa88-edd3-4adc-adde-fd1164a8f42a"
+      },
+      "width": 440
+    },
+    "weapons_big": {
+      "height": 100,
+      "path": "textures/weapons_big.png",
+      "source": {
+        "concept": "weapons",
+        "created_utc": "2026-08-10T23:47:57Z",
+        "prompt": "",
+        "style": "solstice",
+        "texture_seed": 0,
+        "tripo_task_id": ""
+      },
+      "width": 672
+    }
+  },
+  "version": 1
+}

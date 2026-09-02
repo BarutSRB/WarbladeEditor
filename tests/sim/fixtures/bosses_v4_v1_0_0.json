@@ -1,0 +1,3291 @@
+{
+  "version": 4,
+  "schema": "warblade.bosses.v4",
+  "bosses": {
+    "retail_big_boss_v1": {
+      "id": "retail_big_boss_v1",
+      "level_id": 25,
+      "level_mode_id": 4,
+      "executable_sha256": "ddf1778c307af1087ff9dcb512786111e665d972298aeaac3f1b4b2996d079ef",
+      "retail_state_id": 13,
+      "exact_trace_complete": true,
+      "authored_level_payload": {
+        "canonicalization": "warblade_canonical_payload_v1",
+        "sha256": "6ec7ac4f9f5eb5ea7a074d0315a2393acc37da1b0f1fd8f08f9b2c9032a6498f"
+      },
+      "resources": {
+        "slots": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "sheet_ids": [
+          "alien_big1_1",
+          "alien_big1_2",
+          "alien_big1_3",
+          "alien_big1_4",
+          "alien_big1_5",
+          "alien_big1_6"
+        ],
+        "sheet_size": [
+          576,
+          96
+        ]
+      },
+      "initialization": {
+        "group_modes": [
+          4,
+          5,
+          6,
+          7,
+          7
+        ],
+        "common_projectile_slots": 100,
+        "authored_entity_slots": 150,
+        "position_offset": [
+          -16,
+          -16
+        ],
+        "hum_pitch_rng": [
+          15000,
+          30000
+        ],
+        "hum_delta_rng": [
+          -100,
+          100
+        ],
+        "mirror_x": false,
+        "fixed_record_0_raw_words": [
+          6,
+          0,
+          0,
+          0
+        ],
+        "supplemental_record_0_raw_words": [
+          1,
+          1,
+          300,
+          904,
+          10
+        ]
+      },
+      "animation": {
+        "stage_min": 0,
+        "stage_max": 5,
+        "stage_count": 6,
+        "stage_to_resource_slot": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "period_rng": [
+          2,
+          5
+        ],
+        "countdown_initial": "period",
+        "countdown_step": "subtract_tick_scale",
+        "advance_when": "countdown<0",
+        "advance": 1,
+        "wrap": "5_to_0",
+        "bounce": false,
+        "health_driven": false
+      },
+      "rendering": {
+        "part_count": 2,
+        "position_rounding": "trunc_toward_zero",
+        "normal_handles": [
+          "alien_big1_1",
+          "alien_big1_2",
+          "alien_big1_3",
+          "alien_big1_4",
+          "alien_big1_5",
+          "alien_big1_6"
+        ],
+        "hit_flash_handles": [
+          "alien_big1_1_mask",
+          "alien_big1_2_mask",
+          "alien_big1_3_mask",
+          "alien_big1_4_mask",
+          "alien_big1_5_mask",
+          "alien_big1_6_mask"
+        ],
+        "hit_flash": {
+          "successful_hit_countdown": 5,
+          "selection": "mask_when_nonzero_else_normal",
+          "decrement": "after_each_part_render",
+          "reset": "successful_hit_assigns_5"
+        },
+        "parts": [
+          {
+            "part_index": 0,
+            "source_rect": [
+              0,
+              0,
+              256,
+              64
+            ],
+            "destination_offset": [
+              -112,
+              0
+            ],
+            "size": [
+              256,
+              64
+            ]
+          },
+          {
+            "part_index": 1,
+            "source_rect": [
+              256,
+              0,
+              256,
+              64
+            ],
+            "destination_offset": [
+              -112,
+              64
+            ],
+            "size": [
+              256,
+              64
+            ]
+          }
+        ]
+      },
+      "health": {
+        "retail": 300,
+        "balanced_coop_multiplier": 2,
+        "damage_divisor": 10,
+        "minimum_damage": 1,
+        "terminal_hit_below": 0,
+        "death_below": 0
+      },
+      "collision": {
+        "anchor_x_offset": -128,
+        "strict_local_bounds": [
+          16,
+          16,
+          240,
+          112
+        ],
+        "special_projectile_local_y": 60,
+        "hma_damage_test": false
+      },
+      "projectile_allocation": {
+        "common_projectile_slots": 100,
+        "protocol": "reserve_then_finalize",
+        "reserve_callback": "allocate_common_projectile",
+        "finalize_callback": "finalize_common_projectile",
+        "callback_response": {
+          "ok": "required_boolean",
+          "error": "required_string",
+          "pool_full": "ok_true_allocated_false",
+          "callback_failure": "ok_false_stops_encounter"
+        },
+        "retained_response_fields": [
+          "retained_animation_frame",
+          "retained_animation_period",
+          "retained_animation_countdown"
+        ],
+        "pool_full_rng": "none",
+        "finalize_failure": "block_encounter",
+        "position_storage": "32x32_sprite_top_left",
+        "center_offset": [
+          16,
+          16
+        ],
+        "resource_slot_id": 1,
+        "enemy_sheet_id": "alien_big1_1",
+        "mask_id": "alien_big1_1",
+        "update_order": [
+          "animation",
+          "movement",
+          "retirement"
+        ],
+        "animation_countdown_step": "subtract_tick_scale",
+        "animation_advance_when": "countdown<0",
+        "movement": "add_spawn_tick_scaled_velocity",
+        "retirement": {
+          "axis": "top_left_y",
+          "comparison": ">surface_height",
+          "default_surface_height": 600,
+          "x_bounds": false,
+          "age_limit": false
+        },
+        "player_collision": {
+          "fighter_rect_size": [
+            40,
+            27
+          ],
+          "strict_broad_overlap": true,
+          "pixel_policy": "broad_hit_when_pixel_disabled_or_either_mask_null_else_hma",
+          "invalid_hma_bounds": "miss",
+          "on_hit": "consume_and_one_armour_step"
+        }
+      },
+      "aimed_fire": {
+        "owning_group_mode": 5,
+        "origin_group_mode": 7,
+        "trigger_multiplier": 3,
+        "timer": 904,
+        "travel_rng": [
+          45,
+          55
+        ],
+        "jitter_rng": [
+          -40,
+          40
+        ],
+        "projectile_type": 15,
+        "size": [
+          32,
+          32
+        ],
+        "broadphase_inset": [
+          8,
+          8
+        ],
+        "broadphase": [
+          24,
+          24
+        ],
+        "source_rects": [
+          [
+            0,
+            64,
+            32,
+            32
+          ],
+          [
+            32,
+            64,
+            32,
+            32
+          ],
+          [
+            64,
+            64,
+            32,
+            32
+          ],
+          [
+            96,
+            64,
+            32,
+            32
+          ]
+        ],
+        "animation": {
+          "initialization": "retain_common_slot_fields",
+          "frame_wrap": "3_to_0",
+          "source_rect": "[frame*32,64,32,32]_unclamped"
+        },
+        "hma_occupied_bounds": [
+          [
+            11,
+            12,
+            20,
+            21
+          ],
+          [
+            11,
+            12,
+            20,
+            21
+          ],
+          [
+            11,
+            12,
+            20,
+            20
+          ],
+          null
+        ],
+        "hma_occupied_pixels": [
+          92,
+          91,
+          90,
+          0
+        ],
+        "sound_frequency_rng": [
+          28000,
+          32000
+        ],
+        "timer_a_step": 10,
+        "timer_a_step_application": "kill_pass_tightening_only",
+        "timer_a_step_active_effect": "inert_state_13_is_sole_active_entity_and_deactivates_before_terminal_tightening",
+        "origin_groups": [
+          {
+            "group_id": 3,
+            "path_opcodes": []
+          },
+          {
+            "group_id": 4,
+            "path_opcodes": []
+          }
+        ]
+      },
+      "opcode_2": {
+        "source_group_mode": 6,
+        "reverse_records": true,
+        "spawn_offset_y": 48,
+        "speed_from_first_health_divisor": 10,
+        "projectile_type": 14,
+        "size": [
+          32,
+          32
+        ],
+        "broadphase_inset": [
+          4,
+          4
+        ],
+        "broadphase": [
+          28,
+          28
+        ],
+        "source_rects": [
+          [
+            512,
+            0,
+            32,
+            32
+          ],
+          [
+            512,
+            32,
+            32,
+            32
+          ],
+          [
+            512,
+            64,
+            32,
+            32
+          ],
+          [
+            544,
+            0,
+            32,
+            32
+          ],
+          [
+            544,
+            32,
+            32,
+            32
+          ],
+          [
+            544,
+            64,
+            32,
+            32
+          ]
+        ],
+        "animation": {
+          "initial_frame": 0,
+          "period_rng": [
+            1,
+            4
+          ],
+          "countdown_rng": [
+            1,
+            4
+          ],
+          "independent_draws": true,
+          "frame_wrap": "5_to_0"
+        },
+        "hma_occupied_bounds": [
+          [
+            1,
+            0,
+            30,
+            31
+          ],
+          [
+            0,
+            1,
+            31,
+            30
+          ],
+          [
+            0,
+            1,
+            31,
+            30
+          ],
+          [
+            0,
+            1,
+            31,
+            30
+          ],
+          [
+            1,
+            0,
+            30,
+            31
+          ],
+          [
+            1,
+            0,
+            30,
+            30
+          ]
+        ],
+        "hma_occupied_pixels": [
+          571,
+          573,
+          571,
+          568,
+          569,
+          571
+        ],
+        "projectile_sound_frequency_rng": [
+          24000,
+          30000
+        ],
+        "deferred_projectile_sound": {
+          "sample": "alienshoot2",
+          "overwrite": "last_allocated_wins",
+          "flush_order": "after_bigfire_later_same_main_tick",
+          "flush_gate": "alternating_global_sound_tick",
+          "flush_gate_initial": 4,
+          "flush_gate_lifetime": "match_process_not_level",
+          "flush_gate_step": "old_then_decrement;old==0_sets_1_and_flushes",
+          "closed_gate": "discard_at_next_enemy_update",
+          "spatial_source": "final_projectile_top_left",
+          "spatial_lookup": "FUN_00627530_then_af6048",
+          "x_clamp_uses_surface_height": true
+        },
+        "burst_sound_frequency_rng": [
+          28000,
+          32000
+        ],
+        "dynamic_record_count": 12,
+        "speed": 4.6,
+        "burst_groups": [
+          {
+            "group_id": 2,
+            "group_mode_id": 6,
+            "authored_record_count": 12,
+            "record_order": "reverse",
+            "reverse_records": true,
+            "speed_from_first_health_divisor": 10,
+            "speed": 4.6
+          }
+        ]
+      },
+      "path": {
+        "opcode_allowlist": [
+          0,
+          1,
+          2,
+          7
+        ],
+        "loop_ease": 0.9599999785423279,
+        "crossing": "trunc(progress)>duration",
+        "opcode_7": "ease_to_anchor_then_restart_mode_5",
+        "point_zero_opcode_dispatch": false,
+        "group_opcode_sequences": {
+          "0": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "1": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            7
+          ],
+          "2": [],
+          "3": [],
+          "4": []
+        }
+      },
+      "death": {
+        "explosion_count_rng": [
+          8,
+          15
+        ],
+        "explosion_y_rng": [
+          -32,
+          32
+        ],
+        "explosion_x_rng": [
+          64,
+          192
+        ],
+        "explosion_effect": "FUN_00570420",
+        "post_effects": [
+          "FUN_00571080",
+          "FUN_005e0650",
+          "FUN_005e0650",
+          "FUN_0052f440"
+        ],
+        "post_effect_count": 500,
+        "plume_count": 2,
+        "plume_y_float_rng": [
+          0,
+          96
+        ],
+        "plume_x_float_rng": [
+          0,
+          224
+        ],
+        "plume_particle_count_rng": [
+          50,
+          100
+        ],
+        "plume_effect": "FUN_005defe0",
+        "sfx_cooldown_rng": [
+          40,
+          200
+        ],
+        "sfx_pair_fields": [
+          "first_min_argument",
+          "first_max_argument",
+          "frequency_min_argument",
+          "frequency_max_argument"
+        ],
+        "first_pair_range_semantics": "unsigned_reversed_bound_retail_bug",
+        "sfx_pairs": [
+          [
+            216,
+            190,
+            35000,
+            44100
+          ],
+          [
+            216,
+            190,
+            30000,
+            40000
+          ],
+          [
+            216,
+            190,
+            25000,
+            30000
+          ]
+        ]
+      },
+      "reward": {
+        "tail_score": 500,
+        "retail_scale": 1000,
+        "base_score": 500000,
+        "marks_level_complete": true,
+        "stops_hum": true,
+        "rank_markers_unchanged": true,
+        "destroyed_count": {
+          "killer_delta": 1,
+          "classic_coop_partner_delta": 1,
+          "completion_condition": "destroyed_plus_partner>=authored_total",
+          "completion_timestamp": "set_if_zero"
+        },
+        "ordinary_completion_bonus_and_rockets": true
+      },
+      "routing": {
+        "completion_mark_timing": "inside FUN_00585840 collision",
+        "dispatcher_poll_timing": "same tick after FUN_00605fe0 + render",
+        "retail_next_level_intent": true,
+        "campaign_wrapper_policy": "configured_end_level",
+        "explicit_end_level_25_policy": "complete_without_requesting_level_26",
+        "extended_campaign_policy": "request_get_ready_level_26_once"
+      },
+      "effects": {
+        "policy": "synchronous_root_rng_callback",
+        "callback_required": true,
+        "progression_inputs": {
+          "only_blue_coins_active": "selected_physical_player_persistent_boolean",
+          "rank_ready": "projectile_owner_physical_seat_persistent_boolean"
+        },
+        "progression_producers": {
+          "rank_ready": {
+            "storage": "DAT_008487b4",
+            "initialization": "0x006245a2",
+            "set_function": "FUN_0055f650",
+            "set_case": "0x0d",
+            "set_address": "0x00565094",
+            "set_condition": "all_six_rank_bits_already_set_and_once_per_shop_reward_succeeds_and_DAT_00848ba8_is_false",
+            "state_13_samples": [
+              "0x005860a7",
+              "0x00588340",
+              "0x0058a2fc"
+            ]
+          },
+          "only_blue_coins_active": {
+            "storage": "DAT_008489d4",
+            "initialization": "0x00624487",
+            "persisted_hydration_function": "FUN_00549460",
+            "persisted_score_condition": ">19999",
+            "persisted_hydration_address": "0x005495ec",
+            "runtime_set_function": "FUN_00571c60",
+            "runtime_set_condition": "third_type_0_sucker_or_blue_money_pickup",
+            "runtime_set_address": "0x00578b90",
+            "state_13_sample_function": "FUN_00571080",
+            "state_13_sample_address": "0x0057116e"
+          }
+        },
+        "death_order": [
+          "FUN_00570420_each",
+          "deactivate_boss",
+          "FUN_00571080",
+          "FUN_005e0650_left",
+          "FUN_005e0650_right",
+          "FUN_0052f440",
+          "FUN_005defe0_first",
+          "FUN_005defe0_second",
+          "death_sound_triple",
+          "score_popup",
+          "level_complete_mark",
+          "stop_hum"
+        ]
+      },
+      "sounds": {
+        "music": "boss",
+        "hum": "boss",
+        "hit": "hit1",
+        "terminal_hit": "hit2",
+        "death": "explo4",
+        "aimed_projectile": "bigsmall",
+        "opcode_2_deferred": "alienshoot2",
+        "opcode_2_direct": "bigfire"
+      },
+      "effect_runtime": {
+        "id": "retail_big_boss_effects_v1",
+        "executable_sha256": "ddf1778c307af1087ff9dcb512786111e665d972298aeaac3f1b4b2996d079ef",
+        "preset": {
+          "id": "retail_high",
+          "high_effects": true,
+          "particle_density": 100,
+          "evidence": "0x005bab12/0x005bab3a"
+        },
+        "pools": {
+          "flash": {
+            "capacity": 50,
+            "base": "DAT_00847720"
+          },
+          "debris": {
+            "capacity": 150,
+            "base": "DAT_00b04a54"
+          },
+          "smoke": {
+            "capacity": 500,
+            "base": "DAT_00ac5c98"
+          },
+          "particle": {
+            "capacity": 1000,
+            "base": "DAT_007e3948"
+          },
+          "screen": {
+            "capacity": 4,
+            "base": "DAT_008ff578"
+          }
+        },
+        "creation_order": {
+          "FUN_005dfee0": [
+            "scan_flash",
+            "RngInt(0,2)"
+          ],
+          "FUN_005e0650": [
+            "scan_screen_if_variant_positive",
+            "scan_flash",
+            "RngInt(0,3)",
+            "RngInt(0,150)",
+            "FUN_005df370(density*3)"
+          ],
+          "FUN_005defe0_each_allocated": [
+            "RngInt(0,359)",
+            "RngFloat(1,6)",
+            "RngFloat(2,3)",
+            "RngInt(0,5)",
+            "RngInt(0,2)",
+            "RngFloat(5,45)",
+            "RngInt(0,100)",
+            "RngInt(150,255)"
+          ],
+          "FUN_0052f440": [
+            "RngFloat(1.5,6) x3 before scan",
+            "count+1 allocation attempts",
+            "each: RngFloat(1,40), RngFloat(2,4), RngFloat(.01,.2), RngInt(0,3600)"
+          ],
+          "FUN_00570420": {
+            "rank_ready_false": [
+              "RngInt(0,6)"
+            ],
+            "rank_ready_true": [
+              "RngInt(0,5)",
+              "RngInt(0,7) if eligibility roll is 0, otherwise RngInt(0,6)"
+            ]
+          },
+          "FUN_00571080_each_allocated": {
+            "only_blue_coins_false": [
+              "RngInt(0,100)",
+              "remaining record draws"
+            ],
+            "only_blue_coins_true": [
+              "force base type 32",
+              "remaining record draws"
+            ]
+          }
+        },
+        "same_tick_update_order": [
+          "FUN_00622150_flash",
+          "FUN_00622540_screen",
+          "FUN_00622be0_smoke",
+          "FUN_0052f8a0_particle",
+          "FUN_005f4210_debris"
+        ],
+        "exact_trace_complete": true
+      },
+      "evidence": {
+        "init": "0x00569260",
+        "update": "0x00605fe0",
+        "collision": "0x00585840",
+        "mark": "0x00555c40",
+        "dispatcher": "0x005afc50",
+        "renderer": "0x00618560",
+        "projectile_type_15_spawn": "0x00612fc7-0x006132bf",
+        "projectile_type_14_spawn": "0x00614031-0x006143cf",
+        "common_projectile_update": "0x006027e3-0x00602de0",
+        "projectile_renderer": "0x00603808/0x00603b32",
+        "projectile_player_collision": "0x005842c0",
+        "projectile_hma_collision": "0x00625a50",
+        "global_sound_gate_thunk": "0x00525924->0x00567990",
+        "global_sound_gate_dispatch_calls": "0x005b0c72/0x005b0d96/0x005b10ac/0x005b1191/0x005b1280",
+        "get_ready_to_level_transitions": "0x005abac2/0x005abfc0",
+        "warp_to_shop_transitions": "0x0061bce8/0x0061be78/0x0061c082",
+        "rank_ready_storage_and_initialization": "DAT_008487b4@0x006245a2",
+        "rank_ready_shop_producer": "0x00565094",
+        "rank_ready_state_13_samples": "0x005860a7/0x00588340/0x0058a2fc",
+        "only_blue_storage_and_initialization": "DAT_008489d4@0x00624487",
+        "only_blue_persisted_hydration": "0x005495ec",
+        "only_blue_runtime_producer": "0x00578b90",
+        "only_blue_state_13_sample": "0x0057116e"
+      }
+    },
+    "retail_big_boss_level_50_v1": {
+      "id": "retail_big_boss_level_50_v1",
+      "level_id": 50,
+      "level_mode_id": 4,
+      "executable_sha256": "ddf1778c307af1087ff9dcb512786111e665d972298aeaac3f1b4b2996d079ef",
+      "retail_state_id": 13,
+      "exact_trace_complete": true,
+      "authored_level_payload": {
+        "canonicalization": "warblade_canonical_payload_v1",
+        "sha256": "c4ae166f52d970d2e099ae82edab819d24904473cec5f80cdfbc55917f3494bd"
+      },
+      "resources": {
+        "slots": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "sheet_ids": [
+          "alien_big2_1",
+          "alien_big2_2",
+          "alien_big2_3",
+          "alien_big2_4",
+          "alien_big2_5",
+          "alien_big2_6"
+        ],
+        "sheet_size": [
+          576,
+          96
+        ]
+      },
+      "initialization": {
+        "group_modes": [
+          4,
+          5,
+          6,
+          7,
+          7
+        ],
+        "common_projectile_slots": 100,
+        "authored_entity_slots": 150,
+        "position_offset": [
+          -16,
+          -16
+        ],
+        "hum_pitch_rng": [
+          15000,
+          30000
+        ],
+        "hum_delta_rng": [
+          -100,
+          100
+        ],
+        "mirror_x": false,
+        "fixed_record_0_raw_words": [
+          6,
+          0,
+          0,
+          0
+        ],
+        "supplemental_record_0_raw_words": [
+          1,
+          1,
+          500,
+          1377,
+          8
+        ]
+      },
+      "animation": {
+        "stage_min": 0,
+        "stage_max": 5,
+        "stage_count": 6,
+        "stage_to_resource_slot": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "period_rng": [
+          2,
+          5
+        ],
+        "countdown_initial": "period",
+        "countdown_step": "subtract_tick_scale",
+        "advance_when": "countdown<0",
+        "advance": 1,
+        "wrap": "5_to_0",
+        "bounce": false,
+        "health_driven": false
+      },
+      "rendering": {
+        "part_count": 2,
+        "position_rounding": "trunc_toward_zero",
+        "normal_handles": [
+          "alien_big2_1",
+          "alien_big2_2",
+          "alien_big2_3",
+          "alien_big2_4",
+          "alien_big2_5",
+          "alien_big2_6"
+        ],
+        "hit_flash_handles": [
+          "alien_big2_1_mask",
+          "alien_big2_2_mask",
+          "alien_big2_3_mask",
+          "alien_big2_4_mask",
+          "alien_big2_5_mask",
+          "alien_big2_6_mask"
+        ],
+        "hit_flash": {
+          "successful_hit_countdown": 5,
+          "selection": "mask_when_nonzero_else_normal",
+          "decrement": "after_each_part_render",
+          "reset": "successful_hit_assigns_5"
+        },
+        "parts": [
+          {
+            "part_index": 0,
+            "source_rect": [
+              0,
+              0,
+              256,
+              64
+            ],
+            "destination_offset": [
+              -112,
+              0
+            ],
+            "size": [
+              256,
+              64
+            ]
+          },
+          {
+            "part_index": 1,
+            "source_rect": [
+              256,
+              0,
+              256,
+              64
+            ],
+            "destination_offset": [
+              -112,
+              64
+            ],
+            "size": [
+              256,
+              64
+            ]
+          }
+        ]
+      },
+      "health": {
+        "retail": 500,
+        "balanced_coop_multiplier": 2,
+        "damage_divisor": 10,
+        "minimum_damage": 1,
+        "terminal_hit_below": 0,
+        "death_below": 0
+      },
+      "collision": {
+        "anchor_x_offset": -128,
+        "strict_local_bounds": [
+          16,
+          16,
+          240,
+          112
+        ],
+        "special_projectile_local_y": 60,
+        "hma_damage_test": false
+      },
+      "projectile_allocation": {
+        "common_projectile_slots": 100,
+        "protocol": "reserve_then_finalize",
+        "reserve_callback": "allocate_common_projectile",
+        "finalize_callback": "finalize_common_projectile",
+        "callback_response": {
+          "ok": "required_boolean",
+          "error": "required_string",
+          "pool_full": "ok_true_allocated_false",
+          "callback_failure": "ok_false_stops_encounter"
+        },
+        "retained_response_fields": [
+          "retained_animation_frame",
+          "retained_animation_period",
+          "retained_animation_countdown"
+        ],
+        "pool_full_rng": "none",
+        "finalize_failure": "block_encounter",
+        "position_storage": "32x32_sprite_top_left",
+        "center_offset": [
+          16,
+          16
+        ],
+        "resource_slot_id": 1,
+        "enemy_sheet_id": "alien_big2_1",
+        "mask_id": "alien_big2_1",
+        "update_order": [
+          "animation",
+          "movement",
+          "retirement"
+        ],
+        "animation_countdown_step": "subtract_tick_scale",
+        "animation_advance_when": "countdown<0",
+        "movement": "add_spawn_tick_scaled_velocity",
+        "retirement": {
+          "axis": "top_left_y",
+          "comparison": ">surface_height",
+          "default_surface_height": 600,
+          "x_bounds": false,
+          "age_limit": false
+        },
+        "player_collision": {
+          "fighter_rect_size": [
+            40,
+            27
+          ],
+          "strict_broad_overlap": true,
+          "pixel_policy": "broad_hit_when_pixel_disabled_or_either_mask_null_else_hma",
+          "invalid_hma_bounds": "miss",
+          "on_hit": "consume_and_one_armour_step"
+        }
+      },
+      "aimed_fire": {
+        "owning_group_mode": 5,
+        "origin_group_mode": 7,
+        "trigger_multiplier": 3,
+        "timer": 1377,
+        "travel_rng": [
+          45,
+          55
+        ],
+        "jitter_rng": [
+          -40,
+          40
+        ],
+        "projectile_type": 15,
+        "size": [
+          32,
+          32
+        ],
+        "broadphase_inset": [
+          8,
+          8
+        ],
+        "broadphase": [
+          24,
+          24
+        ],
+        "source_rects": [
+          [
+            0,
+            64,
+            32,
+            32
+          ],
+          [
+            32,
+            64,
+            32,
+            32
+          ],
+          [
+            64,
+            64,
+            32,
+            32
+          ],
+          [
+            96,
+            64,
+            32,
+            32
+          ]
+        ],
+        "animation": {
+          "initialization": "retain_common_slot_fields",
+          "frame_wrap": "3_to_0",
+          "source_rect": "[frame*32,64,32,32]_unclamped"
+        },
+        "hma_occupied_bounds": [
+          [
+            11,
+            12,
+            20,
+            21
+          ],
+          [
+            2,
+            0,
+            20,
+            21
+          ],
+          [
+            5,
+            0,
+            20,
+            21
+          ],
+          null
+        ],
+        "hma_occupied_pixels": [
+          92,
+          94,
+          97,
+          0
+        ],
+        "sound_frequency_rng": [
+          28000,
+          32000
+        ],
+        "timer_a_step": 8,
+        "timer_a_step_application": "kill_pass_tightening_only",
+        "timer_a_step_active_effect": "inert_state_13_is_sole_active_entity_and_deactivates_before_terminal_tightening",
+        "authored_timer_initial": 1377,
+        "runtime_timer_initial": 1377,
+        "runtime_rng_upper": 1377,
+        "origin_groups": [
+          {
+            "group_id": 3,
+            "path_opcodes": []
+          },
+          {
+            "group_id": 4,
+            "path_opcodes": []
+          }
+        ]
+      },
+      "opcode_2": {
+        "source_group_mode": 6,
+        "reverse_records": true,
+        "spawn_offset_y": 48,
+        "speed_from_first_health_divisor": 10,
+        "projectile_type": 14,
+        "size": [
+          32,
+          32
+        ],
+        "broadphase_inset": [
+          4,
+          4
+        ],
+        "broadphase": [
+          28,
+          28
+        ],
+        "source_rects": [
+          [
+            512,
+            0,
+            32,
+            32
+          ],
+          [
+            512,
+            32,
+            32,
+            32
+          ],
+          [
+            512,
+            64,
+            32,
+            32
+          ],
+          [
+            544,
+            0,
+            32,
+            32
+          ],
+          [
+            544,
+            32,
+            32,
+            32
+          ],
+          [
+            544,
+            64,
+            32,
+            32
+          ]
+        ],
+        "animation": {
+          "initial_frame": 0,
+          "period_rng": [
+            1,
+            4
+          ],
+          "countdown_rng": [
+            1,
+            4
+          ],
+          "independent_draws": true,
+          "frame_wrap": "5_to_0"
+        },
+        "hma_occupied_bounds": [
+          [
+            2,
+            2,
+            29,
+            29
+          ],
+          [
+            2,
+            2,
+            29,
+            29
+          ],
+          [
+            2,
+            2,
+            29,
+            29
+          ],
+          [
+            2,
+            2,
+            29,
+            29
+          ],
+          [
+            2,
+            2,
+            29,
+            29
+          ],
+          [
+            2,
+            2,
+            29,
+            29
+          ]
+        ],
+        "hma_occupied_pixels": [
+          646,
+          645,
+          645,
+          645,
+          645,
+          645
+        ],
+        "projectile_sound_frequency_rng": [
+          24000,
+          30000
+        ],
+        "deferred_projectile_sound": {
+          "sample": "alienshoot2",
+          "overwrite": "last_allocated_wins",
+          "flush_order": "after_bigfire_later_same_main_tick",
+          "flush_gate": "alternating_global_sound_tick",
+          "flush_gate_initial": 4,
+          "flush_gate_lifetime": "match_process_not_level",
+          "flush_gate_step": "old_then_decrement;old==0_sets_1_and_flushes",
+          "closed_gate": "discard_at_next_enemy_update",
+          "spatial_source": "final_projectile_top_left",
+          "spatial_lookup": "FUN_00627530_then_af6048",
+          "x_clamp_uses_surface_height": true
+        },
+        "burst_sound_frequency_rng": [
+          28000,
+          32000
+        ],
+        "dynamic_record_count": 10,
+        "speed": 5.0,
+        "burst_groups": [
+          {
+            "group_id": 2,
+            "group_mode_id": 6,
+            "authored_record_count": 10,
+            "record_order": "reverse",
+            "reverse_records": true,
+            "speed_from_first_health_divisor": 10,
+            "speed": 5.0
+          }
+        ]
+      },
+      "path": {
+        "opcode_allowlist": [
+          0,
+          1,
+          2,
+          3,
+          7
+        ],
+        "loop_ease": 0.9599999785423279,
+        "crossing": "trunc(progress)>duration",
+        "opcode_7": "ease_to_anchor_then_restart_mode_5",
+        "point_zero_opcode_dispatch": false,
+        "opcode_3": {
+          "effect": "set_mode_7_aim_enabled",
+          "rng_draws": 0,
+          "loads_acceleration": false,
+          "resets_progress": false
+        },
+        "group_opcode_sequences": {
+          "0": [
+            0,
+            0
+          ],
+          "1": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            0,
+            0,
+            2,
+            7,
+            3
+          ],
+          "2": [],
+          "3": [],
+          "4": []
+        }
+      },
+      "death": {
+        "explosion_count_rng": [
+          8,
+          15
+        ],
+        "explosion_y_rng": [
+          -32,
+          32
+        ],
+        "explosion_x_rng": [
+          64,
+          192
+        ],
+        "explosion_effect": "FUN_00570420",
+        "post_effects": [
+          "FUN_00571080",
+          "FUN_005e0650",
+          "FUN_005e0650",
+          "FUN_0052f440"
+        ],
+        "post_effect_count": 500,
+        "plume_count": 2,
+        "plume_y_float_rng": [
+          0,
+          96
+        ],
+        "plume_x_float_rng": [
+          0,
+          224
+        ],
+        "plume_particle_count_rng": [
+          50,
+          100
+        ],
+        "plume_effect": "FUN_005defe0",
+        "sfx_cooldown_rng": [
+          40,
+          200
+        ],
+        "sfx_pair_fields": [
+          "first_min_argument",
+          "first_max_argument",
+          "frequency_min_argument",
+          "frequency_max_argument"
+        ],
+        "first_pair_range_semantics": "unsigned_reversed_bound_retail_bug",
+        "sfx_pairs": [
+          [
+            216,
+            190,
+            35000,
+            44100
+          ],
+          [
+            216,
+            190,
+            30000,
+            40000
+          ],
+          [
+            216,
+            190,
+            25000,
+            30000
+          ]
+        ]
+      },
+      "reward": {
+        "tail_score": 1000,
+        "retail_scale": 1000,
+        "base_score": 1000000,
+        "marks_level_complete": true,
+        "stops_hum": true,
+        "rank_markers_unchanged": true,
+        "destroyed_count": {
+          "killer_delta": 1,
+          "classic_coop_partner_delta": 1,
+          "completion_condition": "destroyed_plus_partner>=authored_total",
+          "completion_timestamp": "set_if_zero"
+        },
+        "ordinary_completion_bonus_and_rockets": true
+      },
+      "routing": {
+        "completion_mark_timing": "inside FUN_00585840 collision",
+        "dispatcher_poll_timing": "same tick after FUN_00605fe0 + render",
+        "retail_next_level_intent": true,
+        "campaign_wrapper_policy": "configured_end_level",
+        "extended_campaign_policy": "request_get_ready_level_51_once",
+        "explicit_end_level_50_policy": "complete_without_requesting_level_51"
+      },
+      "effects": {
+        "policy": "synchronous_root_rng_callback",
+        "callback_required": true,
+        "progression_inputs": {
+          "only_blue_coins_active": "selected_physical_player_persistent_boolean",
+          "rank_ready": "projectile_owner_physical_seat_persistent_boolean"
+        },
+        "progression_producers": {
+          "rank_ready": {
+            "storage": "DAT_008487b4",
+            "initialization": "0x006245a2",
+            "set_function": "FUN_0055f650",
+            "set_case": "0x0d",
+            "set_address": "0x00565094",
+            "set_condition": "all_six_rank_bits_already_set_and_once_per_shop_reward_succeeds_and_DAT_00848ba8_is_false",
+            "state_13_samples": [
+              "0x005860a7",
+              "0x00588340",
+              "0x0058a2fc"
+            ]
+          },
+          "only_blue_coins_active": {
+            "storage": "DAT_008489d4",
+            "initialization": "0x00624487",
+            "persisted_hydration_function": "FUN_00549460",
+            "persisted_score_condition": ">19999",
+            "persisted_hydration_address": "0x005495ec",
+            "runtime_set_function": "FUN_00571c60",
+            "runtime_set_condition": "third_type_0_sucker_or_blue_money_pickup",
+            "runtime_set_address": "0x00578b90",
+            "state_13_sample_function": "FUN_00571080",
+            "state_13_sample_address": "0x0057116e"
+          }
+        },
+        "death_order": [
+          "FUN_00570420_each",
+          "deactivate_boss",
+          "FUN_00571080",
+          "FUN_005e0650_left",
+          "FUN_005e0650_right",
+          "FUN_0052f440",
+          "FUN_005defe0_first",
+          "FUN_005defe0_second",
+          "death_sound_triple",
+          "score_popup",
+          "level_complete_mark",
+          "stop_hum"
+        ]
+      },
+      "sounds": {
+        "music": "boss",
+        "hum": "boss",
+        "hit": "hit1",
+        "terminal_hit": "hit2",
+        "death": "explo4",
+        "aimed_projectile": "bigsmall",
+        "opcode_2_deferred": "alienshoot2",
+        "opcode_2_direct": "bigfire"
+      },
+      "effect_runtime": {
+        "id": "retail_big_boss_effects_v1",
+        "executable_sha256": "ddf1778c307af1087ff9dcb512786111e665d972298aeaac3f1b4b2996d079ef",
+        "preset": {
+          "id": "retail_high",
+          "high_effects": true,
+          "particle_density": 100,
+          "evidence": "0x005bab12/0x005bab3a"
+        },
+        "pools": {
+          "flash": {
+            "capacity": 50,
+            "base": "DAT_00847720"
+          },
+          "debris": {
+            "capacity": 150,
+            "base": "DAT_00b04a54"
+          },
+          "smoke": {
+            "capacity": 500,
+            "base": "DAT_00ac5c98"
+          },
+          "particle": {
+            "capacity": 1000,
+            "base": "DAT_007e3948"
+          },
+          "screen": {
+            "capacity": 4,
+            "base": "DAT_008ff578"
+          }
+        },
+        "creation_order": {
+          "FUN_005dfee0": [
+            "scan_flash",
+            "RngInt(0,2)"
+          ],
+          "FUN_005e0650": [
+            "scan_screen_if_variant_positive",
+            "scan_flash",
+            "RngInt(0,3)",
+            "RngInt(0,150)",
+            "FUN_005df370(density*3)"
+          ],
+          "FUN_005defe0_each_allocated": [
+            "RngInt(0,359)",
+            "RngFloat(1,6)",
+            "RngFloat(2,3)",
+            "RngInt(0,5)",
+            "RngInt(0,2)",
+            "RngFloat(5,45)",
+            "RngInt(0,100)",
+            "RngInt(150,255)"
+          ],
+          "FUN_0052f440": [
+            "RngFloat(1.5,6) x3 before scan",
+            "count+1 allocation attempts",
+            "each: RngFloat(1,40), RngFloat(2,4), RngFloat(.01,.2), RngInt(0,3600)"
+          ],
+          "FUN_00570420": {
+            "rank_ready_false": [
+              "RngInt(0,6)"
+            ],
+            "rank_ready_true": [
+              "RngInt(0,5)",
+              "RngInt(0,7) if eligibility roll is 0, otherwise RngInt(0,6)"
+            ]
+          },
+          "FUN_00571080_each_allocated": {
+            "only_blue_coins_false": [
+              "RngInt(0,100)",
+              "remaining record draws"
+            ],
+            "only_blue_coins_true": [
+              "force base type 32",
+              "remaining record draws"
+            ]
+          }
+        },
+        "same_tick_update_order": [
+          "FUN_00622150_flash",
+          "FUN_00622540_screen",
+          "FUN_00622be0_smoke",
+          "FUN_0052f8a0_particle",
+          "FUN_005f4210_debris"
+        ],
+        "exact_trace_complete": true
+      },
+      "evidence": {
+        "init": "0x00569260",
+        "update": "0x00605fe0",
+        "collision": "0x00585840",
+        "mark": "0x00555c40",
+        "dispatcher": "0x005afc50",
+        "renderer": "0x00618560",
+        "projectile_type_15_spawn": "0x00612fc7-0x006132bf",
+        "projectile_type_14_spawn": "0x00614031-0x006143cf",
+        "common_projectile_update": "0x006027e3-0x00602de0",
+        "projectile_renderer": "0x00603808/0x00603b32",
+        "projectile_player_collision": "0x005842c0",
+        "projectile_hma_collision": "0x00625a50",
+        "global_sound_gate_thunk": "0x00525924->0x00567990",
+        "global_sound_gate_dispatch_calls": "0x005b0c72/0x005b0d96/0x005b10ac/0x005b1191/0x005b1280",
+        "get_ready_to_level_transitions": "0x005abac2/0x005abfc0",
+        "warp_to_shop_transitions": "0x0061bce8/0x0061be78/0x0061c082",
+        "rank_ready_storage_and_initialization": "DAT_008487b4@0x006245a2",
+        "rank_ready_shop_producer": "0x00565094",
+        "rank_ready_state_13_samples": "0x005860a7/0x00588340/0x0058a2fc",
+        "only_blue_storage_and_initialization": "DAT_008489d4@0x00624487",
+        "only_blue_persisted_hydration": "0x005495ec",
+        "only_blue_runtime_producer": "0x00578b90",
+        "only_blue_state_13_sample": "0x0057116e"
+      }
+    },
+    "retail_big_boss_level_75_v1": {
+      "id": "retail_big_boss_level_75_v1",
+      "level_id": 75,
+      "level_mode_id": 4,
+      "executable_sha256": "ddf1778c307af1087ff9dcb512786111e665d972298aeaac3f1b4b2996d079ef",
+      "retail_state_id": 13,
+      "exact_trace_complete": true,
+      "authored_level_payload": {
+        "canonicalization": "warblade_canonical_payload_v1",
+        "sha256": "daa437aca2a5fe322fef8941a3632d2962da6c7d3d627eca9cae46887af4c64d"
+      },
+      "resources": {
+        "slots": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "sheet_ids": [
+          "alien_big3_1",
+          "alien_big3_2",
+          "alien_big3_3",
+          "alien_big3_4",
+          "alien_big3_5",
+          "alien_big3_6"
+        ],
+        "sheet_size": [
+          576,
+          96
+        ]
+      },
+      "initialization": {
+        "group_modes": [
+          4,
+          5,
+          6,
+          7,
+          7
+        ],
+        "common_projectile_slots": 100,
+        "authored_entity_slots": 150,
+        "position_offset": [
+          -16,
+          -16
+        ],
+        "hum_pitch_rng": [
+          15000,
+          30000
+        ],
+        "hum_delta_rng": [
+          -100,
+          100
+        ],
+        "mirror_x": false,
+        "fixed_record_0_raw_words": [
+          6,
+          0,
+          0,
+          0
+        ],
+        "supplemental_record_0_raw_words": [
+          1,
+          1,
+          613,
+          904,
+          10
+        ]
+      },
+      "animation": {
+        "stage_min": 0,
+        "stage_max": 5,
+        "stage_count": 6,
+        "stage_to_resource_slot": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "period_rng": [
+          2,
+          5
+        ],
+        "countdown_initial": "period",
+        "countdown_step": "subtract_tick_scale",
+        "advance_when": "countdown<0",
+        "advance": 1,
+        "wrap": "5_to_0",
+        "bounce": false,
+        "health_driven": false
+      },
+      "rendering": {
+        "part_count": 2,
+        "position_rounding": "trunc_toward_zero",
+        "normal_handles": [
+          "alien_big3_1",
+          "alien_big3_2",
+          "alien_big3_3",
+          "alien_big3_4",
+          "alien_big3_5",
+          "alien_big3_6"
+        ],
+        "hit_flash_handles": [
+          "alien_big3_1_mask",
+          "alien_big3_2_mask",
+          "alien_big3_3_mask",
+          "alien_big3_4_mask",
+          "alien_big3_5_mask",
+          "alien_big3_6_mask"
+        ],
+        "hit_flash": {
+          "successful_hit_countdown": 5,
+          "selection": "mask_when_nonzero_else_normal",
+          "decrement": "after_each_part_render",
+          "reset": "successful_hit_assigns_5"
+        },
+        "parts": [
+          {
+            "part_index": 0,
+            "source_rect": [
+              0,
+              0,
+              256,
+              64
+            ],
+            "destination_offset": [
+              -112,
+              0
+            ],
+            "size": [
+              256,
+              64
+            ]
+          },
+          {
+            "part_index": 1,
+            "source_rect": [
+              256,
+              0,
+              256,
+              64
+            ],
+            "destination_offset": [
+              -112,
+              64
+            ],
+            "size": [
+              256,
+              64
+            ]
+          }
+        ]
+      },
+      "health": {
+        "retail": 613,
+        "balanced_coop_multiplier": 2,
+        "damage_divisor": 10,
+        "minimum_damage": 1,
+        "terminal_hit_below": 0,
+        "death_below": 0
+      },
+      "collision": {
+        "anchor_x_offset": -128,
+        "strict_local_bounds": [
+          16,
+          16,
+          240,
+          112
+        ],
+        "special_projectile_local_y": 60,
+        "hma_damage_test": false
+      },
+      "projectile_allocation": {
+        "common_projectile_slots": 100,
+        "protocol": "reserve_then_finalize",
+        "reserve_callback": "allocate_common_projectile",
+        "finalize_callback": "finalize_common_projectile",
+        "callback_response": {
+          "ok": "required_boolean",
+          "error": "required_string",
+          "pool_full": "ok_true_allocated_false",
+          "callback_failure": "ok_false_stops_encounter"
+        },
+        "retained_response_fields": [
+          "retained_animation_frame",
+          "retained_animation_period",
+          "retained_animation_countdown"
+        ],
+        "pool_full_rng": "none",
+        "finalize_failure": "block_encounter",
+        "position_storage": "32x32_sprite_top_left",
+        "center_offset": [
+          16,
+          16
+        ],
+        "resource_slot_id": 1,
+        "enemy_sheet_id": "alien_big3_1",
+        "mask_id": "alien_big3_1",
+        "update_order": [
+          "animation",
+          "movement",
+          "retirement"
+        ],
+        "animation_countdown_step": "subtract_tick_scale",
+        "animation_advance_when": "countdown<0",
+        "movement": "add_spawn_tick_scaled_velocity",
+        "retirement": {
+          "axis": "top_left_y",
+          "comparison": ">surface_height",
+          "default_surface_height": 600,
+          "x_bounds": false,
+          "age_limit": false
+        },
+        "player_collision": {
+          "fighter_rect_size": [
+            40,
+            27
+          ],
+          "strict_broad_overlap": true,
+          "pixel_policy": "broad_hit_when_pixel_disabled_or_either_mask_null_else_hma",
+          "invalid_hma_bounds": "miss",
+          "on_hit": "consume_and_one_armour_step"
+        }
+      },
+      "aimed_fire": {
+        "owning_group_mode": 5,
+        "origin_group_mode": 7,
+        "trigger_multiplier": 3,
+        "timer": 904,
+        "travel_rng": [
+          45,
+          55
+        ],
+        "jitter_rng": [
+          -40,
+          40
+        ],
+        "projectile_type": 15,
+        "size": [
+          32,
+          32
+        ],
+        "broadphase_inset": [
+          8,
+          8
+        ],
+        "broadphase": [
+          24,
+          24
+        ],
+        "source_rects": [
+          [
+            0,
+            64,
+            32,
+            32
+          ],
+          [
+            32,
+            64,
+            32,
+            32
+          ],
+          [
+            64,
+            64,
+            32,
+            32
+          ],
+          [
+            96,
+            64,
+            32,
+            32
+          ]
+        ],
+        "animation": {
+          "initialization": "retain_common_slot_fields",
+          "frame_wrap": "3_to_0",
+          "source_rect": "[frame*32,64,32,32]_unclamped"
+        },
+        "hma_occupied_bounds": [
+          [
+            9,
+            0,
+            20,
+            21
+          ],
+          [
+            9,
+            0,
+            20,
+            20
+          ],
+          [
+            11,
+            12,
+            21,
+            21
+          ],
+          null
+        ],
+        "hma_occupied_pixels": [
+          95,
+          91,
+          100,
+          0
+        ],
+        "sound_frequency_rng": [
+          28000,
+          32000
+        ],
+        "timer_a_step": 10,
+        "timer_a_step_application": "kill_pass_tightening_only",
+        "timer_a_step_active_effect": "inert_state_13_is_sole_active_entity_and_deactivates_before_terminal_tightening",
+        "authored_timer_initial": 904,
+        "runtime_timer_initial": 904,
+        "runtime_rng_upper": 904,
+        "origin_groups": [
+          {
+            "group_id": 3,
+            "path_opcodes": [
+              3
+            ]
+          },
+          {
+            "group_id": 4,
+            "path_opcodes": [
+              3
+            ]
+          }
+        ]
+      },
+      "opcode_2": {
+        "source_group_mode": 6,
+        "reverse_records": true,
+        "spawn_offset_y": 48,
+        "speed_from_first_health_divisor": 10,
+        "projectile_type": 14,
+        "size": [
+          32,
+          32
+        ],
+        "broadphase_inset": [
+          4,
+          4
+        ],
+        "broadphase": [
+          28,
+          28
+        ],
+        "source_rects": [
+          [
+            512,
+            0,
+            32,
+            32
+          ],
+          [
+            512,
+            32,
+            32,
+            32
+          ],
+          [
+            512,
+            64,
+            32,
+            32
+          ],
+          [
+            544,
+            0,
+            32,
+            32
+          ],
+          [
+            544,
+            32,
+            32,
+            32
+          ],
+          [
+            544,
+            64,
+            32,
+            32
+          ]
+        ],
+        "animation": {
+          "initial_frame": 0,
+          "period_rng": [
+            1,
+            4
+          ],
+          "countdown_rng": [
+            1,
+            4
+          ],
+          "independent_draws": true,
+          "frame_wrap": "5_to_0"
+        },
+        "hma_occupied_bounds": [
+          [
+            0,
+            0,
+            31,
+            31
+          ],
+          [
+            1,
+            1,
+            31,
+            31
+          ],
+          [
+            1,
+            1,
+            31,
+            30
+          ],
+          [
+            2,
+            0,
+            31,
+            31
+          ],
+          [
+            1,
+            1,
+            31,
+            31
+          ],
+          [
+            0,
+            0,
+            30,
+            30
+          ]
+        ],
+        "hma_occupied_pixels": [
+          441,
+          469,
+          487,
+          494,
+          496,
+          479
+        ],
+        "projectile_sound_frequency_rng": [
+          24000,
+          30000
+        ],
+        "deferred_projectile_sound": {
+          "sample": "alienshoot2",
+          "overwrite": "last_allocated_wins",
+          "flush_order": "after_bigfire_later_same_main_tick",
+          "flush_gate": "alternating_global_sound_tick",
+          "flush_gate_initial": 4,
+          "flush_gate_lifetime": "match_process_not_level",
+          "flush_gate_step": "old_then_decrement;old==0_sets_1_and_flushes",
+          "closed_gate": "discard_at_next_enemy_update",
+          "spatial_source": "final_projectile_top_left",
+          "spatial_lookup": "FUN_00627530_then_af6048",
+          "x_clamp_uses_surface_height": true
+        },
+        "burst_sound_frequency_rng": [
+          28000,
+          32000
+        ],
+        "dynamic_record_count": 16,
+        "speed": 4.6,
+        "burst_groups": [
+          {
+            "group_id": 2,
+            "group_mode_id": 6,
+            "authored_record_count": 16,
+            "record_order": "reverse",
+            "reverse_records": true,
+            "speed_from_first_health_divisor": 10,
+            "speed": 4.6
+          }
+        ]
+      },
+      "path": {
+        "opcode_allowlist": [
+          0,
+          1,
+          2,
+          3,
+          7
+        ],
+        "loop_ease": 0.9599999785423279,
+        "crossing": "trunc(progress)>duration",
+        "opcode_7": "ease_to_anchor_then_restart_mode_5",
+        "point_zero_opcode_dispatch": false,
+        "opcode_3": {
+          "effect": "set_mode_7_aim_enabled",
+          "rng_draws": 0,
+          "loads_acceleration": false,
+          "resets_progress": false
+        },
+        "group_opcode_sequences": {
+          "0": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "1": [
+            0,
+            0,
+            1,
+            2,
+            0,
+            0,
+            1,
+            2,
+            0,
+            0,
+            1,
+            2,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            7
+          ],
+          "2": [],
+          "3": [
+            3
+          ],
+          "4": [
+            3
+          ]
+        }
+      },
+      "death": {
+        "explosion_count_rng": [
+          8,
+          15
+        ],
+        "explosion_y_rng": [
+          -32,
+          32
+        ],
+        "explosion_x_rng": [
+          64,
+          192
+        ],
+        "explosion_effect": "FUN_00570420",
+        "post_effects": [
+          "FUN_00571080",
+          "FUN_005e0650",
+          "FUN_005e0650",
+          "FUN_0052f440"
+        ],
+        "post_effect_count": 500,
+        "plume_count": 2,
+        "plume_y_float_rng": [
+          0,
+          96
+        ],
+        "plume_x_float_rng": [
+          0,
+          224
+        ],
+        "plume_particle_count_rng": [
+          50,
+          100
+        ],
+        "plume_effect": "FUN_005defe0",
+        "sfx_cooldown_rng": [
+          40,
+          200
+        ],
+        "sfx_pair_fields": [
+          "first_min_argument",
+          "first_max_argument",
+          "frequency_min_argument",
+          "frequency_max_argument"
+        ],
+        "first_pair_range_semantics": "unsigned_reversed_bound_retail_bug",
+        "sfx_pairs": [
+          [
+            216,
+            190,
+            35000,
+            44100
+          ],
+          [
+            216,
+            190,
+            30000,
+            40000
+          ],
+          [
+            216,
+            190,
+            25000,
+            30000
+          ]
+        ]
+      },
+      "reward": {
+        "tail_score": 5000,
+        "retail_scale": 1000,
+        "base_score": 5000000,
+        "marks_level_complete": true,
+        "stops_hum": true,
+        "rank_markers_unchanged": true,
+        "destroyed_count": {
+          "killer_delta": 1,
+          "classic_coop_partner_delta": 1,
+          "completion_condition": "destroyed_plus_partner>=authored_total",
+          "completion_timestamp": "set_if_zero"
+        },
+        "ordinary_completion_bonus_and_rockets": true
+      },
+      "routing": {
+        "completion_mark_timing": "inside FUN_00585840 collision",
+        "dispatcher_poll_timing": "same tick after FUN_00605fe0 + render",
+        "retail_next_level_intent": true,
+        "campaign_wrapper_policy": "configured_end_level",
+        "extended_campaign_policy": "request_get_ready_level_76_once",
+        "explicit_end_level_75_policy": "complete_without_requesting_level_76"
+      },
+      "effects": {
+        "policy": "synchronous_root_rng_callback",
+        "callback_required": true,
+        "progression_inputs": {
+          "only_blue_coins_active": "selected_physical_player_persistent_boolean",
+          "rank_ready": "projectile_owner_physical_seat_persistent_boolean"
+        },
+        "progression_producers": {
+          "rank_ready": {
+            "storage": "DAT_008487b4",
+            "initialization": "0x006245a2",
+            "set_function": "FUN_0055f650",
+            "set_case": "0x0d",
+            "set_address": "0x00565094",
+            "set_condition": "all_six_rank_bits_already_set_and_once_per_shop_reward_succeeds_and_DAT_00848ba8_is_false",
+            "state_13_samples": [
+              "0x005860a7",
+              "0x00588340",
+              "0x0058a2fc"
+            ]
+          },
+          "only_blue_coins_active": {
+            "storage": "DAT_008489d4",
+            "initialization": "0x00624487",
+            "persisted_hydration_function": "FUN_00549460",
+            "persisted_score_condition": ">19999",
+            "persisted_hydration_address": "0x005495ec",
+            "runtime_set_function": "FUN_00571c60",
+            "runtime_set_condition": "third_type_0_sucker_or_blue_money_pickup",
+            "runtime_set_address": "0x00578b90",
+            "state_13_sample_function": "FUN_00571080",
+            "state_13_sample_address": "0x0057116e"
+          }
+        },
+        "death_order": [
+          "FUN_00570420_each",
+          "deactivate_boss",
+          "FUN_00571080",
+          "FUN_005e0650_left",
+          "FUN_005e0650_right",
+          "FUN_0052f440",
+          "FUN_005defe0_first",
+          "FUN_005defe0_second",
+          "death_sound_triple",
+          "score_popup",
+          "level_complete_mark",
+          "stop_hum"
+        ]
+      },
+      "sounds": {
+        "music": "boss",
+        "hum": "boss",
+        "hit": "hit1",
+        "terminal_hit": "hit2",
+        "death": "explo4",
+        "aimed_projectile": "bigsmall",
+        "opcode_2_deferred": "alienshoot2",
+        "opcode_2_direct": "bigfire"
+      },
+      "effect_runtime": {
+        "id": "retail_big_boss_effects_v1",
+        "executable_sha256": "ddf1778c307af1087ff9dcb512786111e665d972298aeaac3f1b4b2996d079ef",
+        "preset": {
+          "id": "retail_high",
+          "high_effects": true,
+          "particle_density": 100,
+          "evidence": "0x005bab12/0x005bab3a"
+        },
+        "pools": {
+          "flash": {
+            "capacity": 50,
+            "base": "DAT_00847720"
+          },
+          "debris": {
+            "capacity": 150,
+            "base": "DAT_00b04a54"
+          },
+          "smoke": {
+            "capacity": 500,
+            "base": "DAT_00ac5c98"
+          },
+          "particle": {
+            "capacity": 1000,
+            "base": "DAT_007e3948"
+          },
+          "screen": {
+            "capacity": 4,
+            "base": "DAT_008ff578"
+          }
+        },
+        "creation_order": {
+          "FUN_005dfee0": [
+            "scan_flash",
+            "RngInt(0,2)"
+          ],
+          "FUN_005e0650": [
+            "scan_screen_if_variant_positive",
+            "scan_flash",
+            "RngInt(0,3)",
+            "RngInt(0,150)",
+            "FUN_005df370(density*3)"
+          ],
+          "FUN_005defe0_each_allocated": [
+            "RngInt(0,359)",
+            "RngFloat(1,6)",
+            "RngFloat(2,3)",
+            "RngInt(0,5)",
+            "RngInt(0,2)",
+            "RngFloat(5,45)",
+            "RngInt(0,100)",
+            "RngInt(150,255)"
+          ],
+          "FUN_0052f440": [
+            "RngFloat(1.5,6) x3 before scan",
+            "count+1 allocation attempts",
+            "each: RngFloat(1,40), RngFloat(2,4), RngFloat(.01,.2), RngInt(0,3600)"
+          ],
+          "FUN_00570420": {
+            "rank_ready_false": [
+              "RngInt(0,6)"
+            ],
+            "rank_ready_true": [
+              "RngInt(0,5)",
+              "RngInt(0,7) if eligibility roll is 0, otherwise RngInt(0,6)"
+            ]
+          },
+          "FUN_00571080_each_allocated": {
+            "only_blue_coins_false": [
+              "RngInt(0,100)",
+              "remaining record draws"
+            ],
+            "only_blue_coins_true": [
+              "force base type 32",
+              "remaining record draws"
+            ]
+          }
+        },
+        "same_tick_update_order": [
+          "FUN_00622150_flash",
+          "FUN_00622540_screen",
+          "FUN_00622be0_smoke",
+          "FUN_0052f8a0_particle",
+          "FUN_005f4210_debris"
+        ],
+        "exact_trace_complete": true
+      },
+      "evidence": {
+        "init": "0x00569260",
+        "update": "0x00605fe0",
+        "collision": "0x00585840",
+        "mark": "0x00555c40",
+        "dispatcher": "0x005afc50",
+        "renderer": "0x00618560",
+        "projectile_type_15_spawn": "0x00612fc7-0x006132bf",
+        "projectile_type_14_spawn": "0x00614031-0x006143cf",
+        "common_projectile_update": "0x006027e3-0x00602de0",
+        "projectile_renderer": "0x00603808/0x00603b32",
+        "projectile_player_collision": "0x005842c0",
+        "projectile_hma_collision": "0x00625a50",
+        "global_sound_gate_thunk": "0x00525924->0x00567990",
+        "global_sound_gate_dispatch_calls": "0x005b0c72/0x005b0d96/0x005b10ac/0x005b1191/0x005b1280",
+        "get_ready_to_level_transitions": "0x005abac2/0x005abfc0",
+        "warp_to_shop_transitions": "0x0061bce8/0x0061be78/0x0061c082",
+        "rank_ready_storage_and_initialization": "DAT_008487b4@0x006245a2",
+        "rank_ready_shop_producer": "0x00565094",
+        "rank_ready_state_13_samples": "0x005860a7/0x00588340/0x0058a2fc",
+        "only_blue_storage_and_initialization": "DAT_008489d4@0x00624487",
+        "only_blue_persisted_hydration": "0x005495ec",
+        "only_blue_runtime_producer": "0x00578b90",
+        "only_blue_state_13_sample": "0x0057116e"
+      }
+    },
+    "retail_big_boss_level_100_v1": {
+      "id": "retail_big_boss_level_100_v1",
+      "level_id": 100,
+      "level_mode_id": 4,
+      "executable_sha256": "ddf1778c307af1087ff9dcb512786111e665d972298aeaac3f1b4b2996d079ef",
+      "retail_state_id": 13,
+      "exact_trace_complete": true,
+      "authored_level_payload": {
+        "canonicalization": "warblade_canonical_payload_v1",
+        "sha256": "ccc5c188f1c4f4e1344d831c759d01590159ccb99b02ae935784a2283bb56f47"
+      },
+      "resources": {
+        "slots": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "sheet_ids": [
+          "alien_big4_1",
+          "alien_big4_2",
+          "alien_big4_3",
+          "alien_big4_4",
+          "alien_big4_5",
+          "alien_big4_6"
+        ],
+        "sheet_size": [
+          576,
+          96
+        ]
+      },
+      "initialization": {
+        "group_modes": [
+          4,
+          5,
+          6,
+          6,
+          7,
+          7
+        ],
+        "common_projectile_slots": 100,
+        "authored_entity_slots": 150,
+        "position_offset": [
+          -16,
+          -16
+        ],
+        "hum_pitch_rng": [
+          15000,
+          30000
+        ],
+        "hum_delta_rng": [
+          -100,
+          100
+        ],
+        "mirror_x": true,
+        "fixed_record_0_raw_words": [
+          6,
+          1,
+          0,
+          0
+        ],
+        "supplemental_record_0_raw_words": [
+          1,
+          1,
+          500,
+          904,
+          10
+        ]
+      },
+      "animation": {
+        "stage_min": 0,
+        "stage_max": 5,
+        "stage_count": 6,
+        "stage_to_resource_slot": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "period_rng": [
+          2,
+          5
+        ],
+        "countdown_initial": "period",
+        "countdown_step": "subtract_tick_scale",
+        "advance_when": "countdown<0",
+        "advance": 1,
+        "wrap": "5_to_0",
+        "bounce": false,
+        "health_driven": false
+      },
+      "rendering": {
+        "part_count": 2,
+        "position_rounding": "trunc_toward_zero",
+        "normal_handles": [
+          "alien_big4_1",
+          "alien_big4_2",
+          "alien_big4_3",
+          "alien_big4_4",
+          "alien_big4_5",
+          "alien_big4_6"
+        ],
+        "hit_flash_handles": [
+          "alien_big4_1_mask",
+          "alien_big4_2_mask",
+          "alien_big4_3_mask",
+          "alien_big4_4_mask",
+          "alien_big4_5_mask",
+          "alien_big4_6_mask"
+        ],
+        "hit_flash": {
+          "successful_hit_countdown": 5,
+          "selection": "mask_when_nonzero_else_normal",
+          "decrement": "after_each_part_render",
+          "reset": "successful_hit_assigns_5"
+        },
+        "parts": [
+          {
+            "part_index": 0,
+            "source_rect": [
+              0,
+              0,
+              256,
+              64
+            ],
+            "destination_offset": [
+              -112,
+              0
+            ],
+            "size": [
+              256,
+              64
+            ]
+          },
+          {
+            "part_index": 1,
+            "source_rect": [
+              256,
+              0,
+              256,
+              64
+            ],
+            "destination_offset": [
+              -112,
+              64
+            ],
+            "size": [
+              256,
+              64
+            ]
+          }
+        ]
+      },
+      "health": {
+        "retail": 500,
+        "balanced_coop_multiplier": 2,
+        "damage_divisor": 10,
+        "minimum_damage": 1,
+        "terminal_hit_below": 0,
+        "death_below": 0
+      },
+      "collision": {
+        "anchor_x_offset": -128,
+        "strict_local_bounds": [
+          16,
+          16,
+          240,
+          112
+        ],
+        "special_projectile_local_y": 60,
+        "hma_damage_test": false
+      },
+      "projectile_allocation": {
+        "common_projectile_slots": 100,
+        "protocol": "reserve_then_finalize",
+        "reserve_callback": "allocate_common_projectile",
+        "finalize_callback": "finalize_common_projectile",
+        "callback_response": {
+          "ok": "required_boolean",
+          "error": "required_string",
+          "pool_full": "ok_true_allocated_false",
+          "callback_failure": "ok_false_stops_encounter"
+        },
+        "retained_response_fields": [
+          "retained_animation_frame",
+          "retained_animation_period",
+          "retained_animation_countdown"
+        ],
+        "pool_full_rng": "none",
+        "finalize_failure": "block_encounter",
+        "position_storage": "32x32_sprite_top_left",
+        "center_offset": [
+          16,
+          16
+        ],
+        "resource_slot_id": 1,
+        "enemy_sheet_id": "alien_big4_1",
+        "mask_id": "alien_big4_1",
+        "update_order": [
+          "animation",
+          "movement",
+          "retirement"
+        ],
+        "animation_countdown_step": "subtract_tick_scale",
+        "animation_advance_when": "countdown<0",
+        "movement": "add_spawn_tick_scaled_velocity",
+        "retirement": {
+          "axis": "top_left_y",
+          "comparison": ">surface_height",
+          "default_surface_height": 600,
+          "x_bounds": false,
+          "age_limit": false
+        },
+        "player_collision": {
+          "fighter_rect_size": [
+            40,
+            27
+          ],
+          "strict_broad_overlap": true,
+          "pixel_policy": "broad_hit_when_pixel_disabled_or_either_mask_null_else_hma",
+          "invalid_hma_bounds": "miss",
+          "on_hit": "consume_and_one_armour_step"
+        }
+      },
+      "aimed_fire": {
+        "owning_group_mode": 5,
+        "origin_group_mode": 7,
+        "trigger_multiplier": 3,
+        "timer": 904,
+        "travel_rng": [
+          45,
+          55
+        ],
+        "jitter_rng": [
+          -40,
+          40
+        ],
+        "projectile_type": 15,
+        "size": [
+          32,
+          32
+        ],
+        "broadphase_inset": [
+          8,
+          8
+        ],
+        "broadphase": [
+          24,
+          24
+        ],
+        "source_rects": [
+          [
+            0,
+            64,
+            32,
+            32
+          ],
+          [
+            32,
+            64,
+            32,
+            32
+          ],
+          [
+            64,
+            64,
+            32,
+            32
+          ],
+          [
+            96,
+            64,
+            32,
+            32
+          ]
+        ],
+        "animation": {
+          "initialization": "retain_common_slot_fields",
+          "frame_wrap": "3_to_0",
+          "source_rect": "[frame*32,64,32,32]_unclamped"
+        },
+        "hma_occupied_bounds": [
+          [
+            11,
+            12,
+            20,
+            21
+          ],
+          [
+            11,
+            12,
+            20,
+            20
+          ],
+          [
+            11,
+            12,
+            20,
+            21
+          ],
+          [
+            7,
+            0,
+            20,
+            20
+          ]
+        ],
+        "hma_occupied_pixels": [
+          91,
+          90,
+          97,
+          87
+        ],
+        "sound_frequency_rng": [
+          28000,
+          32000
+        ],
+        "timer_a_step": 10,
+        "timer_a_step_application": "kill_pass_tightening_only",
+        "timer_a_step_active_effect": "inert_state_13_is_sole_active_entity_and_deactivates_before_terminal_tightening",
+        "authored_timer_initial": 904,
+        "runtime_timer_initial": 904,
+        "runtime_rng_upper": 904,
+        "origin_groups": [
+          {
+            "group_id": 4,
+            "path_opcodes": [
+              6,
+              1
+            ]
+          },
+          {
+            "group_id": 5,
+            "path_opcodes": [
+              6,
+              1
+            ]
+          }
+        ]
+      },
+      "opcode_2": {
+        "source_group_mode": 6,
+        "reverse_records": true,
+        "spawn_offset_y": 48,
+        "speed_from_first_health_divisor": 10,
+        "projectile_type": 14,
+        "size": [
+          32,
+          32
+        ],
+        "broadphase_inset": [
+          4,
+          4
+        ],
+        "broadphase": [
+          28,
+          28
+        ],
+        "source_rects": [
+          [
+            512,
+            0,
+            32,
+            32
+          ],
+          [
+            512,
+            32,
+            32,
+            32
+          ],
+          [
+            512,
+            64,
+            32,
+            32
+          ],
+          [
+            544,
+            0,
+            32,
+            32
+          ],
+          [
+            544,
+            32,
+            32,
+            32
+          ],
+          [
+            544,
+            64,
+            32,
+            32
+          ]
+        ],
+        "animation": {
+          "initial_frame": 0,
+          "period_rng": [
+            1,
+            4
+          ],
+          "countdown_rng": [
+            1,
+            4
+          ],
+          "independent_draws": true,
+          "frame_wrap": "5_to_0"
+        },
+        "hma_occupied_bounds": [
+          [
+            0,
+            0,
+            30,
+            31
+          ],
+          [
+            0,
+            0,
+            31,
+            31
+          ],
+          [
+            0,
+            0,
+            31,
+            31
+          ],
+          [
+            0,
+            0,
+            31,
+            31
+          ],
+          [
+            0,
+            0,
+            31,
+            31
+          ],
+          [
+            1,
+            0,
+            31,
+            31
+          ]
+        ],
+        "hma_occupied_pixels": [
+          671,
+          588,
+          773,
+          698,
+          659,
+          661
+        ],
+        "projectile_sound_frequency_rng": [
+          24000,
+          30000
+        ],
+        "deferred_projectile_sound": {
+          "sample": "alienshoot2",
+          "overwrite": "last_allocated_wins",
+          "flush_order": "after_bigfire_later_same_main_tick",
+          "flush_gate": "alternating_global_sound_tick",
+          "flush_gate_initial": 4,
+          "flush_gate_lifetime": "match_process_not_level",
+          "flush_gate_step": "old_then_decrement;old==0_sets_1_and_flushes",
+          "closed_gate": "discard_at_next_enemy_update",
+          "spatial_source": "final_projectile_top_left",
+          "spatial_lookup": "FUN_00627530_then_af6048",
+          "x_clamp_uses_surface_height": true
+        },
+        "burst_sound_frequency_rng": [
+          28000,
+          32000
+        ],
+        "dynamic_record_count": 8,
+        "speed": 7.5,
+        "burst_groups": [
+          {
+            "group_id": 2,
+            "group_mode_id": 6,
+            "authored_record_count": 4,
+            "record_order": "reverse",
+            "reverse_records": true,
+            "speed_from_first_health_divisor": 10,
+            "speed": 7.5
+          },
+          {
+            "group_id": 3,
+            "group_mode_id": 6,
+            "authored_record_count": 4,
+            "record_order": "reverse",
+            "reverse_records": true,
+            "speed_from_first_health_divisor": 10,
+            "speed": 7.5
+          }
+        ]
+      },
+      "path": {
+        "opcode_allowlist": [
+          0,
+          1,
+          2,
+          6,
+          7
+        ],
+        "loop_ease": 0.9599999785423279,
+        "crossing": "trunc(progress)>duration",
+        "opcode_7": "ease_to_anchor_then_restart_mode_5",
+        "point_zero_opcode_dispatch": false,
+        "opcode_6": "deactivate",
+        "group_opcode_sequences": {
+          "0": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "1": [
+            0,
+            0,
+            2,
+            0,
+            2,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            0,
+            2,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            7
+          ],
+          "2": [],
+          "3": [
+            6,
+            1
+          ],
+          "4": [
+            6,
+            1
+          ],
+          "5": [
+            6,
+            1
+          ]
+        }
+      },
+      "death": {
+        "explosion_count_rng": [
+          8,
+          15
+        ],
+        "explosion_y_rng": [
+          -32,
+          32
+        ],
+        "explosion_x_rng": [
+          64,
+          192
+        ],
+        "explosion_effect": "FUN_00570420",
+        "post_effects": [
+          "FUN_00571080",
+          "FUN_005e0650",
+          "FUN_005e0650",
+          "FUN_0052f440"
+        ],
+        "post_effect_count": 500,
+        "plume_count": 2,
+        "plume_y_float_rng": [
+          0,
+          96
+        ],
+        "plume_x_float_rng": [
+          0,
+          224
+        ],
+        "plume_particle_count_rng": [
+          50,
+          100
+        ],
+        "plume_effect": "FUN_005defe0",
+        "sfx_cooldown_rng": [
+          40,
+          200
+        ],
+        "sfx_pair_fields": [
+          "first_min_argument",
+          "first_max_argument",
+          "frequency_min_argument",
+          "frequency_max_argument"
+        ],
+        "first_pair_range_semantics": "unsigned_reversed_bound_retail_bug",
+        "sfx_pairs": [
+          [
+            216,
+            190,
+            35000,
+            44100
+          ],
+          [
+            216,
+            190,
+            30000,
+            40000
+          ],
+          [
+            216,
+            190,
+            25000,
+            30000
+          ]
+        ]
+      },
+      "reward": {
+        "tail_score": 10000,
+        "retail_scale": 1000,
+        "base_score": 10000000,
+        "marks_level_complete": true,
+        "stops_hum": true,
+        "rank_markers_unchanged": true,
+        "destroyed_count": {
+          "killer_delta": 1,
+          "classic_coop_partner_delta": 1,
+          "completion_condition": "destroyed_plus_partner>=authored_total",
+          "completion_timestamp": "set_if_zero"
+        },
+        "ordinary_completion_bonus_and_rockets": true
+      },
+      "routing": {
+        "completion_mark_timing": "inside FUN_00585840 collision",
+        "dispatcher_poll_timing": "same tick after FUN_00605fe0 + render",
+        "retail_next_level_intent": true,
+        "campaign_wrapper_policy": "configured_end_level",
+        "extended_campaign_policy": "reject_level_101_out_of_catalog",
+        "explicit_end_level_100_policy": "complete_without_requesting_level_101"
+      },
+      "effects": {
+        "policy": "synchronous_root_rng_callback",
+        "callback_required": true,
+        "progression_inputs": {
+          "only_blue_coins_active": "selected_physical_player_persistent_boolean",
+          "rank_ready": "projectile_owner_physical_seat_persistent_boolean"
+        },
+        "progression_producers": {
+          "rank_ready": {
+            "storage": "DAT_008487b4",
+            "initialization": "0x006245a2",
+            "set_function": "FUN_0055f650",
+            "set_case": "0x0d",
+            "set_address": "0x00565094",
+            "set_condition": "all_six_rank_bits_already_set_and_once_per_shop_reward_succeeds_and_DAT_00848ba8_is_false",
+            "state_13_samples": [
+              "0x005860a7",
+              "0x00588340",
+              "0x0058a2fc"
+            ]
+          },
+          "only_blue_coins_active": {
+            "storage": "DAT_008489d4",
+            "initialization": "0x00624487",
+            "persisted_hydration_function": "FUN_00549460",
+            "persisted_score_condition": ">19999",
+            "persisted_hydration_address": "0x005495ec",
+            "runtime_set_function": "FUN_00571c60",
+            "runtime_set_condition": "third_type_0_sucker_or_blue_money_pickup",
+            "runtime_set_address": "0x00578b90",
+            "state_13_sample_function": "FUN_00571080",
+            "state_13_sample_address": "0x0057116e"
+          }
+        },
+        "death_order": [
+          "FUN_00570420_each",
+          "deactivate_boss",
+          "FUN_00571080",
+          "FUN_005e0650_left",
+          "FUN_005e0650_right",
+          "FUN_0052f440",
+          "FUN_005defe0_first",
+          "FUN_005defe0_second",
+          "death_sound_triple",
+          "score_popup",
+          "level_complete_mark",
+          "stop_hum"
+        ]
+      },
+      "sounds": {
+        "music": "boss",
+        "hum": "boss",
+        "hit": "hit1",
+        "terminal_hit": "hit2",
+        "death": "explo4",
+        "aimed_projectile": "bigsmall",
+        "opcode_2_deferred": "alienshoot2",
+        "opcode_2_direct": "bigfire"
+      },
+      "effect_runtime": {
+        "id": "retail_big_boss_effects_v1",
+        "executable_sha256": "ddf1778c307af1087ff9dcb512786111e665d972298aeaac3f1b4b2996d079ef",
+        "preset": {
+          "id": "retail_high",
+          "high_effects": true,
+          "particle_density": 100,
+          "evidence": "0x005bab12/0x005bab3a"
+        },
+        "pools": {
+          "flash": {
+            "capacity": 50,
+            "base": "DAT_00847720"
+          },
+          "debris": {
+            "capacity": 150,
+            "base": "DAT_00b04a54"
+          },
+          "smoke": {
+            "capacity": 500,
+            "base": "DAT_00ac5c98"
+          },
+          "particle": {
+            "capacity": 1000,
+            "base": "DAT_007e3948"
+          },
+          "screen": {
+            "capacity": 4,
+            "base": "DAT_008ff578"
+          }
+        },
+        "creation_order": {
+          "FUN_005dfee0": [
+            "scan_flash",
+            "RngInt(0,2)"
+          ],
+          "FUN_005e0650": [
+            "scan_screen_if_variant_positive",
+            "scan_flash",
+            "RngInt(0,3)",
+            "RngInt(0,150)",
+            "FUN_005df370(density*3)"
+          ],
+          "FUN_005defe0_each_allocated": [
+            "RngInt(0,359)",
+            "RngFloat(1,6)",
+            "RngFloat(2,3)",
+            "RngInt(0,5)",
+            "RngInt(0,2)",
+            "RngFloat(5,45)",
+            "RngInt(0,100)",
+            "RngInt(150,255)"
+          ],
+          "FUN_0052f440": [
+            "RngFloat(1.5,6) x3 before scan",
+            "count+1 allocation attempts",
+            "each: RngFloat(1,40), RngFloat(2,4), RngFloat(.01,.2), RngInt(0,3600)"
+          ],
+          "FUN_00570420": {
+            "rank_ready_false": [
+              "RngInt(0,6)"
+            ],
+            "rank_ready_true": [
+              "RngInt(0,5)",
+              "RngInt(0,7) if eligibility roll is 0, otherwise RngInt(0,6)"
+            ]
+          },
+          "FUN_00571080_each_allocated": {
+            "only_blue_coins_false": [
+              "RngInt(0,100)",
+              "remaining record draws"
+            ],
+            "only_blue_coins_true": [
+              "force base type 32",
+              "remaining record draws"
+            ]
+          }
+        },
+        "same_tick_update_order": [
+          "FUN_00622150_flash",
+          "FUN_00622540_screen",
+          "FUN_00622be0_smoke",
+          "FUN_0052f8a0_particle",
+          "FUN_005f4210_debris"
+        ],
+        "exact_trace_complete": true
+      },
+      "evidence": {
+        "init": "0x00569260",
+        "update": "0x00605fe0",
+        "collision": "0x00585840",
+        "mark": "0x00555c40",
+        "dispatcher": "0x005afc50",
+        "renderer": "0x00618560",
+        "projectile_type_15_spawn": "0x00612fc7-0x006132bf",
+        "projectile_type_14_spawn": "0x00614031-0x006143cf",
+        "common_projectile_update": "0x006027e3-0x00602de0",
+        "projectile_renderer": "0x00603808/0x00603b32",
+        "projectile_player_collision": "0x005842c0",
+        "projectile_hma_collision": "0x00625a50",
+        "global_sound_gate_thunk": "0x00525924->0x00567990",
+        "global_sound_gate_dispatch_calls": "0x005b0c72/0x005b0d96/0x005b10ac/0x005b1191/0x005b1280",
+        "get_ready_to_level_transitions": "0x005abac2/0x005abfc0",
+        "warp_to_shop_transitions": "0x0061bce8/0x0061be78/0x0061c082",
+        "rank_ready_storage_and_initialization": "DAT_008487b4@0x006245a2",
+        "rank_ready_shop_producer": "0x00565094",
+        "rank_ready_state_13_samples": "0x005860a7/0x00588340/0x0058a2fc",
+        "only_blue_storage_and_initialization": "DAT_008489d4@0x00624487",
+        "only_blue_persisted_hydration": "0x005495ec",
+        "only_blue_runtime_producer": "0x00578b90",
+        "only_blue_state_13_sample": "0x0057116e"
+      }
+    }
+  }
+}

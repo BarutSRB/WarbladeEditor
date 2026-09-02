@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "schema": "warblade.sprite-concept.v1",
+  "concept": "alien_2",
+  "style": "solstice",
+  "kind": "enemy_sheet",
+  "prompt_subject": "ornate jade moth alien creature seen from above, luminous green energy core on its thorax, iridescent green wings with magenta eye-spots, gold filigree wing edges, feathered antennae",
+  "texture_seed": 20260812,
+  "yaw_offset_degrees": 0.0,
+  "clockwise": true,
+  "model_rotation_degrees": [
+    0.0,
+    0.0,
+    90.0
+  ],
+  "texture_keys": [
+    "alien_2"
+  ],
+  "recolor_variants": {},
+  "masks": []
+}

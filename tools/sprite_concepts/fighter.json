@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "schema": "warblade.sprite-concept.v1",
+  "concept": "fighter",
+  "style": "solstice",
+  "kind": "fighter",
+  "prompt_subject": "sleek silver-lavender space fighter jet seen from above, swept delta wings, ornate gold sun emblem on the hull, crescent moon markings on the wings, teal glass cockpit, twin teal engine nozzles",
+  "texture_seed": 20260810,
+  "yaw_offset_degrees": 0.0,
+  "model_rotation_degrees": [0.0, -90.0, 0.0],
+  "texture_keys": ["fighter1"],
+  "recolor_variants": {
+    "fighter2": {"hue_shift_degrees": 150.0}
+  },
+  "masks": []
+}

@@ -1,0 +1,28 @@
+.godot/
+.DS_Store
+build/
+dist/
+logs/
+profiles/
+captures/
+__pycache__/
+
+# Never commit: the retail installation, Godot signing credentials, local
+# databases, editor/session state.
+Game/
+export_credentials.cfg
+*.db
+*.db-wal
+*.db-shm
+.claude/
+
+# Retail-derived material stays local; see README "Repository contents and
+# rights". Rebuild it from your own retail installation in Game/.
+assets/original/
+assets/generated/
+content/*
+!content/talents.json
+Parser/Reports/
+docs/evidence/*.json
+docs/evidence/*.png
+docs/evidence/*.png.import
