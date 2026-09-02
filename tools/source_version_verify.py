@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Verify the project and both export presets publish one release version."""
+"""Verify the project and every export preset publish one release version.
+
+The macOS presets carry MAJOR.MINOR.PATCH; the Windows preset carries the
+four-part MAJOR.MINOR.PATCH.0 file and product versions.
+"""
 
 from __future__ import annotations
 
@@ -41,6 +45,21 @@ def _export_versions(path: Path) -> tuple[list[str], list[str]]:
     return short_versions, bundle_versions
 
 
+def _windows_versions(path: Path) -> list[str]:
+    text = path.read_text(encoding="utf-8")
+    file_versions = re.findall(
+        r'^application/file_version="([^"]+)"$', text, flags=re.MULTILINE
+    )
+    product_versions = re.findall(
+        r'^application/product_version="([^"]+)"$', text, flags=re.MULTILINE
+    )
+    if len(file_versions) != 1 or len(product_versions) != 1:
+        raise SourceVersionError(
+            f"{path} must version exactly one Windows export preset"
+        )
+    return file_versions + product_versions
+
+
 def verify(project: Path, presets: Path, expected: str) -> None:
     actual = [_single_project_version(project)]
     short_versions, bundle_versions = _export_versions(presets)
@@ -50,6 +69,15 @@ def verify(project: Path, presets: Path, expected: str) -> None:
     if mismatches:
         raise SourceVersionError(
             f"source versions {actual!r} do not all match {expected!r}"
+        )
+    windows_expected = f"{expected}.0"
+    windows_versions = _windows_versions(presets)
+    windows_mismatches = [
+        version for version in windows_versions if version != windows_expected
+    ]
+    if windows_mismatches:
+        raise SourceVersionError(
+            f"Windows versions {windows_versions!r} do not all match {windows_expected!r}"
         )
 
 

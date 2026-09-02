@@ -416,8 +416,9 @@ deliberate and do not create implicit implementation work:
   bitmaps are likewise explicit macOS policies rather than retail claims
 - source bytes without a reachable supported-runtime consumer remain lossless
   evidence without invented semantic names
-- `.mus` playback, play beyond level 100, unrelated assets, and retail-asset
-  redistribution are explicit non-goals
+- `.mus` playback, play beyond level 100, unrelated assets, and loose-file
+  retail-asset redistribution are explicit non-goals
 - online co-op is player-hosted with the lobby server; trusted online hosting
-  and cross-platform delivery are separate programs; Time Trial is implemented
-  as retail match mode 6
+  is a separate program, and cross-platform delivery is limited to the
+  unsigned Windows and Linux builds shipped from 0.1.0; Time Trial is
+  implemented as retail match mode 6

@@ -8,7 +8,7 @@ integer/fixed-point gameplay values except where an executable-pinned contract
 preserves scalar values directly. Their ordered byte-level SHA-256 is part of
 the handshake; a mismatch is rejected before a seat can send gameplay commands.
 
-The 1.0.0 wire/content versions are:
+The 0.1.0 wire/content versions are:
 
 | Contract | Version |
 | --- | ---: |

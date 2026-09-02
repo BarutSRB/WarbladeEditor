@@ -1,6 +1,6 @@
 # Warblade Remake
 
-This is a macOS-first Godot 4 remake of Warblade 1.34. Version 1.0.0 contains
+This is a macOS-first Godot 4 remake of Warblade 1.34. Version 0.1.0 contains
 the complete 100-level authored campaign, cadence shops after every fourth
 ordinary level through 96, and mode-three post-Warp shops after levels 33, 41,
 49, 58, 66, 74, 83, 91, and 99. It includes the retail level-25, level-50,
@@ -31,6 +31,38 @@ relays game traffic. Rendering can run at the display refresh rate or at 60, 120
 144, 165, 240, 360, 480, or unlimited FPS. The logical game field remains
 800×600 and is aspect-fitted at larger resolutions without exposing additional
 play area.
+
+## Download
+
+Builds are published on GitHub Releases
+(https://github.com/BarutSRB/Warblade-Enhanced/releases): one archive per
+platform plus `SHA256SUMS.txt`. Only the macOS build is tested on real
+hardware. The Windows and Linux builds come from the same source and export
+pipeline but were not run on Windows or Linux machines before 0.1.0; the
+Linux binary is smoke-tested headless in a container.
+
+- macOS (one universal app for Apple silicon and Intel):
+  `WarbladeRemake-<version>-macos-universal.zip`. Unzip and move
+  `Warblade.app` anywhere. The app is ad-hoc signed and not notarized, so
+  macOS blocks the first launch: open System Settings > Privacy & Security,
+  find the message about Warblade near the bottom, click Open Anyway, and
+  confirm. The Terminal equivalent is
+  `xattr -dr com.apple.quarantine /path/to/Warblade.app`.
+- Windows 10/11 x86_64: `WarbladeRemake-<version>-windows-x86_64.zip` holds
+  a single `Warblade.exe`. It is not code-signed, so SmartScreen shows
+  "Windows protected your PC": click More info, then Run anyway. Windows
+  Firewall asks for permission the first time you host an online game.
+- Linux x86_64 (glibc 2.28 or newer, X11 or Wayland through XWayland, OpenGL
+  3.3): `WarbladeRemake-<version>-linux-x86_64.tar.gz` holds a single
+  `Warblade.x86_64`. Extract it, `chmod +x Warblade.x86_64` if your extractor
+  dropped the bit, and run it.
+
+Saves, profiles, settings, the talent cache, and the device identity live in
+`~/Library/Application Support/Warblade Remake` (macOS),
+`%APPDATA%\Warblade Remake` (Windows), or `~/.local/share/Warblade Remake`
+(Linux). Online play needs outbound TCP 7400 and UDP 7401 to the lobby
+server; hosting also needs inbound UDP 42000 (the default HOST PORT), opened
+by UPnP or a manual port forward. Release notes live in `CHANGELOG.md`.
 
 ## Finite-product fidelity closure
 
@@ -201,9 +233,11 @@ play area.
 - Tracker-module (`.mus`) playback is a permanent product non-goal. The exact
   extracted MP3 set is the final music system; module files are not inspected,
   extracted, converted, emulated, implemented, or scheduled.
-- Trusted online hosting and cross-platform delivery are separate programs
-  rather than defects in the macOS product; online co-op ships player-hosted
-  with the lobby server. Time Trial (retail match mode 6) ships with the game.
+- Trusted online hosting remains a separate program rather than a defect in
+  the macOS product; online co-op ships player-hosted with the lobby server.
+  Cross-platform delivery is partial from 0.1.0: Windows and Linux builds
+  ship unsigned and without platform QA on real hardware (row I02). Time
+  Trial (retail match mode 6) ships with the game.
 - The complete secret-ship family is implemented: the hurry-up mothership and
   money ship (G19) and the money-sucker and guard ships (G20) share the traced
   death dispatcher, and both rows are closed in `docs/GAP_MATRIX.md`.
@@ -216,8 +250,13 @@ The complete six-category closure ledger is in
 ## Requirements
 
 - macOS with Godot 4.7.2 stable reachable as `godot` on the PATH
-  (`make GODOT=/path/to/godot ...` overrides it) and the official Universal 2
-  macOS export templates installed for `make export-release`
+  (`make GODOT=/path/to/godot ...` overrides it) and the official 4.7.2
+  export templates for macOS (Universal 2), Windows x86_64, and Linux x86_64
+  under `~/Library/Application Support/Godot/export_templates/4.7.2.stable/`
+  for the export targets (see "Export")
+- optional, for `make export-linux-smoke`: Docker through colima with Rosetta
+  (`colima start --vz-rosetta`) to run the Linux build headless in a
+  linux/amd64 container
 - Python 3 for the tooling and tests
 - a retail Warblade 1.34 installation at `Game/` (`Game/warblade.exe`,
   `Game/data/warblade.pac`); it is not part of this repository and git
@@ -348,25 +387,44 @@ one local peer for both seats.
 ## Export
 
 ```sh
-make export-release
+make release-build
 ```
 
-Outputs:
+`release-build` runs the fast release gates (`make release-gates`: version,
+contract, gap-language, tool, parse, protocol, client, and packaged-smoke
+checks that need no retail installation) and then `make release-artifacts`,
+which produces:
 
-- `build/Warblade.app`
-- `build/WarbladeServer.app`
+- `build/Warblade.app` and `build/WarbladeServer.app` (macOS, Universal 2,
+  ad-hoc signed)
+- `build/windows/Warblade.exe` (Windows x86_64, PCK embedded, unsigned)
+- `build/linux/Warblade.x86_64` (Linux x86_64, PCK embedded)
+- `dist/WarbladeRemake-<version>-macos-universal.zip`,
+  `dist/WarbladeRemake-<version>-windows-x86_64.zip`,
+  `dist/WarbladeRemake-<version>-linux-x86_64.tar.gz`, `dist/SHA256SUMS.txt`,
+  and `dist/RELEASE_NOTES.md` (the matching `CHANGELOG.md` section)
 
-Both use the official Universal 2 Godot templates and local ad-hoc code
-signing. The dedicated server export enters server mode automatically. Release
-export verifies both signatures strictly, boots the packaged client and server
-against the default endless (retail-clamp 3999) boundary and representative
-explicit compatibility boundaries, proves the packaged client rejects level
-4000 before spawning its sidecar, and loads every declared presentation
-resource from the exported PCK before succeeding.
+The macOS export keeps its gates: both signatures are verified strictly, the
+packaged client and server boot against the default endless (retail-clamp
+3999) boundary and representative explicit compatibility boundaries, the
+packaged client rejects level 4000 before spawning its sidecar, and every
+declared presentation resource loads from the exported PCK. The Windows and
+Linux binaries are checked by `tools/export_artifact_verify.py` (PE32+/x86_64
+or ELF64/x86-64 headers, the embedded Godot 4.7.2 PCK trailer, and the Windows
+version resource), and `make export-linux-smoke` runs the Linux binary's
+presentation and packaged-client smokes headless in a linux/amd64 Docker
+container. Nothing here launches the Windows build; that needs a Windows
+machine. `make export-release` is the same artifact chain behind the full
+`make verify` gate for a checkout that has the retail `Game/` installation.
+
+Publishing: `make release-publish` tags `v<version>` on the current `main`
+commit, pushes it, and creates a draft GitHub pre-release with the four
+`dist/` files; `make release-finalize` publishes the draft;
+`make release-rollback CONFIRM=yes` deletes the release and the tag again.
 
 ## Release boundary
 
-Version 1.0.0 defaults to content version 9 and an endless match bounded only
+Version 0.1.0 defaults to content version 12 and an endless match bounded only
 by the retail level clamp 3999. Any explicit boundary from 1 through 3999
 remains supported. Earlier boundaries use the existing generic result flow;
 bosses at 25, 50, and 75 continue exactly once when the configured boundary
@@ -377,7 +435,9 @@ play continues at level 101 with the per-hundred difficulty escalation.
 Bounded matches ending exactly at level 100 keep the terminal credits route
 with `ALL 100 LEVELS CLEARED`.
 
-The release history remains local.
+Releases are tagged `vX.Y.Z` and published on GitHub Releases with
+per-platform archives and SHA-256 sums (see `CHANGELOG.md`); the retail
+extraction history and evidence reports remain local.
 
 ## Parser and evidence
 
@@ -404,9 +464,12 @@ and `content/lvd_decoded/` (decoded from the retail executable and level
 files), `Parser/Reports/`, and the machine-readable extraction reports under
 `docs/evidence/`. `.gitignore` excludes them, so a clone holds the code, the
 design documents, and `content/talents.json` only. Warblade and those assets
-remain the property of the original game's author; the rights boundary is
-spelled out in [`docs/evidence/README.md`](docs/evidence/README.md) and row
-N04 of [`docs/GAP_MATRIX.md`](docs/GAP_MATRIX.md). To run the game from a
+remain the property of the original game's author. The compiled builds on
+GitHub Releases embed that material under the authorization from the original
+author recorded in `export_presets.cfg` (`application/copyright`); it is still
+never committed or published as loose files. The rights boundary is spelled
+out in [`docs/evidence/README.md`](docs/evidence/README.md) and row N04 of
+[`docs/GAP_MATRIX.md`](docs/GAP_MATRIX.md). To run the game from a
 clone, place your own retail Warblade 1.34 installation in `Game/` and
 rebuild the excluded files with the tools described under "Reproduce and
 validate" in [`docs/evidence/README.md`](docs/evidence/README.md):
@@ -434,5 +497,7 @@ the lobby server trusts what clients report (match results, talent credits).
 The lobby link itself is plain `ws://` in this release, so nicknames, chat,
 and the device key travel in cleartext; TLS through a reverse proxy is a
 follow-up once the server has a DNS name.
-Trusted online hosting and cross-platform delivery are independently bounded
-programs; neither is a gap in the supported macOS release.
+Trusted online hosting remains an independently bounded program.
+Cross-platform delivery is partial: 0.1.0 ships Windows and Linux builds,
+while signing, input certification, and platform QA on real hardware remain a
+separate program; neither is a gap in the supported macOS release.

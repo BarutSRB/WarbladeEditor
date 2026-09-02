@@ -4,7 +4,9 @@ config_version=5
 
 config/name="Warblade Remake"
 config/description="A macOS-first, server-authoritative remake of Warblade."
-config/version="1.0.0"
+config/icon="res://assets/generated/Warblade.png"
+config/version="0.1.0"
+config/windows_native_icon="res://assets/original/warblade.ico"
 run/main_scene="res://scenes/main.tscn"
 
 [display]

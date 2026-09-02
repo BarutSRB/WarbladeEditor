@@ -438,10 +438,11 @@ implemented. The other boundaries are deliberately classified:
 - tracker-module (`.mus`) playback is a permanent product non-goal; the
   extracted MP3 soundtrack is final, and module files are not investigated,
   extracted, converted, emulated, implemented, or scheduled
-- play beyond level 100, unrelated assets, and retail-asset redistribution are
-  explicit non-goals
-- trusted online hosting and cross-platform delivery are separate
-  infrastructure programs; Time Trial ships as retail match mode 6
+- play beyond level 100, unrelated assets, and loose-file retail-asset
+  redistribution are explicit non-goals
+- trusted online hosting is a separate infrastructure program, and
+  cross-platform delivery is limited to the unsigned Windows and Linux builds
+  shipped from 0.1.0; Time Trial ships as retail match mode 6
 
 Predecessor `waves` records remain read-compatible decoding scaffolds, but v9
 authoritative play consumes explicit runtime contracts. All four state-13 boss
@@ -453,8 +454,11 @@ The assets remain third-party original-game material. Their presence here
 reflects the user-requested local remake workflow and does not grant
 redistribution rights.
 
-The release history remains local. The extracted retail assets must not be
-pushed, published, or distributed.
+The extracted retail assets are never committed, pushed, or published as
+loose files; they ship only inside the compiled game builds on GitHub
+Releases, under the authorization from the original game's author recorded in
+`export_presets.cfg` (`application/copyright`), and the source repository
+holds no retail-derived bytes.
 
 The bundled voice-pack notice
 `data/samples/voices/1/readme.txt`
